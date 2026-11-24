@@ -1,0 +1,13 @@
+{
+  "name": "clinica-girlane-ferreira-site",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Site da Clínica Girlane Ferreira (Joinville, SC). HTML estático gerado sem dependências.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "preview": "node scripts/build.mjs --preview",
+    "validar": "node scripts/build.mjs && node tools/validar.mjs dist"
+  }
+}
