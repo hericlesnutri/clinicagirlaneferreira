@@ -9,7 +9,30 @@ const P_faltando = (x) => faltando.add(x);
 const fotoPro = (chave) => fotoEquipe(chave) || (profissionais[chave].foto ? { src: profissionais[chave].foto, largura: 960, altura: 1200 } : null);
 const chaveDe = (p) => Object.keys(profissionais).find((k) => profissionais[k] === p);
 const facial = servicosAtivos.filter((s) => s.categoria === 'facial').map((s) => s.slug);
-function fotoHero() { return fotoClinica('hero') || fotoClinica('recepcao') || fotoClinica('sala-1') || fotoClinica('fachada'); }
+function fotoHero() { return fotoClinica('fachada') || fotoClinica('recepcao') || fotoClinica('sala-1'); }
+
+const galeria = () => fotosClinica().filter((f) => !/^(fachada|hero)/.test(f.nome) && f !== fotoHero() && f.src !== (fotoHero() || {}).src);
+
+function heroHome() {
+  const bg = fotoClinica('hero-equipe');
+  const mob = fotoClinica('hero-equipe-mobile');
+  const textos = `
+      <span class="hero-selo">${icone('selo')}Biomédica Esteta · CRBM-5 nº ${esc(g.conselho.numero)} · Joinville, SC</span>
+      <h1>Envelhecer bem, <span class="texto-degrade">do seu jeito.</span></h1>
+      <p class="lead">A ${esc(site.nome)} cria planos de tratamento para o rosto e o corpo que respeitam quem você é. Sem exagero, sem pressa, com acompanhamento.</p>
+      <div class="botoes">
+        <a class="botao botao-primario" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar avaliação</a>
+        <a class="botao botao-secundario" href="${href('/metodo')}">Conhecer o método</a>
+      </div>`;
+  if (!bg) return `<section class="hero"><div class="container">${textos}</div></section>`;
+  return `<section class="hero hero-foto-fundo">
+    <picture class="hero-fundo">
+      ${mob ? `<source media="(max-width: 800px)" srcset="${href(mob.src)}" width="${mob.largura}" height="${mob.altura}">` : ''}
+      <img src="${href(bg.src)}" alt="${esc(nomeCompleto(g))}, biomédica esteta, e ${esc(profissionais.hericles.nome)}, nutricionista, da Clínica Girlane Ferreira em Joinville" width="${bg.largura}" height="${bg.altura}" fetchpriority="high" decoding="async">
+    </picture>
+    <div class="container hero-conteudo">${textos}</div>
+  </section>`;
+}
 import { paginaSchema, faqSchema, pessoaSchema, ID } from './schema.mjs';
 
 const g = profissionais.girlane;
@@ -65,18 +88,7 @@ export function home() {
     { q: 'A clínica faz procedimentos isolados?', a: 'A clínica trabalha com planos de tratamento. Um procedimento pode ser a primeira etapa, mas a indicação sempre parte da avaliação do rosto inteiro.' },
   ];
   const corpo = `
-<section class="hero">
-  <div class="container">
-    <span class="hero-selo">${icone('selo')}Biomédica esteta · Joinville, SC</span>
-    <h1>Envelhecer bem, <span class="texto-degrade">do seu jeito.</span></h1>
-    <p class="lead">A ${esc(site.nome)} cria planos de tratamento para o rosto e o corpo que respeitam quem você é. Sem exagero, sem pressa, com acompanhamento.</p>
-    <div class="botoes" style="justify-content:center">
-      <a class="botao botao-primario" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar avaliação</a>
-      <a class="botao botao-secundario" href="${href('/metodo')}">Conhecer o método</a>
-    </div>
-    ${fotoHero() ? `<div class="foto-larga hero-foto">${imagem({ foto: fotoHero(), alt: 'Ambiente da Clínica Girlane Ferreira no Jardim Iririú, Joinville', prioridade: true })}</div>` : ''}
-  </div>
-</section>
+${heroHome()}
 
 <section class="secao" aria-labelledby="titulo-metodo">
   <div class="container">
@@ -166,6 +178,7 @@ ${blocoAntesDepois({ servicos: facial, titulo: 'Resultados que continuam parecen
       <h2 id="titulo-local">Clínica de estética em Joinville.</h2>
       <p class="lead">Atendemos pacientes de Joinville e região: ${esc(site.areasAtendidas.slice(1).join(', '))}.</p>
     </div>
+    ${fotoClinica('recepcao') ? `<div class="foto-larga" style="margin-bottom:24px">${imagem({ foto: fotoClinica('recepcao'), alt: 'Recepção da Clínica Girlane Ferreira no Jardim Iririú, Joinville' })}</div>` : ''}
     ${blocoLocal()}
   </div>
 </section>
@@ -680,9 +693,9 @@ export function contato() {
   </div>
 </div></section>
 <section class="secao"><div class="container">
-  ${fotoClinica('fachada') ? `<div class="foto-larga" style="margin-bottom:32px">${imagem({ foto: fotoClinica('fachada'), alt: 'Fachada da Clínica Girlane Ferreira na Rua Areia Branca, 1035, Jardim Iririú, Joinville', prioridade: true })}</div>` : ''}
+  ${fotoHero() ? `<div class="foto-larga" style="margin-bottom:32px">${imagem({ foto: fotoHero(), alt: `${fotoClinica('fachada') ? 'Fachada' : 'Recepção'} da Clínica Girlane Ferreira na Rua Areia Branca, 1035, Jardim Iririú, Joinville`, prioridade: true })}</div>` : ''}
   ${blocoLocal()}
-  ${fotosClinica().filter((f) => f.nome !== 'fachada').length ? `<h2 style="margin-top:64px">Conheça o espaço</h2><div class="galeria">${fotosClinica().filter((f) => f.nome !== 'fachada').map((f) => `<div class="foto-larga">${imagem({ foto: f, alt: `${f.nome.replace(/-/g, ' ')} da Clínica Girlane Ferreira em Joinville` })}</div>`).join('')}</div>` : ''}
+  ${galeria().length ? `<h2 style="margin-top:64px">Conheça o espaço</h2><div class="galeria">${galeria().map((f) => `<div class="foto-larga">${imagem({ foto: f, alt: `${f.nome.replace(/-/g, ' ')} da Clínica Girlane Ferreira em Joinville` })}</div>`).join('')}</div>` : ''}
   <div class="container-texto prosa" style="margin-top:64px;margin-inline:0">
     <h2>Atendemos Joinville e região</h2>
     <p>Pacientes vêm de ${esc(site.areasAtendidas.join(', '))}. Como o atendimento é com hora marcada, combine o horário pelo WhatsApp antes de vir.</p>

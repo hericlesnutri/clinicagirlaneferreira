@@ -19,6 +19,6 @@ for (const a of arquivos) {
     const alvo = l === '/' ? 'index.html' : l.replace(/^\//, '');
     if (!existsSync(join(dist, alvo)) && !existsSync(join(dist, alvo + '.html'))) { erros++; console.log('link quebrado', a, l); }
   }
-  for (const [, img] of h.matchAll(/<img [^>]*>/g)) if (!/alt="/.test(img)) { erros++; console.log('img sem alt', a); }
+  for (const [img] of h.matchAll(/<img [^>]*>/g)) if (!/alt="/.test(img)) { erros++; console.log('img sem alt', a); }
 }
 console.log(arquivos.length, 'páginas,', erros, 'erros'); console.log(tipos);

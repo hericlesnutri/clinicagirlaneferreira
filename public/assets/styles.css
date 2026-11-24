@@ -129,6 +129,9 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .marca { display: flex; align-items: center; gap: 10px; color: var(--texto); font-weight: 600; font-size: 15px; letter-spacing: -0.01em; white-space: nowrap; }
 .marca:hover { text-decoration: none; }
 .marca-simbolo { width: 28px; height: 28px; }
+.logo { height: 26px; width: auto; }
+.logo-rodape { height: 56px; width: auto; }
+@media (prefers-color-scheme: dark) { .logo, .logo-rodape { filter: invert(1) brightness(1.05); } }
 .nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
 .nav-links a { color: var(--texto); font-size: 14px; opacity: .82; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { opacity: 1; text-decoration: none; }
@@ -415,6 +418,32 @@ a.cartao:hover { text-decoration: none; transform: translateY(-2px); }
 .ad-detalhes dd { margin: 0; font-size: 15px; font-weight: 500; }
 .ad-nota { font-size: 13px !important; color: var(--texto-2); margin: 0; }
 a.tag { text-decoration: none; }
+
+/* Hero com foto da equipe (fundo escuro da foto, texto claro à esquerda) */
+.hero-foto-fundo { position: relative; isolation: isolate; text-align: left; place-items: center stretch; background: #4a4440; color: var(--creme); overflow: hidden; }
+.hero-fundo, .hero-fundo img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.hero-fundo { z-index: -1; }
+.hero-fundo img { object-fit: cover; object-position: 75% center; }
+.hero-foto-fundo::before { content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgb(58 52 48 / 0.92), rgb(58 52 48 / 0.55) 45%, transparent 70%);
+  background: linear-gradient(90deg in oklab, rgb(58 52 48 / 0.92), rgb(58 52 48 / 0.55) 45%, transparent 70%); }
+.hero-conteudo { position: relative; z-index: 1; }
+.hero-foto-fundo h1 { margin-inline: 0; max-width: 12ch; color: #fff; }
+.hero-foto-fundo .lead { margin-inline: 0; color: rgb(245 243 231 / 0.82); max-width: 34ch; }
+.hero-foto-fundo .hero-selo { color: rgb(245 243 231 / 0.85); border-color: rgb(255 255 255 / 0.12); }
+.hero-foto-fundo .hero-selo .icone { color: var(--areia); }
+.hero-foto-fundo .texto-degrade { color: var(--areia); background: linear-gradient(90deg, var(--areia), #c9ab8a); background: linear-gradient(90deg in oklch, var(--areia), #c9ab8a); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-foto-fundo .botao-primario { background: var(--creme); color: var(--grafite); }
+.hero-foto-fundo .botao-primario:hover { background: #fff; }
+.hero-foto-fundo .botao-secundario { color: var(--creme); border-color: rgb(255 255 255 / 0.12); }
+.hero-foto-fundo .botao-secundario:hover { background: rgb(255 255 255 / 0.08); }
+@media (max-width: 800px) {
+  .hero-foto-fundo { align-items: end; padding-top: 0; }
+  .hero-fundo, .hero-fundo img { height: 56%; bottom: auto; }
+  .hero-fundo img { object-position: center top; }
+  .hero-foto-fundo::before { background: linear-gradient(180deg, transparent 30%, #4a4440 56%); background: linear-gradient(180deg in oklab, transparent 30%, #4a4440 56%); }
+  .hero-conteudo { padding-top: 44vh; padding-top: 44svh; padding-bottom: 8px; }
+}
 
 /* Faixa de foto larga (estilo Apple) */
 .foto-larga { border-radius: var(--r-cartao); overflow: hidden; background: var(--areia); }

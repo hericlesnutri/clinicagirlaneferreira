@@ -52,7 +52,7 @@ function cabecalho(caminho) {
 <a class="pular" href="#conteudo-principal">Pular para o conteúdo</a>
 <header class="nav">
   <nav class="container" aria-label="Principal">
-    <a class="marca" href="${href('/')}" aria-label="${esc(site.nome)}, página inicial">${simbolo()}<span>${esc(site.nome)}</span></a>
+    <a class="marca" href="${href('/')}" aria-label="${esc(site.nome)}, página inicial"><img class="logo" src="${href('/assets/logo-horizontal.png')}" alt="${esc(site.nome)}" width="879" height="223"></a>
     <ul class="nav-links" id="menu-principal">
       ${menu.map(([p, t]) => `<li><a href="${href(p)}"${ativo(p)}>${t}</a></li>`).join('')}
     </ul>
@@ -74,7 +74,7 @@ function rodape() {
   <div class="container">
     <div class="rodape-grade">
       <div>
-        <h2>${esc(site.nome)}</h2>
+        <h2><img class="logo-rodape" src="${href('/assets/logo-principal.png')}" alt="${esc(site.nome)}" width="756" height="386" loading="lazy"></h2>
         <address>${enderecoLinha()}</address>
         ${preenchido(site.telefone) ? `<p><a href="${telLink()}">${esc(site.telefone)}</a></p>` : ''}
         <p>Responsável técnica: ${esc(nomeCompleto(g))}, ${esc(g.profissao.toLowerCase())} esteta, ${registroTexto(g)}</p>
@@ -151,7 +151,6 @@ ${site.googleVerificacao ? `<meta name="google-site-verification" content="${esc
 ${o.publicado ? `<meta property="article:published_time" content="${o.publicado}">\n<meta property="article:modified_time" content="${o.atualizado || o.publicado}">` : ''}
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="${href('/favicon.ico')}" sizes="32x32">
-<link rel="icon" href="${href('/assets/icone.svg')}" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${href('/apple-touch-icon.png')}">
 <link rel="manifest" href="${href('/site.webmanifest')}">
 <link rel="alternate" type="text/plain" href="${href('/llms.txt')}" title="Resumo do site para IAs">
