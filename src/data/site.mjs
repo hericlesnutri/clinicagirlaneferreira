@@ -28,7 +28,7 @@ export const site = {
     bairro: 'Jardim Iririú',
     cidade: 'Joinville',
     uf: 'SC',
-    cep: 'PREENCHER: CEP (89224-475 ou 89224-476, confirme)',
+    cep: '89224-090',
     pais: 'BR',
     // Copie do Google Maps (clique com o botão direito no pin da clínica)
     latitude: null,                           // ex.: -26.3044
@@ -46,7 +46,6 @@ export const site = {
   // Deixe a lista vazia enquanto não tiver certeza. Horário errado no
   // Google gera avaliação negativa.
   horarios: [
-    // CONFIRMAR: dias da semana (foi informado "das 9h às 20h")
     { dias: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], abre: '09:00', fecha: '20:00' },
   ],
   atendimentoObservacao: 'Atendimento com hora marcada.',
