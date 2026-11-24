@@ -34,12 +34,13 @@ Ao rodar `npm run build`, o terminal lista tudo o que ainda está como PREENCHER
 4. Confirmar com o CRBM as regras atuais de publicidade (ver seção 7).
 5. `npm run validar` sem erros.
 
-## 3. Publicação na Vercel
+## 3. Publicação na Cloudflare Pages
 
-1. Na Vercel: **Add New → Project → Import** o repositório `hericlesnutri/clinicagirlaneferreira`. O `vercel.json` já define build e pasta de saída; não precisa escolher framework.
-2. **Settings → Domains**: adicionar `www.clinicagirlaneferreira.com.br` (principal) e `clinicagirlaneferreira.com.br` com redirecionamento 308 para o www.
-3. No registro.br, apontar o DNS conforme a Vercel indicar (registro A do domínio raiz e CNAME do www).
-4. Opcional: **Analytics → Enable** e mudar `analyticsVercel: true` no `site.mjs` (sem cookies, não precisa de banner).
+1. dash.cloudflare.com → **Workers & Pages → Create → Pages → Connect to Git** → autorizar o GitHub → escolher `hericlesnutri/clinicagirlaneferreira`.
+2. Framework preset **None**; Build command `node scripts/build.mjs`; Build output directory `dist`; variável `NODE_VERSION` = `22`.
+3. **Custom domains**: adicionar `www.clinicagirlaneferreira.com.br` e `clinicagirlaneferreira.com.br`. Para o domínio sem www funcionar, o domínio precisa usar os servidores DNS da Cloudflare: em **Add a site** a Cloudflare copia os registros atuais (inclusive e-mail) e mostra dois nameservers para trocar no registro.br.
+4. Regra de redirecionamento: `clinicagirlaneferreira.com.br/*` → `https://www.clinicagirlaneferreira.com.br/$1` (301), em **Rules → Redirect Rules**.
+5. Opcional: **Web Analytics** da Cloudflare (sem cookies).
 
 ## 4. Google Search Console e Bing
 

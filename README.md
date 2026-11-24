@@ -36,9 +36,16 @@ Requer Node 18 ou superior. Nenhum `npm install` necessário.
 - `/conteudo` e `/conteudo/<artigo>` (6 artigos)
 - `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/llms-full.txt`
 
-## Publicação
+## Publicação (Cloudflare Pages)
 
-Ver `docs/PLANO-SEO.md`, seções 2 a 5 (Vercel, domínio, Search Console e Perfil do Google).
+Workers & Pages → Create → Pages → Connect to Git → `hericlesnutri/clinicagirlaneferreira`
+- Framework preset: None
+- Build command: `node scripts/build.mjs`
+- Build output directory: `dist`
+- Variável de ambiente: `NODE_VERSION` = `22`
+
+Cabeçalhos e redirecionamentos ficam em `public/_headers` e `public/_redirects` (o `vercel.json` só é usado se o site voltar para a Vercel).
+Depois: Custom domains → `www.clinicagirlaneferreira.com.br` e `clinicagirlaneferreira.com.br`. Search Console e Perfil do Google: ver `docs/PLANO-SEO.md`.
 
 ## Imagens da marca
 
