@@ -2,6 +2,11 @@ import { pendente, site, profissionais, esc, href, absoluta, whatsappUrl, endere
 import { servicosAtivos } from './data/servicos.mjs';
 import { grafoBase } from './schema.mjs';
 import { casosPara, faltando } from './imagens.mjs';
+import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
+const publico = (rel) => fileURLToPath(new URL('../public' + rel, import.meta.url));
+const comVersao = (rel) => rel + '?v=' + createHash('sha1').update(readFileSync(publico(rel))).digest('hex').slice(0, 8);
 
 // Ícones em traço (24x24), renderizados a 20px. Classe controla o stroke-width (ajuste 5).
 const paths = {
@@ -154,7 +159,7 @@ ${o.publicado ? `<meta property="article:published_time" content="${o.publicado}
 <link rel="apple-touch-icon" href="${href('/apple-touch-icon.png')}">
 <link rel="manifest" href="${href('/site.webmanifest')}">
 <link rel="alternate" type="text/plain" href="${href('/llms.txt')}" title="Resumo do site para IAs">
-<link rel="stylesheet" href="${href('/assets/styles.css')}">
+<link rel="stylesheet" href="${href(comVersao('/assets/styles.css'))}">
 <script type="application/ld+json">${JSON.stringify(grafo).replace(/</g, '\\u003c')}</script>
 </head>
 <body>
@@ -163,7 +168,7 @@ ${cabecalho(o.caminho)}
 ${o.corpo}
 </main>
 ${rodape()}
-<script src="${href('/assets/site.js')}" defer></script>
+<script src="${href(comVersao('/assets/site.js'))}" defer></script>
 ${site.analyticsVercel ? '<script defer src="/_vercel/insights/script.js"></script>' : ''}
 </body>
 </html>`;

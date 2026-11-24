@@ -5,6 +5,7 @@
 //   img/antes-depois/<slug>-<n>-antes.webp    e  <slug>-<n>-depois.webp
 // O manifest.json (gerado por tools/importar-fotos.py) guarda largura e altura.
 import { readFileSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { casosInfo } from './data/antes-depois.mjs';
@@ -15,9 +16,13 @@ const manifest = existsSync(arqManifest) ? JSON.parse(readFileSync(arqManifest, 
 
 export const faltando = new Set();
 
+// ?v=<hash> muda sempre que a foto muda, para o navegador não mostrar a versão antiga do cache.
+const versoes = {};
+const versao = (caminho) => (versoes[caminho] ??= createHash('sha1').update(readFileSync(join(raiz, 'public', caminho))).digest('hex').slice(0, 8));
+
 export function foto(caminho) {
   const m = manifest[caminho];
-  return m ? { src: '/' + caminho, largura: m[0], altura: m[1] } : null;
+  return m ? { src: '/' + caminho + '?v=' + versao(caminho), largura: m[0], altura: m[1] } : null;
 }
 
 export const fotoEquipe = (chave) => foto(`img/equipe/${chave}.webp`);

@@ -50,14 +50,15 @@ export const absoluta = (p) => site.dominio + (p === '/' ? '/' : p);
 
 export function href(p) {
   if (!modoPreview || /^(https?:|mailto:|tel:|#)/.test(p)) return p;
-  const [caminho, ancora = ''] = p.split('#');
+  const [semAncora, ancora = ''] = p.split('#');
+  const [caminho, query = ''] = semAncora.split('?');
   const de = arquivoDe(caminhoAtual).split('/').slice(0, -1);
   let alvo = caminho.startsWith('/assets') || /\.[a-z0-9]+$/i.test(caminho) ? caminho.replace(/^\//, '') : arquivoDe(caminho || '/');
   const partes = alvo.split('/');
   let i = 0;
   while (i < de.length && de[i] === partes[i]) i++;
   const rel = [...de.slice(i).map(() => '..'), ...partes.slice(i)].join('/');
-  return rel + (ancora ? '#' + ancora : '');
+  return rel + (query ? '?' + query : '') + (ancora ? '#' + ancora : '');
 }
 
 // ---------------- Contato ----------------
