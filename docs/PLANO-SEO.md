@@ -62,7 +62,7 @@ Observação: desde 2023 o Google só mostra o FAQ expandido no resultado para s
 - **Horários** iguais aos do site, incluindo feriados.
 - **Serviços**: cadastrar os 10 tratamentos com descrição curta e o link da página correspondente.
 - **Descrição** (até 750 caracteres): quem é a Dra. Girlane, biomédica esteta, CRBM, método em três pilares, Joinville.
-- **Fotos**: fachada (para as pessoas acharem a porta), recepção, salas, equipe, Dra. Girlane atendendo. Mínimo 15 no lançamento e 2 a 4 novas por mês. Nada de antes e depois.
+- **Fotos**: fachada (para as pessoas acharem a porta), recepção, salas, equipe, Dra. Girlane atendendo. Mínimo 15 no lançamento e 2 a 4 novas por mês.
 - **Postagens**: uma por semana, reaproveitando os artigos e as campanhas (GF 001 Valoriza etc.), sempre com link para a página certa.
 - **Perguntas e respostas**: publicar as 5 dúvidas mais comuns da Ana no WhatsApp e responder.
 - **Link de agendamento**: o link do WhatsApp.
