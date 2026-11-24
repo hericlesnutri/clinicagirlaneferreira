@@ -11,6 +11,15 @@ const chaveDe = (p) => Object.keys(profissionais).find((k) => profissionais[k] =
 const facial = servicosAtivos.filter((s) => s.categoria === 'facial').map((s) => s.slug);
 function fotoHero() { return fotoClinica('fachada') || fotoClinica('recepcao') || fotoClinica('sala-1'); }
 
+const legendas = {
+  'recepcao': 'Recepção da Clínica Girlane Ferreira',
+  'atendimento-recepcao': 'Atendimento na recepção da Clínica Girlane Ferreira',
+  'consultorio-dra-girlane': 'Consultório da Dra. Girlane Ferreira',
+  'sala-de-espera': 'Sala de espera da Clínica Girlane Ferreira',
+  'sala-tratamentos-corporais': 'Sala de tratamentos corporais e drenagem linfática',
+  'detalhes': 'Enxoval com a marca da Clínica Girlane Ferreira',
+};
+const altClinica = (f) => `${legendas[f.nome] || f.nome.replace(/-/g, ' ')}, no Jardim Iririú, Joinville`;
 const galeria = () => fotosClinica().filter((f) => !/^(fachada|hero)/.test(f.nome) && f !== fotoHero() && f.src !== (fotoHero() || {}).src);
 
 function heroHome() {
@@ -179,6 +188,7 @@ ${blocoAntesDepois({ servicos: facial, titulo: 'Resultados que continuam parecen
       <p class="lead">Atendemos pacientes de Joinville e região: ${esc(site.areasAtendidas.slice(1).join(', '))}.</p>
     </div>
     ${fotoClinica('recepcao') ? `<div class="foto-larga" style="margin-bottom:24px">${imagem({ foto: fotoClinica('recepcao'), alt: 'Recepção da Clínica Girlane Ferreira no Jardim Iririú, Joinville' })}</div>` : ''}
+    ${galeria().length ? `<div class="galeria" style="margin-bottom:24px">${galeria().slice(0, 3).map((f) => `<figure class="foto-larga" style="margin:0">${imagem({ foto: f, alt: altClinica(f) })}</figure>`).join('')}</div>` : ''}
     ${blocoLocal()}
   </div>
 </section>
@@ -227,6 +237,7 @@ export function sobreGirlane() {
     <p>Eu não acredito em procedimento solto. Uma paciente chega querendo tirar o bigode chinês, e muitas vezes o problema está na perda de suporte da maçã do rosto. Tratar só o sulco deixa o rosto pesado.</p>
     <p>Por isso todo atendimento começa com consulta e termina com um plano por escrito, organizado em três pilares: <strong>reestruturação</strong> (estrutura e volume), <strong>pele que toca</strong> (firmeza) e <strong>pele que se vê</strong> (linhas, manchas e textura). Às vezes o plano tem uma etapa. Às vezes tem quatro, ao longo de um ano.</p>
     <p>O que eu quero é que você continue se reconhecendo no espelho. E que, quando alguém disser que você está bem, não saiba dizer o que mudou.</p>
+    ${fotoClinica('consultorio-dra-girlane') ? `<figure class="foto-larga" style="margin:2em 0">${imagem({ foto: fotoClinica('consultorio-dra-girlane'), alt: 'Consultório da Dra. Girlane Ferreira na clínica em Joinville' })}</figure>` : ''}
 
     ${formacao ? `<h2>Formação acadêmica</h2>
     <ul class="formacao">${formacao}</ul>` : ''}
@@ -695,7 +706,7 @@ export function contato() {
 <section class="secao"><div class="container">
   ${fotoHero() ? `<div class="foto-larga" style="margin-bottom:32px">${imagem({ foto: fotoHero(), alt: `${fotoClinica('fachada') ? 'Fachada' : 'Recepção'} da Clínica Girlane Ferreira na Rua Areia Branca, 1035, Jardim Iririú, Joinville`, prioridade: true })}</div>` : ''}
   ${blocoLocal()}
-  ${galeria().length ? `<h2 style="margin-top:64px">Conheça o espaço</h2><div class="galeria">${galeria().map((f) => `<div class="foto-larga">${imagem({ foto: f, alt: `${f.nome.replace(/-/g, ' ')} da Clínica Girlane Ferreira em Joinville` })}</div>`).join('')}</div>` : ''}
+  ${galeria().length ? `<h2 style="margin-top:64px">Conheça o espaço</h2><div class="galeria">${galeria().map((f) => `<figure class="foto-larga" style="margin:0">${imagem({ foto: f, alt: altClinica(f) })}</figure>`).join('')}</div>` : ''}
   <div class="container-texto prosa" style="margin-top:64px;margin-inline:0">
     <h2>Atendemos Joinville e região</h2>
     <p>Pacientes vêm de ${esc(site.areasAtendidas.join(', '))}. Como o atendimento é com hora marcada, combine o horário pelo WhatsApp antes de vir.</p>
