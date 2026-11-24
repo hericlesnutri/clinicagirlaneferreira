@@ -19,7 +19,7 @@ export const casosInfo = {
   // 'harmonizacao-facial-1': {
   //   queixa: 'Perda de contorno da mandíbula e olhar cansado',
   //   tratamento: 'Ácido hialurônico em malar, mandíbula e queixo',
-  //   sessoes: '1 sessão + retorno',
+  //   sessoes: '1 sessão + acompanhamento',
   //   intervalo: '30 dias',
   //   observacao: 'Leve inchaço nos primeiros 3 dias. Manutenção prevista em 12 meses.',
   // },

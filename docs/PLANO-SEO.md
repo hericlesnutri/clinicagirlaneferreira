@@ -69,7 +69,7 @@ Observação: desde 2023 o Google só mostra o FAQ expandido no resultado para s
 
 ### Avaliações
 - Meta: 30 avaliações nos primeiros 3 meses, depois 4 a 8 por mês. Ritmo constante conta mais que volume de uma vez.
-- Pedir no retorno de 15 a 30 dias, quando a paciente já vê o resultado. A Ana envia o link curto do Google pelo WhatsApp no mesmo dia.
+- Pedir no acompanhamento de 15 a 30 dias, quando a paciente já vê o resultado. A Ana envia o link curto do Google pelo WhatsApp no mesmo dia.
 - Não oferecer brinde nem desconto em troca (proibido pelo Google).
 - Responder todas em até 48 horas, sem confirmar procedimento nem dado de saúde na resposta pública (sigilo).
 - Avaliações citando o serviço e a cidade ajudam ("fiz bioestimulador aqui em Joinville..."), mas isso vem naturalmente; não dê roteiro.

@@ -62,7 +62,7 @@ export const artigos = [
     titulo: 'Harmonização facial natural: o que é e como evitar exageros',
     seoTitle: 'Harmonização facial natural: como evitar o resultado artificial',
     metaDescription: 'O que é harmonização facial natural, por que alguns resultados ficam artificiais e como planejar um tratamento que preserva sua identidade.',
-    resumo: 'Harmonização facial natural é aquela em que o rosto continua reconhecível: as pessoas notam que você está descansada, não que você "fez algo". O resultado artificial costuma vir de três erros: excesso de produto, tratar áreas sem olhar o conjunto e repetir procedimentos sem consulta de retorno.',
+    resumo: 'Harmonização facial natural é aquela em que o rosto continua reconhecível: as pessoas notam que você está descansada, não que você "fez algo". O resultado artificial costuma vir de três erros: excesso de produto, tratar áreas sem olhar o conjunto e repetir procedimentos sem acompanhamento.',
     publicado: '2026-11-24',
     atualizado: '2026-11-24',
     autor: 'girlane',
@@ -74,7 +74,7 @@ export const artigos = [
 <p>Quase todo mundo já viu um rosto que parece igual a outros cem: maçãs muito altas, lábios projetados, mandíbula quadrada demais. O problema não é a harmonização em si. É um tipo de planejamento que segue tendência, e não a anatomia da pessoa.</p>
 <p>Os erros mais comuns:</p>
 <ul>
-<li><strong>Volume acima do necessário.</strong> Cada seringa a mais soma. Sem retorno para avaliar, o excesso vai se acumulando ao longo dos anos.</li>
+<li><strong>Volume acima do necessário.</strong> Cada seringa a mais soma. Sem acompanhamento, o excesso vai se acumulando ao longo dos anos.</li>
 <li><strong>Área isolada.</strong> Encher o lábio sem olhar o queixo, ou o malar sem olhar a têmpora, quebra a proporção.</li>
 <li><strong>Padrão de beleza importado.</strong> Um rosto oval e delicado não precisa de mandíbula marcada só porque está na moda.</li>
 </ul>
@@ -85,7 +85,7 @@ export const artigos = [
 <li><strong>Escuta.</strong> O que te incomoda e o que você não quer de jeito nenhum. Essa segunda parte é tão importante quanto a primeira.</li>
 <li><strong>Fotos padronizadas e análise.</strong> Mesma luz, mesmo ângulo, rosto em repouso e em movimento. É a base para comparar depois.</li>
 <li><strong>Plano por etapas.</strong> Prioridades primeiro. Às vezes a primeira etapa é só toxina e pele, e o volume fica para depois.</li>
-<li><strong>Retorno.</strong> Entre 15 e 30 dias. É nele que decidimos se vale acrescentar, e muitas vezes a resposta é não.</li>
+<li><strong>Acompanhamento.</strong> Entre 15 e 30 dias. É nele que decidimos se vale acrescentar, e muitas vezes a resposta é não.</li>
 </ol>
 
 <h2>Sinais de que o plano está indo bem</h2>
@@ -100,7 +100,7 @@ export const artigos = [
 `,
     faqs: [
       { q: 'Harmonização facial é reversível?', a: 'O ácido hialurônico pode ser dissolvido com hialuronidase. A toxina botulínica perde o efeito sozinha em alguns meses. Bioestimuladores não são reversíveis, por isso exigem mais cuidado na indicação.' },
-      { q: 'Quanto produto é "demais"?', a: 'Não existe número fixo. Depende da anatomia e do objetivo. O sinal mais confiável é o retorno: se a cada sessão o plano pede mais volume, algo está errado.' },
+      { q: 'Quanto produto é "demais"?', a: 'Não existe número fixo. Depende da anatomia e do objetivo. O sinal mais confiável é o acompanhamento: se a cada sessão o plano pede mais volume, algo está errado.' },
     ],
   },
   {
@@ -250,7 +250,7 @@ export const artigos = [
     slug: 'como-escolher-profissional-estetica-injetavel',
     titulo: 'Como escolher um profissional de estética injetável com segurança',
     seoTitle: 'Como escolher profissional para harmonização facial com segurança',
-    metaDescription: 'Checklist para escolher onde fazer harmonização, botox ou preenchimento com segurança: registro profissional, produto com Anvisa, consulta e retorno.',
+    metaDescription: 'Checklist para escolher onde fazer harmonização, botox ou preenchimento com segurança: registro profissional, produto com Anvisa, consulta e acompanhamento.',
     resumo: 'Antes de fazer qualquer procedimento injetável, confira cinco coisas: registro ativo no conselho profissional, produtos com registro na Anvisa e lote rastreável, consulta antes da aplicação, ambiente adequado e acompanhamento depois. Preço muito abaixo da média e promessa de resultado garantido são sinais de alerta.',
     publicado: '2026-11-24',
     atualizado: '2026-11-24',
@@ -276,7 +276,7 @@ export const artigos = [
 </ul>
 
 <h2>5. Acompanhamento depois</h2>
-<p>Você precisa saber a quem chamar se algo acontecer na madrugada seguinte. Retorno agendado e canal de contato direto fazem parte de um atendimento sério.</p>
+<p>Você precisa saber a quem chamar se algo acontecer na madrugada seguinte. Acompanhamento agendado e canal de contato direto fazem parte de um atendimento sério.</p>
 
 <h2>Sinais de alerta</h2>
 <ul>
@@ -287,7 +287,7 @@ export const artigos = [
 </ul>
 
 <h2>Como funciona na Clínica Girlane Ferreira</h2>
-<p>Todos os procedimentos injetáveis são feitos pela Dra. Girlane Ferreira, biomédica esteta com registro no CRBM, com produtos registrados na Anvisa, lote anotado em prontuário, consulta prévia e retorno agendado.</p>
+<p>Todos os procedimentos injetáveis são feitos pela Dra. Girlane Ferreira, biomédica esteta com registro no CRBM, com produtos registrados na Anvisa, lote anotado em prontuário, consulta prévia e acompanhamento agendado.</p>
 `,
     faqs: [
       { q: 'Como consultar o registro de um biomédico?', a: 'No site do Conselho Regional de Biomedicina da região em que o profissional atua, pelo nome ou número de registro.' },

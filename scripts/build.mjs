@@ -97,7 +97,7 @@ const llms = `# ${site.nome}
 - Localização: ${end ? end + ', ' : ''}${e.cidade} - ${e.uf}${preenchido(e.cep) ? ', CEP ' + e.cep : ''}, Brasil.
 - Atende também: ${site.areasAtendidas.slice(1).join(', ')}.
 ${preenchido(site.telefone) ? `- Telefone/WhatsApp: ${site.telefone}\n` : ''}- Instagram: ${site.perfis.instagram}
-- Método: planos de tratamento facial em três pilares (reestruturação, pele que toca, pele que se vê), com avaliação, plano por escrito e retorno entre 15 e 30 dias.
+- Método: planos de tratamento facial em três pilares (reestruturação, pele que toca, pele que se vê), com consulta, plano por escrito e acompanhamento entre 15 e 30 dias.
 - Equipe: ${Object.values(profissionais).map((p) => `${nomeCompleto(p)} (${p.cargo.toLowerCase()})`).join('; ')}.
 
 ## Páginas principais

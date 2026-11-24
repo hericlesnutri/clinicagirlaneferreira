@@ -140,13 +140,13 @@ ${blocoAntesDepois({ servicos: facial, titulo: 'Resultados que continuam parecen
   <div class="container">
     <div class="cabecalho-secao">
       <span class="sobretitulo">Como funciona</span>
-      <h2 id="titulo-etapas">Do primeiro contato ao retorno.</h2>
+      <h2 id="titulo-etapas">Da consulta ao acompanhamento.</h2>
     </div>
     <ol class="etapas">
       <li><h3>Consulta</h3><p>Conversa sem pressa, histórico de saúde e fotos padronizadas do rosto em repouso e em movimento.</p></li>
       <li><h3>Plano por escrito</h3><p>Prioridades, técnicas, número de sessões e investimento. Você decide com calma.</p></li>
       <li><h3>Tratamento</h3><p>Produtos com registro na Anvisa, lote anotado no prontuário e material descartável.</p></li>
-      <li><h3>Retorno</h3><p>Consulta de retorno entre 15 e 30 dias, comparando as fotos, e plano de manutenção.</p></li>
+      <li><h3>Acompanhamento</h3><p>Entre 15 e 30 dias depois, comparamos as fotos e definimos a manutenção.</p></li>
     </ol>
   </div>
 </section>
@@ -267,7 +267,7 @@ export function metodo() {
   const caminho = '/metodo';
   setCaminho(caminho);
   const faqs = [
-    { q: 'O que é um plano de tratamento facial?', a: 'É a organização, por escrito, do que vai ser feito no seu rosto, em que ordem e em quanto tempo, a partir de uma consulta completa. Inclui prioridades, técnicas, número estimado de sessões, retornos e investimento.' },
+    { q: 'O que é um plano de tratamento facial?', a: 'É a organização, por escrito, do que vai ser feito no seu rosto, em que ordem e em quanto tempo, a partir de uma consulta completa. Inclui prioridades, técnicas, número estimado de sessões, acompanhamento e investimento.' },
     { q: 'Por que não fazer só um procedimento?', a: 'Porque o envelhecimento acontece em várias camadas ao mesmo tempo (osso, gordura, ligamentos e pele). Tratar só o sinal visível costuma dar resultado pesado ou de pouca duração.' },
     { q: 'Quanto tempo dura um plano?', a: 'Depende do objetivo. Há planos de uma etapa e planos distribuídos ao longo de 6 a 12 meses, com manutenção depois.' },
   ];
@@ -276,10 +276,10 @@ export function metodo() {
   ${trilha([[caminho, 'Método']])}
   <span class="sobretitulo">Gerenciamento do envelhecimento</span>
   <h1>Um plano de tratamento, não um procedimento.</h1>
-  <p class="lead">O método da ${esc(site.nome)} organiza o cuidado com o rosto em três pilares e em etapas, com consulta de retorno a cada passo.</p>
+  <p class="lead">O método da ${esc(site.nome)} organiza o cuidado com o rosto em três pilares e em etapas, com acompanhamento a cada passo.</p>
 </div></section>
 <section class="secao"><div class="container-texto prosa">
-  <div class="resumo-ia"><strong>Em resumo</strong>O método da Clínica Girlane Ferreira trata o envelhecimento facial em três pilares: reestruturação (estrutura e volume), pele que toca (firmeza) e pele que se vê (linhas, manchas e textura). Cada paciente recebe um plano por escrito, em etapas, com retorno entre 15 e 30 dias depois de cada fase.</div>
+  <div class="resumo-ia"><strong>Em resumo</strong>O método da Clínica Girlane Ferreira trata o envelhecimento facial em três pilares: reestruturação (estrutura e volume), pele que toca (firmeza) e pele que se vê (linhas, manchas e textura). Cada paciente recebe um plano por escrito, em etapas, com acompanhamento entre 15 e 30 dias depois de cada fase.</div>
   <h2>Por que trabalhar em pilares</h2>
   <p>O rosto muda por dentro antes de mudar por fora. O osso perde projeção, as bolsas de gordura diminuem e descem, os ligamentos afrouxam e a pele produz menos colágeno. <a href="${href('/conteudo/envelhecimento-facial-camadas')}">Neste artigo explicamos cada camada em detalhe</a>.</p>
   <p>Cada pilar responde a uma dessas mudanças:</p>
@@ -296,15 +296,15 @@ export function metodo() {
     <li><strong>Consulta.</strong> Conversa sobre o que incomoda e o que você não quer de jeito nenhum, histórico de saúde, medicamentos, procedimentos anteriores e fotos padronizadas.</li>
     <li><strong>Plano por escrito.</strong> Prioridades, técnicas, número estimado de sessões, intervalos e investimento.</li>
     <li><strong>Sessões.</strong> Produtos registrados na Anvisa, lote anotado no prontuário, material descartável aberto na sua frente.</li>
-    <li><strong>Retorno.</strong> Entre 15 e 30 dias, com novas fotos nas mesmas condições para comparar.</li>
-    <li><strong>Manutenção.</strong> Um calendário para manter o resultado, em geral com consultas de revisão semestrais.</li>
+    <li><strong>Acompanhamento.</strong> Entre 15 e 30 dias, com novas fotos nas mesmas condições para comparar.</li>
+    <li><strong>Manutenção.</strong> Um calendário para manter o resultado, com acompanhamento semestral.</li>
   </ol>
   <h2>Corpo e nutrição fazem parte</h2>
   <p>O plano pode incluir <a href="${href('/tratamentos/nutricao-estetica')}">acompanhamento nutricional</a> com o nutricionista da clínica e <a href="${href('/tratamentos/drenagem-linfatica')}">tratamentos corporais</a> com a esteticista. Colágeno precisa de proteína e micronutrientes para ser produzido, e inchaço pós-procedimento passa mais rápido com drenagem.</p>
   <h2>Perguntas sobre o método</h2>
   ${faqHtml(faqs)}
 </div></section>
-${blocoAntesDepois({ servicos: ['harmonizacao-facial', 'bioestimuladores-de-colageno', ...facial], titulo: 'O método na prática', texto: 'Planos em etapas, avaliados no retorno com fotos padronizadas.', fundo: 'secao-creme', pagina: 'metodo' })}
+${blocoAntesDepois({ servicos: ['harmonizacao-facial', 'bioestimuladores-de-colageno', ...facial], titulo: 'O método na prática', texto: 'Planos em etapas, com acompanhamento e fotos padronizadas.', fundo: 'secao-creme', pagina: 'metodo' })}
 ${ctaFinal()}`;
   return {
     caminho,
@@ -312,7 +312,7 @@ ${ctaFinal()}`;
     html: pagina({
       caminho,
       titulo: 'Método de tratamento facial em 3 pilares | Girlane Ferreira',
-      descricao: 'O método da Clínica Girlane Ferreira em Joinville: plano facial em três pilares (estrutura, firmeza e qualidade da pele), com consulta e retorno.',
+      descricao: 'O método da Clínica Girlane Ferreira em Joinville: plano facial em três pilares (estrutura, firmeza e qualidade da pele), com consulta e acompanhamento.',
       corpo,
       schema: [...paginaSchema({ caminho, nome: 'Método de tratamento', descricao: 'Plano de tratamento facial em três pilares.', tipo: 'MedicalWebPage', trilha: [[caminho, 'Método']] }), faqSchema(caminho, faqs)],
     }),
@@ -508,8 +508,8 @@ export function resultados() {
   <div class="resumo-ia"><strong>Em resumo</strong>Todas as fotos de antes e depois da ${esc(site.nome)} são de pacientes reais que autorizaram o uso da imagem por escrito. As fotos não têm edição e são feitas com a mesma luz, o mesmo ângulo e a mesma distância. Cada caso informa a queixa, o tratamento, o número de sessões e o intervalo entre as fotos.</div>
   <h2>Como os resultados são registrados</h2>
   <ul class="lista-check">
-    <li>${icone('check')}<span><strong>Fotos padronizadas</strong> antes de cada etapa e em cada retorno, sempre nas mesmas condições.</span></li>
-    <li>${icone('check')}<span><strong>Retorno entre 15 e 30 dias</strong> para comparar e ajustar.</span></li>
+    <li>${icone('check')}<span><strong>Fotos padronizadas</strong> antes de cada etapa e em cada acompanhamento, sempre nas mesmas condições.</span></li>
+    <li>${icone('check')}<span><strong>Acompanhamento entre 15 e 30 dias</strong> para comparar e ajustar.</span></li>
     <li>${icone('check')}<span><strong>Produto e lote anotados</strong> no prontuário.</span></li>
     <li>${icone('check')}<span><strong>Autorização por escrito</strong> antes de qualquer foto ser publicada.</span></li>
   </ul>
@@ -647,7 +647,7 @@ export function perguntas() {
     { q: 'Quem aplica os procedimentos injetáveis?', a: `A ${nomeCompleto(g)}, biomédica esteta com habilitação em Biomedicina Estética e registro no Conselho Regional de Biomedicina.` },
     { q: 'Os produtos usados são registrados na Anvisa?', a: 'Sim. Todos os produtos injetáveis têm registro na Anvisa, e o lote fica anotado no prontuário da paciente.' },
     { q: 'A clínica atende pacientes de outras cidades?', a: `Sim. Atendemos pacientes de ${site.areasAtendidas.join(', ')} e região.` },
-    { q: 'Existe retorno depois do procedimento?', a: 'Sim. O retorno entre 15 e 30 dias faz parte do plano de tratamento, para comparar as fotos e ajustar detalhes.' },
+    { q: 'Existe acompanhamento depois do procedimento?', a: 'Sim. O acompanhamento entre 15 e 30 dias faz parte do plano de tratamento, para comparar as fotos e ajustar detalhes.' },
     { q: 'As fotos de antes e depois são reais?', a: 'Sim. São pacientes da clínica que autorizaram por escrito o uso da imagem. As fotos não são editadas e são feitas com a mesma luz e o mesmo ângulo. Cada caso traz o que foi feito e o intervalo entre as fotos, porque o resultado varia de pessoa para pessoa.' },
   ];
   const porServico = servicosAtivos.map((s) => ({ s, faqs: s.faqs.slice(0, 2) }));
