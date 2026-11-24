@@ -39,7 +39,7 @@ export const site = {
   // ---------------- Contato ----------------
   telefone: '(47) 98465-0951',
   whatsapp: '5547984650951',
-  whatsappMensagem: 'Olá! Vim pelo site e gostaria de agendar uma avaliação.',
+  whatsappMensagem: 'Olá! Vim pelo site e gostaria de agendar uma consulta.',
   email: '',                                 // ex.: contato@clinicagirlaneferreira.com.br
 
   // ---------------- Horários ----------------
@@ -144,7 +144,7 @@ export const profissionais = {
 // Use só depoimentos reais, com autorização por escrito da paciente,
 // de preferência copiados das avaliações do Google. Sem promessa de
 // resultado e sem fotos de antes e depois.
-// Ex.: { texto: 'Fui muito bem orientada desde a avaliação...', autor: 'Mariana S.', fonte: 'Google', data: '2026-12-01' }
+// Ex.: { texto: 'Fui muito bem orientada desde a consulta...', autor: 'Mariana S.', fonte: 'Google', data: '2026-12-01' }
 export const depoimentos = [];
 
 // Data da última revisão geral do conteúdo (aparece nas páginas)

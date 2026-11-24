@@ -21,7 +21,7 @@ function heroHome() {
       <h1>Envelhecer bem, <span class="texto-degrade">do seu jeito.</span></h1>
       <p class="lead">A ${esc(site.nome)} cria planos de tratamento para o rosto e o corpo que respeitam quem você é. Sem exagero, sem pressa, com acompanhamento.</p>
       <div class="botoes">
-        <a class="botao botao-primario" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar avaliação</a>
+        <a class="botao botao-primario" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar consulta</a>
         <a class="botao botao-secundario" href="${href('/metodo')}">Conhecer o método</a>
       </div>`;
   if (!bg) return `<section class="hero"><div class="container">${textos}</div></section>`;
@@ -84,8 +84,8 @@ export function home() {
   const faqsHome = [
     { q: 'Onde fica a Clínica Girlane Ferreira?', a: `Em ${site.endereco.cidade}, Santa Catarina${preenchido(site.endereco.rua) ? `, na ${site.endereco.rua}, bairro ${site.endereco.bairro}` : ''}. O atendimento é com hora marcada.` },
     { q: 'Quem faz os procedimentos faciais?', a: `Todos os procedimentos injetáveis faciais são feitos pela ${nomeCompleto(g)}, biomédica esteta com registro no Conselho Regional de Biomedicina (CRBM).` },
-    { q: 'Como funciona a primeira consulta?', a: 'A primeira consulta é uma avaliação: conversa sobre seus objetivos e saúde, fotos padronizadas e análise do rosto. Você sai com um plano de tratamento por escrito, com etapas e investimento.' },
-    { q: 'A clínica faz procedimentos isolados?', a: 'A clínica trabalha com planos de tratamento. Um procedimento pode ser a primeira etapa, mas a indicação sempre parte da avaliação do rosto inteiro.' },
+    { q: 'Como funciona a primeira consulta?', a: 'A primeira consulta inclui conversa sobre seus objetivos e saúde, fotos padronizadas e análise do rosto. Você sai com um plano de tratamento por escrito, com etapas e investimento.' },
+    { q: 'A clínica faz procedimentos isolados?', a: 'A clínica trabalha com planos de tratamento. Um procedimento pode ser a primeira etapa, mas a indicação sempre parte da análise do rosto inteiro, feita na consulta.' },
   ];
   const corpo = `
 ${heroHome()}
@@ -143,10 +143,10 @@ ${blocoAntesDepois({ servicos: facial, titulo: 'Resultados que continuam parecen
       <h2 id="titulo-etapas">Do primeiro contato ao retorno.</h2>
     </div>
     <ol class="etapas">
-      <li><h3>Avaliação</h3><p>Conversa sem pressa, histórico de saúde e fotos padronizadas do rosto em repouso e em movimento.</p></li>
+      <li><h3>Consulta</h3><p>Conversa sem pressa, histórico de saúde e fotos padronizadas do rosto em repouso e em movimento.</p></li>
       <li><h3>Plano por escrito</h3><p>Prioridades, técnicas, número de sessões e investimento. Você decide com calma.</p></li>
       <li><h3>Tratamento</h3><p>Produtos com registro na Anvisa, lote anotado no prontuário e material descartável.</p></li>
-      <li><h3>Retorno</h3><p>Reavaliação entre 15 e 30 dias, comparando as fotos, e plano de manutenção.</p></li>
+      <li><h3>Retorno</h3><p>Consulta de retorno entre 15 e 30 dias, comparando as fotos, e plano de manutenção.</p></li>
     </ol>
   </div>
 </section>
@@ -216,7 +216,7 @@ export function sobreGirlane() {
         <h1>${esc(nomeCompleto(g))}</h1>
         <p class="lead">${esc(g.bioCurta)}</p>
         <p><span class="credencial">${icone('selo')}${registroTexto(g)}</span><span class="credencial">${icone('check')}${esc(g.conselho.habilitacao)}</span>${g.anosDeExperiencia ? `<span class="credencial">${icone('relogio')}${g.anosDeExperiencia} anos de experiência</span>` : ''}</p>
-        <div class="botoes" style="margin-top:16px"><a class="botao botao-primario" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar avaliação</a><a class="botao botao-secundario" href="${g.instagram}" rel="me noopener">${icone('instagram')}@dra.girlaneferreira</a></div>
+        <div class="botoes" style="margin-top:16px"><a class="botao botao-primario" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar consulta</a><a class="botao botao-secundario" href="${g.instagram}" rel="me noopener">${icone('instagram')}@dra.girlaneferreira</a></div>
       </div>
     </div>
   </div>
@@ -225,7 +225,7 @@ export function sobreGirlane() {
   <div class="container-texto prosa">
     <h2>Como eu trabalho</h2>
     <p>Eu não acredito em procedimento solto. Uma paciente chega querendo tirar o bigode chinês, e muitas vezes o problema está na perda de suporte da maçã do rosto. Tratar só o sulco deixa o rosto pesado.</p>
-    <p>Por isso todo atendimento começa com avaliação e termina com um plano por escrito, organizado em três pilares: <strong>reestruturação</strong> (estrutura e volume), <strong>pele que toca</strong> (firmeza) e <strong>pele que se vê</strong> (linhas, manchas e textura). Às vezes o plano tem uma etapa. Às vezes tem quatro, ao longo de um ano.</p>
+    <p>Por isso todo atendimento começa com consulta e termina com um plano por escrito, organizado em três pilares: <strong>reestruturação</strong> (estrutura e volume), <strong>pele que toca</strong> (firmeza) e <strong>pele que se vê</strong> (linhas, manchas e textura). Às vezes o plano tem uma etapa. Às vezes tem quatro, ao longo de um ano.</p>
     <p>O que eu quero é que você continue se reconhecendo no espelho. E que, quando alguém disser que você está bem, não saiba dizer o que mudou.</p>
 
     ${formacao ? `<h2>Formação acadêmica</h2>
@@ -267,7 +267,7 @@ export function metodo() {
   const caminho = '/metodo';
   setCaminho(caminho);
   const faqs = [
-    { q: 'O que é um plano de tratamento facial?', a: 'É a organização, por escrito, do que vai ser feito no seu rosto, em que ordem e em quanto tempo, a partir de uma avaliação completa. Inclui prioridades, técnicas, número estimado de sessões, retornos e investimento.' },
+    { q: 'O que é um plano de tratamento facial?', a: 'É a organização, por escrito, do que vai ser feito no seu rosto, em que ordem e em quanto tempo, a partir de uma consulta completa. Inclui prioridades, técnicas, número estimado de sessões, retornos e investimento.' },
     { q: 'Por que não fazer só um procedimento?', a: 'Porque o envelhecimento acontece em várias camadas ao mesmo tempo (osso, gordura, ligamentos e pele). Tratar só o sinal visível costuma dar resultado pesado ou de pouca duração.' },
     { q: 'Quanto tempo dura um plano?', a: 'Depende do objetivo. Há planos de uma etapa e planos distribuídos ao longo de 6 a 12 meses, com manutenção depois.' },
   ];
@@ -276,7 +276,7 @@ export function metodo() {
   ${trilha([[caminho, 'Método']])}
   <span class="sobretitulo">Gerenciamento do envelhecimento</span>
   <h1>Um plano de tratamento, não um procedimento.</h1>
-  <p class="lead">O método da ${esc(site.nome)} organiza o cuidado com o rosto em três pilares e em etapas, com reavaliação a cada passo.</p>
+  <p class="lead">O método da ${esc(site.nome)} organiza o cuidado com o rosto em três pilares e em etapas, com consulta de retorno a cada passo.</p>
 </div></section>
 <section class="secao"><div class="container-texto prosa">
   <div class="resumo-ia"><strong>Em resumo</strong>O método da Clínica Girlane Ferreira trata o envelhecimento facial em três pilares: reestruturação (estrutura e volume), pele que toca (firmeza) e pele que se vê (linhas, manchas e textura). Cada paciente recebe um plano por escrito, em etapas, com retorno entre 15 e 30 dias depois de cada fase.</div>
@@ -293,11 +293,11 @@ export function metodo() {
 <div class="container-texto prosa" style="margin-top:64px">
   <h2>As etapas do atendimento</h2>
   <ol>
-    <li><strong>Avaliação.</strong> Conversa sobre o que incomoda e o que você não quer de jeito nenhum, histórico de saúde, medicamentos, procedimentos anteriores e fotos padronizadas.</li>
+    <li><strong>Consulta.</strong> Conversa sobre o que incomoda e o que você não quer de jeito nenhum, histórico de saúde, medicamentos, procedimentos anteriores e fotos padronizadas.</li>
     <li><strong>Plano por escrito.</strong> Prioridades, técnicas, número estimado de sessões, intervalos e investimento.</li>
     <li><strong>Sessões.</strong> Produtos registrados na Anvisa, lote anotado no prontuário, material descartável aberto na sua frente.</li>
     <li><strong>Retorno.</strong> Entre 15 e 30 dias, com novas fotos nas mesmas condições para comparar.</li>
-    <li><strong>Manutenção.</strong> Um calendário para manter o resultado, em geral com reavaliações semestrais.</li>
+    <li><strong>Manutenção.</strong> Um calendário para manter o resultado, em geral com consultas de revisão semestrais.</li>
   </ol>
   <h2>Corpo e nutrição fazem parte</h2>
   <p>O plano pode incluir <a href="${href('/tratamentos/nutricao-estetica')}">acompanhamento nutricional</a> com o nutricionista da clínica e <a href="${href('/tratamentos/drenagem-linfatica')}">tratamentos corporais</a> com a esteticista. Colágeno precisa de proteína e micronutrientes para ser produzido, e inchaço pós-procedimento passa mais rápido com drenagem.</p>
@@ -312,7 +312,7 @@ ${ctaFinal()}`;
     html: pagina({
       caminho,
       titulo: 'Método de tratamento facial em 3 pilares | Girlane Ferreira',
-      descricao: 'O método da Clínica Girlane Ferreira em Joinville: plano facial em três pilares (estrutura, firmeza e qualidade da pele), com avaliação e retorno.',
+      descricao: 'O método da Clínica Girlane Ferreira em Joinville: plano facial em três pilares (estrutura, firmeza e qualidade da pele), com consulta e retorno.',
       corpo,
       schema: [...paginaSchema({ caminho, nome: 'Método de tratamento', descricao: 'Plano de tratamento facial em três pilares.', tipo: 'MedicalWebPage', trilha: [[caminho, 'Método']] }), faqSchema(caminho, faqs)],
     }),
@@ -326,7 +326,7 @@ export function tratamentos() {
 <section class="cabecalho-pagina"><div class="container">
   ${trilha([[caminho, 'Tratamentos']])}
   <h1>Tratamentos estéticos em Joinville</h1>
-  <p class="lead">Rosto, corpo e nutrição. Cada tratamento entra no plano quando faz sentido para você, depois da avaliação.</p>
+  <p class="lead">Rosto, corpo e nutrição. Cada tratamento entra no plano quando faz sentido para você, depois da consulta.</p>
 </div></section>
 ${Object.entries(categorias).map(([k, c], i) => {
     const lista = servicosAtivos.filter((s) => s.categoria === k);
@@ -337,7 +337,7 @@ ${Object.entries(categorias).map(([k, c], i) => {
     </div></section>`;
   }).join('')}
 ${blocoAntesDepois({ servicos: facial, titulo: 'Alguns resultados', pagina: 'tratamentos' })}
-${ctaFinal('Não sabe por onde começar?', 'Na avaliação a gente define juntas o que tratar primeiro. É para isso que ela existe.')}`;
+${ctaFinal('Não sabe por onde começar?', 'Na consulta a gente define juntas o que tratar primeiro. É para isso que ela existe.')}`;
   const lista = {
     '@type': 'ItemList',
     '@id': absoluta(caminho) + '#lista',
@@ -368,7 +368,7 @@ export function paginaServico(s) {
   const urlAbs = absoluta(caminho);
   const ctaServico = s.profissional === 'hericles' && p.site
     ? `<a class="botao botao-primario" href="${p.site}" rel="noopener">Agendar com o nutricionista ${icone('seta', 'icone-500')}</a>`
-    : `<a class="botao botao-primario" href="${whatsappUrl(`Olá! Vim pelo site e gostaria de agendar uma avaliação para ${s.nome.toLowerCase()}.`)}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar avaliação</a>`;
+    : `<a class="botao botao-primario" href="${whatsappUrl(`Olá! Vim pelo site e gostaria de agendar uma consulta para ${s.nome.toLowerCase()}.`)}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar consulta</a>`;
   const corpo = `
 <section class="cabecalho-pagina"><div class="container">
   ${trilha([['/tratamentos', 'Tratamentos'], [caminho, s.nome]])}
@@ -401,7 +401,7 @@ export function paginaServico(s) {
 
     ${arts.length ? `<h2>Para ler antes de decidir</h2><ul>${arts.map((a) => `<li><a href="${href('/conteudo/' + a.slug)}">${esc(a.titulo)}</a></li>`).join('')}</ul>` : ''}
 
-    <p class="aviso">Os prazos e resultados descritos são médias e variam de pessoa para pessoa. A indicação de qualquer tratamento depende de avaliação individual. Conteúdo revisado em ${dataBR(revisadoEm)}.</p>
+    <p class="aviso">Os prazos e resultados descritos são médias e variam de pessoa para pessoa. A indicação de qualquer tratamento depende de consulta individual. Conteúdo revisado em ${dataBR(revisadoEm)}.</p>
     ${caixaAutor(s.profissional, 'Responsável pelo tratamento')}
   </div>
 </article>
@@ -428,7 +428,7 @@ ${ctaFinal()}`;
     provider: { '@id': ID.clinica },
     areaServed: site.areasAtendidas.map((c) => ({ '@type': 'City', name: c })),
     availableChannel: { '@type': 'ServiceChannel', serviceUrl: urlAbs, availableLanguage: 'pt-BR' },
-    termsOfService: 'Indicação somente após avaliação individual.',
+    termsOfService: 'Indicação somente após consulta individual.',
   };
   return {
     caminho,
@@ -592,7 +592,7 @@ export function paginaArtigo(a) {
   <h2>Perguntas frequentes</h2>
   ${faqHtml(a.faqs)}
   ${servs.length ? `<h2>Tratamentos relacionados</h2><ul>${servs.map((s) => `<li><a href="${href('/tratamentos/' + s.slug)}">${esc(s.h1)}</a></li>`).join('')}</ul>` : ''}
-  <p class="aviso">Conteúdo educativo. Não substitui consulta ou avaliação individual.</p>
+  <p class="aviso">Conteúdo educativo. Não substitui uma consulta individual.</p>
   ${caixaAutor(a.autor)}
 </div></div>
 </article>
@@ -642,8 +642,8 @@ export function perguntas() {
   const caminho = '/perguntas-frequentes';
   setCaminho(caminho);
   const gerais = [
-    { q: 'Como agendar uma avaliação?', a: 'Pelo WhatsApp da clínica. A equipe confirma o melhor horário e envia as orientações para o dia.' },
-    { q: 'Preciso fazer avaliação antes de qualquer procedimento?', a: 'Sim. A avaliação é o que define se o procedimento é indicado, qual técnica usar e em que ordem. Nenhum procedimento injetável é feito sem ela.' },
+    { q: 'Como agendar uma consulta?', a: 'Pelo WhatsApp da clínica. A equipe confirma o melhor horário e envia as orientações para o dia.' },
+    { q: 'Preciso fazer consulta antes de qualquer procedimento?', a: 'Sim. A consulta é o que define se o procedimento é indicado, qual técnica usar e em que ordem. Nenhum procedimento injetável é feito sem ela.' },
     { q: 'Quem aplica os procedimentos injetáveis?', a: `A ${nomeCompleto(g)}, biomédica esteta com habilitação em Biomedicina Estética e registro no Conselho Regional de Biomedicina.` },
     { q: 'Os produtos usados são registrados na Anvisa?', a: 'Sim. Todos os produtos injetáveis têm registro na Anvisa, e o lote fica anotado no prontuário da paciente.' },
     { q: 'A clínica atende pacientes de outras cidades?', a: `Sim. Atendemos pacientes de ${site.areasAtendidas.join(', ')} e região.` },
@@ -664,7 +664,7 @@ export function perguntas() {
   ${porServico.map(({ s, faqs }) => `<h2><a href="${href('/tratamentos/' + s.slug)}" style="color:inherit">${esc(s.nome)}</a></h2>${faqHtml(faqs)}`).join('')}
 </div></section>
 ${blocoAntesDepois({ servicos: facial, max: 1, pagina: 'perguntas' })}
-${ctaFinal('Ficou alguma dúvida?', 'Mande pelo WhatsApp. A gente responde e, se fizer sentido, agenda sua avaliação.')}`;
+${ctaFinal('Ficou alguma dúvida?', 'Mande pelo WhatsApp. A gente responde e, se fizer sentido, agenda sua consulta.')}`;
   return {
     caminho,
     prioridade: '0.7',
@@ -709,7 +709,7 @@ ${blocoAntesDepois({ servicos: facial, fundo: 'secao-creme', pagina: 'contato' }
     html: pagina({
       caminho,
       titulo: 'Contato e endereço | Clínica Girlane Ferreira, Joinville',
-      descricao: `Endereço, horários e WhatsApp da Clínica Girlane Ferreira em Joinville (SC). Agende sua avaliação com a biomédica esteta Dra. Girlane Ferreira.`,
+      descricao: `Endereço, horários e WhatsApp da Clínica Girlane Ferreira em Joinville (SC). Agende sua consulta com a biomédica esteta Dra. Girlane Ferreira.`,
       corpo,
       schema: paginaSchema({ caminho, nome: 'Contato', descricao: 'Contato e localização', tipo: 'ContactPage', trilha: [[caminho, 'Contato']] }),
     }),

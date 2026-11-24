@@ -54,7 +54,7 @@ export const artigos = [
 `,
     faqs: [
       { q: 'Com que idade o rosto começa a envelhecer?', a: 'A queda de colágeno começa por volta dos 25 anos. As mudanças de gordura e osso ficam mais visíveis a partir dos 35 a 40 e aceleram na menopausa.' },
-      { q: 'Qual o melhor tratamento para o envelhecimento facial?', a: 'Não existe um único. O tratamento depende de qual camada mais mudou no seu rosto. Por isso a avaliação vem antes de qualquer procedimento.' },
+      { q: 'Qual o melhor tratamento para o envelhecimento facial?', a: 'Não existe um único. O tratamento depende de qual camada mais mudou no seu rosto. Por isso a consulta vem antes de qualquer procedimento.' },
     ],
   },
   {
@@ -62,7 +62,7 @@ export const artigos = [
     titulo: 'Harmonização facial natural: o que é e como evitar exageros',
     seoTitle: 'Harmonização facial natural: como evitar o resultado artificial',
     metaDescription: 'O que é harmonização facial natural, por que alguns resultados ficam artificiais e como planejar um tratamento que preserva sua identidade.',
-    resumo: 'Harmonização facial natural é aquela em que o rosto continua reconhecível: as pessoas notam que você está descansada, não que você "fez algo". O resultado artificial costuma vir de três erros: excesso de produto, tratar áreas sem olhar o conjunto e repetir procedimentos sem reavaliação.',
+    resumo: 'Harmonização facial natural é aquela em que o rosto continua reconhecível: as pessoas notam que você está descansada, não que você "fez algo". O resultado artificial costuma vir de três erros: excesso de produto, tratar áreas sem olhar o conjunto e repetir procedimentos sem consulta de retorno.',
     publicado: '2026-11-24',
     atualizado: '2026-11-24',
     autor: 'girlane',
@@ -148,7 +148,7 @@ export const artigos = [
 </table>
 
 <h2>Dá para fazer os dois?</h2>
-<p>Dá, e é comum. Uma ruga na testa que já está marcada mesmo com o rosto parado, por exemplo, pode pedir toxina para tirar o movimento e um pouco de hidratação ou preenchimento para suavizar o vinco. Quem decide a combinação e a ordem é a avaliação.</p>
+<p>Dá, e é comum. Uma ruga na testa que já está marcada mesmo com o rosto parado, por exemplo, pode pedir toxina para tirar o movimento e um pouco de hidratação ou preenchimento para suavizar o vinco. Quem decide a combinação e a ordem é a consulta.</p>
 `,
     faqs: [
       { q: 'Botox preenche ruga?', a: 'Não. Ele impede que a ruga continue sendo marcada pelo movimento. Se o vinco já está fixo, pode ser preciso associar outro tratamento.' },
@@ -185,7 +185,7 @@ export const artigos = [
 
 <h2>Como é o protocolo</h2>
 <ol>
-<li>Avaliação do grau de flacidez e da espessura da pele.</li>
+<li>Análise do grau de flacidez e da espessura da pele.</li>
 <li>Duas ou três sessões com intervalo de 30 a 60 dias.</li>
 <li>Manutenção, em geral uma sessão por ano.</li>
 </ol>
@@ -238,7 +238,7 @@ export const artigos = [
 <ul>
 <li>Receitas caseiras com limão ou bicarbonato.</li>
 <li>Pomadas com corticoide sem acompanhamento.</li>
-<li>Procedimentos que aquecem muito a pele sem avaliação prévia.</li>
+<li>Procedimentos que aquecem muito a pele sem consulta prévia.</li>
 </ul>
 `,
     faqs: [
@@ -250,8 +250,8 @@ export const artigos = [
     slug: 'como-escolher-profissional-estetica-injetavel',
     titulo: 'Como escolher um profissional de estética injetável com segurança',
     seoTitle: 'Como escolher profissional para harmonização facial com segurança',
-    metaDescription: 'Checklist para escolher onde fazer harmonização, botox ou preenchimento com segurança: registro profissional, produto com Anvisa, avaliação e retorno.',
-    resumo: 'Antes de fazer qualquer procedimento injetável, confira cinco coisas: registro ativo no conselho profissional, produtos com registro na Anvisa e lote rastreável, avaliação antes da aplicação, ambiente adequado e acompanhamento depois. Preço muito abaixo da média e promessa de resultado garantido são sinais de alerta.',
+    metaDescription: 'Checklist para escolher onde fazer harmonização, botox ou preenchimento com segurança: registro profissional, produto com Anvisa, consulta e retorno.',
+    resumo: 'Antes de fazer qualquer procedimento injetável, confira cinco coisas: registro ativo no conselho profissional, produtos com registro na Anvisa e lote rastreável, consulta antes da aplicação, ambiente adequado e acompanhamento depois. Preço muito abaixo da média e promessa de resultado garantido são sinais de alerta.',
     publicado: '2026-11-24',
     atualizado: '2026-11-24',
     autor: 'girlane',
@@ -265,8 +265,8 @@ export const artigos = [
 <h2>2. Produto com registro na Anvisa</h2>
 <p>Pergunte a marca do produto. Todo preenchedor, toxina e bioestimulador vendido legalmente no Brasil tem registro na Anvisa. Peça para ver a caixa e a etiqueta com o lote, que deve ir para o seu prontuário.</p>
 
-<h2>3. Avaliação antes de aplicar</h2>
-<p>Desconfie de quem aplica sem perguntar sobre sua saúde, medicamentos, alergias e procedimentos anteriores. Avaliação não é burocracia, é o que evita complicação.</p>
+<h2>3. Consulta antes de aplicar</h2>
+<p>Desconfie de quem aplica sem perguntar sobre sua saúde, medicamentos, alergias e procedimentos anteriores. Consulta não é burocracia, é o que evita complicação.</p>
 
 <h2>4. Ambiente e material</h2>
 <ul>
@@ -287,7 +287,7 @@ export const artigos = [
 </ul>
 
 <h2>Como funciona na Clínica Girlane Ferreira</h2>
-<p>Todos os procedimentos injetáveis são feitos pela Dra. Girlane Ferreira, biomédica esteta com registro no CRBM, com produtos registrados na Anvisa, lote anotado em prontuário, avaliação prévia e retorno agendado.</p>
+<p>Todos os procedimentos injetáveis são feitos pela Dra. Girlane Ferreira, biomédica esteta com registro no CRBM, com produtos registrados na Anvisa, lote anotado em prontuário, consulta prévia e retorno agendado.</p>
 `,
     faqs: [
       { q: 'Como consultar o registro de um biomédico?', a: 'No site do Conselho Regional de Biomedicina da região em que o profissional atua, pelo nome ou número de registro.' },

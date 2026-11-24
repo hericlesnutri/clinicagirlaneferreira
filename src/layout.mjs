@@ -57,7 +57,7 @@ function cabecalho(caminho) {
       ${menu.map(([p, t]) => `<li><a href="${href(p)}"${ativo(p)}>${t}</a></li>`).join('')}
     </ul>
     <div class="nav-acoes">
-      <a class="botao botao-primario botao-pequeno botao-nav" href="${whatsappUrl()}" rel="noopener">Agendar avaliação</a>
+      <a class="botao botao-primario botao-pequeno botao-nav" href="${whatsappUrl()}" rel="noopener">Agendar consulta</a>
       <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
         ${icone('menu', 'icone-menu')}${icone('fechar', 'icone-fechar')}
       </button>
@@ -106,11 +106,11 @@ function rodape() {
     </div>
     <div class="rodape-base">
       <span>© ${ano} ${esc(site.nome)}. ${esc(site.nomeCurto)} em ${esc(site.endereco.cidade)}, ${esc(site.endereco.uf)}.</span>
-      <span>As informações deste site são educativas e não substituem uma avaliação individual. · <a href="${href('/politica-de-privacidade')}">Privacidade</a></span>
+      <span>As informações deste site são educativas e não substituem uma consulta individual. · <a href="${href('/politica-de-privacidade')}">Privacidade</a></span>
     </div>
   </div>
 </footer>
-<a class="botao botao-primario whats-flutuante" href="${whatsappUrl()}" rel="noopener" aria-label="Agendar avaliação pelo WhatsApp">${icone('whatsapp', 'icone-500')}Agendar</a>`;
+<a class="botao botao-primario whats-flutuante" href="${whatsappUrl()}" rel="noopener" aria-label="Agendar consulta pelo WhatsApp">${icone('whatsapp', 'icone-500')}Agendar</a>`;
 }
 
 /**
@@ -183,7 +183,7 @@ export function faqHtml(faqs) {
     .join('')}</div>`;
 }
 
-export function ctaFinal(titulo = 'O primeiro passo é uma avaliação.', texto = 'Conversamos sobre o que você quer, avaliamos seu rosto com calma e você sai com um plano por escrito. Sem pressa para decidir.') {
+export function ctaFinal(titulo = 'O primeiro passo é uma consulta.', texto = 'Conversamos sobre o que você quer, avaliamos seu rosto com calma e você sai com um plano por escrito. Sem pressa para decidir.') {
   return `
 <section class="secao secao-creme cta-final">
   <div class="container">
@@ -235,7 +235,7 @@ export function antesDepois(c, prioridade = false) {
     <a class="tag tag-facial" href="${href('/tratamentos/' + c.servico)}">${esc(nome)}</a>
     ${detalhes.length ? `<dl class="ad-detalhes">${detalhes.map(([t, d]) => `<div><dt>${t}</dt><dd>${esc(d)}</dd></div>`).join('')}</dl>` : ''}
     ${c.observacao ? `<p>${esc(c.observacao)}</p>` : ''}
-    <p class="ad-nota">Imagem publicada com autorização da paciente, sem edição. Resultados variam de pessoa para pessoa e dependem de avaliação individual.</p>
+    <p class="ad-nota">Imagem publicada com autorização da paciente, sem edição. Resultados variam de pessoa para pessoa e dependem de consulta individual.</p>
   </figcaption>
 </figure>`;
 }
