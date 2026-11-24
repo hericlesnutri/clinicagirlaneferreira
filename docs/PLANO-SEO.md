@@ -18,7 +18,7 @@ Este plano cobre o que o site já faz sozinho (SEO técnico e conteúdo) e o que
 | Perguntas comuns | FAQ em cada serviço e artigo, página `/perguntas-frequentes` com tudo reunido, `FAQPage` em JSON-LD |
 | E-E-A-T | Autoria em todas as páginas médicas, caixa do autor com registro, "conteúdo revisado em", aviso de que resultados variam, `MedicalWebPage` com `lastReviewed` |
 | IAs (ChatGPT, Gemini, Perplexity, Claude) | `llms.txt` e `llms-full.txt`, robôs de IA liberados no `robots.txt`, bloco "Resposta rápida" de 40 a 60 palavras no início de cada página (é o trecho que as IAs costumam citar) |
-| Resultados | Página `/resultados` explicando como os resultados são medidos e reunindo depoimentos reais, sem antes e depois (ver seção 7) |
+| Resultados | Comparador de antes e depois (arrastar) em todas as páginas e galeria completa em `/resultados`, com contexto educativo (ver seção 7) |
 | Desempenho | Sem frameworks, sem fontes externas, CSS de ~20 KB, imagens com `width/height` e `loading="lazy"`, cache longo nos arquivos estáticos |
 | Acessibilidade | Contraste AA, foco visível, "pular para o conteúdo", modo escuro, respeito a "reduzir movimento" |
 
@@ -92,17 +92,26 @@ Evitar: compra de links, diretórios genéricos em massa, troca de link em rodap
 
 **Entidade única para o Google e para as IAs**: usar sempre o mesmo nome ("Dra. Girlane Ferreira, biomédica esteta em Joinville") e a mesma foto de perfil no Instagram, Google, LinkedIn e site. Quanto mais fontes repetem esses fatos juntos, mais confiança as IAs têm para citar.
 
-## 7. Publicidade e conselho profissional
+## 7. Antes e depois e conselho profissional
 
-A Resolução CFBM nº 330/2020 vedava o uso de imagens de antes e depois na publicidade do biomédico. O site foi feito para respeitar isso: os resultados são explicados por texto, com prazos médios, e as fotos ficam no prontuário. Antes do lançamento, confirmar com o CRBM da região se houve atualização da norma. Se houver liberação com regras, a página `/resultados` já tem espaço para receber esse conteúdo.
+Decisão da clínica (24/11/2026): publicar de 1 a 2 casos de antes e depois em cada página.
 
-Também por cautela: sem preço promocional chamativo, sem "resultado garantido", sem marca de produto como chamariz e com nome e registro da responsável técnica visíveis (já estão no rodapé).
+Atenção: a Resolução CFBM nº 330/2020 vedava imagens de antes e depois na publicidade do biomédico. Confirmar com o CRBM-5 se há norma mais recente antes de publicar. Para reduzir o risco, cada caso no site segue o padrão que os conselhos usam como referência de caráter educativo:
+- autorização por escrito da paciente, arquivada no prontuário;
+- fotos sem edição, com mesma luz, ângulo e distância;
+- rosto sem identificação sempre que possível;
+- texto junto da foto com queixa, tratamento, sessões e intervalo entre as fotos (arquivo `src/data/antes-depois.mjs`);
+- aviso fixo de que resultados variam e dependem de avaliação;
+- sem preço, sem promoção e sem promessa de resultado junto das fotos.
+
+Também por cautela: nome e registro da responsável técnica visíveis em todas as páginas (rodapé).
 
 ## 8. Imagens
 
 - Formato WebP (ou AVIF), 1600 px no lado maior, até ~200 KB.
 - Nome do arquivo descritivo: `dra-girlane-ferreira-biomedica-esteta-joinville.webp`, `sala-atendimento-clinica-girlane-ferreira.webp`, `fachada-clinica-girlane-ferreira-joinville.webp`.
 - Texto alternativo já é gerado pelo site a partir do nome do serviço.
+- Para importar: organizar as fotos nas pastas `equipe/`, `clinica/`, `tratamentos/` e `antes-depois/` e rodar `python3 tools/importar-fotos.py <pasta>`. O script converte para WebP, padroniza o tamanho do par antes/depois e remove os metadados (GPS, celular, data).
 - Fotos reais da clínica e da equipe valem mais que banco de imagens para E-E-A-T. Uma sessão de fotos profissional cobre o site, o Google e o Instagram de uma vez.
 - Retrato da Dra. Girlane em proporção 4:5; capas de serviço em 4:3.
 - Quando houver vídeo (Reels explicativos), subir também no YouTube com título com cidade e serviço; o Google mostra vídeo nos resultados.
