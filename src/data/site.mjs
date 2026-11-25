@@ -55,6 +55,7 @@ export const site = {
   // clínica e a Dra. Girlane são a mesma entidade em toda a internet.
   perfis: {
     instagram: 'https://www.instagram.com/dra.girlaneferreira/',
+    instagramClinica: 'https://www.instagram.com/clinicagirlaneferreira/',
     googleMaps: '',        // link "Compartilhar" do Perfil da Empresa no Google
     googleAvaliar: '',     // link "Pedir avaliações" do Perfil da Empresa
     facebook: '',

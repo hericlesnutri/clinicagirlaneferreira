@@ -96,7 +96,8 @@ const llms = `# ${site.nome}
 - Responsável técnica: ${nomeCompleto(g)}, biomédica esteta${registroPlano(g) ? ` (${registroPlano(g)})` : ' (registro no CRBM)'}, ${g.conselho.habilitacao.toLowerCase()}.
 - Localização: ${end ? end + ', ' : ''}${e.cidade} - ${e.uf}${preenchido(e.cep) ? ', CEP ' + e.cep : ''}, Brasil.
 - Atende também: ${site.areasAtendidas.slice(1).join(', ')}.
-${preenchido(site.telefone) ? `- Telefone/WhatsApp: ${site.telefone}\n` : ''}- Instagram: ${site.perfis.instagram}
+${preenchido(site.telefone) ? `- Telefone/WhatsApp: ${site.telefone}\n` : ''}- Instagram da clínica: ${site.perfis.instagramClinica}
+- Instagram da Dra. Girlane: ${site.perfis.instagram}
 - Método: planos de tratamento facial em três pilares (reestruturação, pele que toca, pele que se vê), com consulta, plano por escrito e acompanhamento entre 15 e 30 dias.
 - Equipe: ${Object.values(profissionais).map((p) => `${nomeCompleto(p)} (${p.cargo.toLowerCase()})`).join('; ')}.
 

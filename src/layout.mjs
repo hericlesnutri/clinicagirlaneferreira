@@ -104,6 +104,7 @@ function rodape() {
         <h2>Contato</h2>
         <ul>
           <li><a href="${whatsappUrl()}" rel="noopener">WhatsApp</a></li>
+          <li><a href="${site.perfis.instagramClinica}" rel="me noopener">Instagram @clinicagirlaneferreira</a></li>
           <li><a href="${site.perfis.instagram}" rel="me noopener">Instagram @dra.girlaneferreira</a></li>
           <li><a href="${href('/contato')}">Como chegar</a></li>
         </ul>
