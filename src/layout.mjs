@@ -20,6 +20,7 @@ const paths = {
   relogio: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
   telefone: '<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>',
   selo: '<path d="M12 3l2.4 1.8 3-.2.9 2.9 2.4 1.8-1 2.8 1 2.8-2.4 1.8-.9 2.9-3-.2L12 21l-2.4-1.8-3 .2-.9-2.9-2.4-1.8 1-2.8-1-2.8 2.4-1.8.9-2.9 3 .2z"/><path d="M9 12l2 2 4-4"/>',
+  estrela: '<path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/>',
   check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
   instagram: '<rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6"/>',
   email: '<rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3.5 6.5l8.5 6.5 8.5-6.5"/>',
@@ -60,6 +61,7 @@ function cabecalho(caminho) {
     <a class="marca" href="${href('/')}" aria-label="${esc(site.nome)}, página inicial"><img class="logo" src="${href('/assets/logo-horizontal.png')}" alt="${esc(site.nome)}" width="879" height="223"></a>
     <ul class="nav-links" id="menu-principal">
       ${menu.map(([p, t]) => `<li><a href="${href(p)}"${ativo(p)}>${t}</a></li>`).join('')}
+      <li class="nav-cta"><a class="botao botao-primario" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar consulta</a></li>
     </ul>
     <div class="nav-acoes">
       <a class="botao botao-primario botao-pequeno botao-nav" href="${whatsappUrl()}" rel="noopener">Agendar consulta</a>
@@ -71,48 +73,56 @@ function cabecalho(caminho) {
 </header>`;
 }
 
+// Horário curto para o rodapé: "Seg a Sex, 9h às 20h"
+const diasCurto = { Monday: 'Seg', Tuesday: 'Ter', Wednesday: 'Qua', Thursday: 'Qui', Friday: 'Sex', Saturday: 'Sáb', Sunday: 'Dom' };
+const hora = (h) => h.replace(/^0/, '').replace(':00', 'h').replace(':', 'h');
+const horarioCurto = (h) => `${h.dias.length > 2 ? diasCurto[h.dias[0]] + ' a ' + diasCurto[h.dias.at(-1)] : h.dias.map((d) => diasCurto[d]).join(' e ')}, ${hora(h.abre)} às ${hora(h.fecha)}`;
+
+// Grupo do rodapé: <details> aberto por padrão (sem JS tudo aparece);
+// no celular o site.js fecha os grupos e vira sanfona, como no rodapé da Apple.
+const grupo = (titulo, itens, classe = '') => `
+      <details class="rodape-grupo${classe ? ' ' + classe : ''}" open>
+        <summary><h2>${titulo}</h2>${icone('direita', 'rodape-seta')}</summary>
+        <ul>${itens.map(([url, texto, attr = '']) => `<li><a href="${url}"${attr}>${texto}</a></li>`).join('')}</ul>
+      </details>`;
+
+// "https://www.instagram.com/dra.girlaneferreira/" → "@dra.girlaneferreira"
+const arroba = (url) => '@' + String(url).replace(/\/+$/, '').split('/').pop();
+
 function rodape() {
   const g = profissionais.girlane;
   const ano = new Date().getFullYear();
+  const link = (s) => [href('/tratamentos/' + s.slug), esc(s.nome)];
   return `
 <footer class="rodape">
   <div class="container">
-    <div class="rodape-grade">
-      <div>
-        <h2><img class="logo-rodape" src="${href('/assets/logo-principal.png')}" alt="${esc(site.nome)}" width="756" height="386" loading="lazy"></h2>
-        <address>${enderecoLinha()}</address>
-        ${preenchido(site.telefone) ? `<p><a href="${telLink()}">${esc(site.telefone)}</a></p>` : ''}
-        <p>Responsável técnica: ${esc(nomeCompleto(g))}, ${esc(g.profissao.toLowerCase())} esteta, ${registroTexto(g)}</p>
-      </div>
-      <div>
-        <h2>Tratamentos</h2>
-        <ul>${servicosAtivos.slice(0, 7).map((s) => `<li><a href="${href('/tratamentos/' + s.slug)}">${esc(s.nome)}</a></li>`).join('')}
-        <li><a href="${href('/tratamentos')}">Ver todos</a></li></ul>
-      </div>
-      <div>
-        <h2>A clínica</h2>
-        <ul>
-          <li><a href="${href('/dra-girlane-ferreira')}">Dra. Girlane Ferreira</a></li>
-          <li><a href="${href('/metodo')}">Nosso método</a></li>
-          <li><a href="${href('/equipe')}">Equipe</a></li>
-          <li><a href="${href('/resultados')}">Antes e depois</a></li>
-          <li><a href="${href('/perguntas-frequentes')}">Perguntas frequentes</a></li>
-          <li><a href="${href('/conteudo')}">Conteúdo educativo</a></li>
-        </ul>
-      </div>
-      <div>
-        <h2>Contato</h2>
-        <ul>
-          <li><a href="${whatsappUrl()}" rel="noopener">WhatsApp</a></li>
-          <li><a href="${site.perfis.instagramClinica}" rel="me noopener">Instagram @clinicagirlaneferreira</a></li>
-          <li><a href="${site.perfis.instagram}" rel="me noopener">Instagram @dra.girlaneferreira</a></li>
-          <li><a href="${href('/contato')}">Como chegar</a></li>
-        </ul>
-      </div>
+    <div class="rodape-topo">
+      <a class="rodape-marca" href="${href('/')}"><img class="logo-rodape" src="${href('/assets/logo-principal.png')}" alt="${esc(site.nome)}" width="756" height="386" loading="lazy"></a>
+      <a class="botao botao-primario" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar consulta</a>
+    </div>
+    <nav class="rodape-grade" aria-label="Rodapé">${grupo('Rosto', servicosAtivos.filter((s) => s.categoria === 'facial').map(link))}${grupo('Corpo', servicosAtivos.filter((s) => s.categoria === 'corporal').map(link))}${grupo('Nutrição', servicosAtivos.filter((s) => s.categoria === 'nutricao').map(link))}${grupo('A clínica', [
+      [href('/tratamentos'), 'Todos os tratamentos'],
+      [href('/dra-girlane-ferreira'), 'Dra. Girlane Ferreira'],
+      [href('/metodo'), 'Nosso método'],
+      [href('/equipe'), 'Equipe'],
+      [href('/resultados'), 'Antes e depois'],
+      [href('/perguntas-frequentes'), 'Perguntas frequentes'],
+      [href('/conteudo'), 'Conteúdo educativo'],
+    ])}${grupo('Contato', [
+      [whatsappUrl(), `${icone('whatsapp')}WhatsApp`, ' rel="noopener"'],
+      [site.perfis.instagramClinica, `${icone('instagram')}<span class="visualmente-oculto">Instagram da clínica: </span>${esc(arroba(site.perfis.instagramClinica))}`, ' rel="me noopener"'],
+      [site.perfis.instagram, `${icone('instagram')}<span class="visualmente-oculto">Instagram da Dra. Girlane: </span>${esc(arroba(site.perfis.instagram))}`, ' rel="me noopener"'],
+      [href('/contato'), `${icone('pin')}Como chegar`],
+    ].filter(([url]) => url), 'rodape-contato')}
+    </nav>
+    <div class="rodape-info">
+      <address>${enderecoLinha()}</address>
+      <p>${[preenchido(site.telefone) ? `<a href="${telLink()}">${esc(site.telefone)}</a>` : '', ...site.horarios.map(horarioCurto)].filter(Boolean).join(' · ')}</p>
+      <p>Responsável técnica: ${esc(nomeCompleto(g))}, ${esc(g.profissao.toLowerCase())} esteta, ${registroTexto(g)}.</p>
     </div>
     <div class="rodape-base">
-      <span>© ${ano} ${esc(site.nome)}. ${esc(site.nomeCurto)} em ${esc(site.endereco.cidade)}, ${esc(site.endereco.uf)}.</span>
-      <span>As informações deste site são educativas e não substituem uma consulta individual. · <a href="${href('/politica-de-privacidade')}">Privacidade</a></span>
+      <span>© ${ano} ${esc(site.nome)}. Joinville, ${esc(site.endereco.uf)}.</span>
+      <a href="${href('/politica-de-privacidade')}">Política de privacidade</a>
     </div>
   </div>
 </footer>
@@ -189,7 +199,7 @@ export function faqHtml(faqs) {
     .join('')}</div>`;
 }
 
-export function ctaFinal(titulo = 'O primeiro passo é uma consulta.', texto = 'Conversamos sobre o que você quer, avaliamos seu rosto com calma e você sai com um plano por escrito. Sem pressa para decidir.') {
+export function ctaFinal(titulo = 'O primeiro passo é uma consulta.', texto = 'Conversamos sobre o que você quer, analisamos o seu rosto com calma e alinhamos expectativas. Sem pressa para decidir.') {
   return `
 <section class="secao secao-creme cta-final">
   <div class="container">

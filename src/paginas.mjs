@@ -1,5 +1,5 @@
 import { site, profissionais, depoimentos, revisadoEm } from './data/site.mjs';
-import { servicos, servicosAtivos, categorias, pilares } from './data/servicos.mjs';
+import { servicos, servicosAtivos, categorias, pilares, queixas, destaquesHome } from './data/servicos.mjs';
 import { artigos } from './data/artigos.mjs';
 import { esc, href, absoluta, whatsappUrl, enderecoLinha, mostrar, preenchido, pendente, mapsUrl, telLink, registroTexto, nomeCompleto, dataBR, setCaminho } from './lib.mjs';
 import { pagina, icone, imagem, placeholder, trilha, faqHtml, ctaFinal, caixaAutor, blocoAntesDepois, antesDepois } from './layout.mjs';
@@ -23,21 +23,24 @@ const altClinica = (f) => `${legendas[f.nome] || f.nome.replace(/-/g, ' ')}, no 
 const galeria = () => fotosClinica().filter((f) => !/^(fachada|hero)/.test(f.nome) && f !== fotoHero() && f.src !== (fotoHero() || {}).src);
 
 function heroHome() {
-  const bg = fotoClinica('hero-equipe');
-  const mob = fotoClinica('hero-equipe-mobile');
+  // Foto da Dra. Girlane (fundo claro). Se faltar, volta para a foto da equipe (fundo escuro).
+  const claro = !!fotoClinica('hero-girlane');
+  const bg = fotoClinica('hero-girlane') || fotoClinica('hero-equipe');
+  const mob = claro ? fotoClinica('hero-girlane-mobile') : fotoClinica('hero-equipe-mobile');
+  const altFoto = claro
+    ? `${nomeCompleto(g)}, biomédica esteta, na Clínica Girlane Ferreira em Joinville`
+    : `${nomeCompleto(g)}, biomédica esteta, e ${profissionais.hericles.nome}, nutricionista, da Clínica Girlane Ferreira em Joinville`;
   const textos = `
-      <span class="hero-selo">${icone('selo')}Biomédica Esteta · CRBM-5 nº ${esc(g.conselho.numero)} · Joinville, SC</span>
-      <h1>Envelhecer bem, <span class="texto-degrade">do seu jeito.</span></h1>
-      <p class="lead">A ${esc(site.nome)} cria planos de tratamento para o rosto e o corpo que respeitam quem você é. Sem exagero, sem pressa, com acompanhamento.</p>
+      <h1>Rejuvenescimento e harmonização facial <span class="texto-degrade">com naturalidade.</span></h1>
+      <p class="lead">Criamos planos de tratamento para o seu rosto que respeitam quem você é. Sem exagero, sem pressa, com acompanhamento.</p>
       <div class="botoes">
         <a class="botao botao-primario" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar consulta</a>
-        <a class="botao botao-secundario" href="${href('/metodo')}">Conhecer o método</a>
       </div>`;
   if (!bg) return `<section class="hero"><div class="container">${textos}</div></section>`;
-  return `<section class="hero hero-foto-fundo">
+  return `<section class="hero hero-foto-fundo${claro ? ' hero-claro' : ''}">
     <picture class="hero-fundo">
       ${mob ? `<source media="(max-width: 800px)" srcset="${href(mob.src)}" width="${mob.largura}" height="${mob.altura}">` : ''}
-      <img src="${href(bg.src)}" alt="${esc(nomeCompleto(g))}, biomédica esteta, e ${esc(profissionais.hericles.nome)}, nutricionista, da Clínica Girlane Ferreira em Joinville" width="${bg.largura}" height="${bg.altura}" fetchpriority="high" decoding="async">
+      <img src="${href(bg.src)}" alt="${esc(altFoto)}" width="${bg.largura}" height="${bg.altura}" fetchpriority="high" decoding="async">
     </picture>
     <div class="container hero-conteudo">${textos}</div>
   </section>`;
@@ -62,13 +65,13 @@ function cartaoServico(s) {
   </a>`;
 }
 
-function cartaoArtigo(a) {
+function cartaoArtigo(a, { leitura = true } = {}) {
   return `<a class="cartao" href="${href('/conteudo/' + a.slug)}">
     <div class="cartao-corpo">
       <span class="tag tag-facial">${esc(a.categoria)}</span>
       <h3>${esc(a.titulo)}</h3>
       <p>${esc(a.resumo.split('. ')[0])}.</p>
-      <span class="link-seta">Ler artigo · ${a.leitura} min ${icone('direita')}</span>
+      <span class="link-seta">Ler artigo${leitura ? ` · ${a.leitura} min` : ''} ${icone('direita')}</span>
     </div>
   </a>`;
 }
@@ -86,51 +89,88 @@ function blocoLocal() {
   </div>`;
 }
 
+// Página inicial: mapa do Google com "Como chegar" e endereço; horários e agendamento ao lado.
+function blocoVisita() {
+  const e = site.endereco;
+  const enderecoBusca = `${e.rua} - ${e.bairro}, ${e.cidade} - ${e.uf}, ${e.cep}`;
+  // Com o código do lugar e as coordenadas, o mapa mostra o perfil da clínica no Google;
+  // sem eles, cai na busca pelo endereço.
+  const lugar = site.perfis.googleMapsLugar;
+  const temGeo = preenchido(e.latitude) && preenchido(e.longitude);
+  const mapa = lugar && temGeo
+    ? `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d600!2d${e.longitude}!3d${e.latitude}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s${encodeURIComponent(lugar)}!2s${encodeURIComponent(site.nome)}!5e0!3m2!1spt-BR!2sbr!4v1764240000000!5m2!1spt-BR!2sbr`
+    : 'https://maps.google.com/maps?q=' + encodeURIComponent(enderecoBusca) + '&z=16&hl=pt-BR&output=embed';
+  const rota = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent(temGeo ? `${e.latitude},${e.longitude}` : enderecoBusca);
+  const nomes = { Monday: 'segunda', Tuesday: 'terça', Wednesday: 'quarta', Thursday: 'quinta', Friday: 'sexta', Saturday: 'sábado', Sunday: 'domingo' };
+  const cap = (t) => t.charAt(0).toUpperCase() + t.slice(1);
+  const dias = (h) => cap(h.dias.length > 2 ? `${nomes[h.dias[0]]} a ${nomes[h.dias.at(-1)]}` : h.dias.map((d) => nomes[d]).join(' e '));
+  const hora = (t) => t.replace(/^0/, '').replace(':00', 'h').replace(':', 'h');
+  return `<div class="visita">
+    <div class="cartao visita-mapa-cartao">
+      <div class="visita-mapa">
+        <iframe src="${mapa}" title="Mapa com a localização da ${esc(site.nome)}" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <a class="botao botao-primario visita-rota" href="${rota}" rel="noopener">${icone('pin', 'icone-500')}Como chegar</a>
+      </div>
+      <address class="visita-endereco">${icone('pin')}<span>${enderecoLinha()}${e.referencia ? `<br>${esc(e.referencia)}` : ''}</span></address>
+    </div>
+    <aside class="cartao visita-info" aria-labelledby="titulo-horarios">
+      <h3 id="titulo-horarios">${icone('relogio')}Horários</h3>
+      ${site.horarios.length
+        ? `<dl class="visita-horarios">${site.horarios.map((h) => `<div><dt>${dias(h)}</dt><dd>${hora(h.abre)} às ${hora(h.fecha)}</dd></div>`).join('')}</dl>`
+        : `<p>${mostrar('PREENCHER: Horários de atendimento', 'Horários')}</p>`}
+      <p class="visita-obs">${esc(site.atendimentoObservacao)}</p>
+      <a class="botao botao-primario visita-agendar" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar consulta</a>
+      ${preenchido(site.telefone) ? `<p class="visita-tel">ou ligue <a href="${telLink()}">${esc(site.telefone)}</a></p>` : ''}
+    </aside>
+  </div>`;
+}
+
 // ---------------------------------------------------------------- páginas
 export function home() {
   const caminho = '/';
   setCaminho(caminho);
-  const faqsHome = [
-    { q: 'Onde fica a Clínica Girlane Ferreira?', a: `Em ${site.endereco.cidade}, Santa Catarina${preenchido(site.endereco.rua) ? `, na ${site.endereco.rua}, bairro ${site.endereco.bairro}` : ''}. O atendimento é com hora marcada.` },
-    { q: 'Quem faz os procedimentos faciais?', a: `Todos os procedimentos injetáveis faciais são feitos pela ${nomeCompleto(g)}, biomédica esteta com registro no Conselho Regional de Biomedicina (CRBM).` },
-    { q: 'Como funciona a primeira consulta?', a: 'A primeira consulta inclui conversa sobre seus objetivos e saúde, fotos padronizadas e análise do rosto. Você sai com um plano de tratamento por escrito, com etapas e investimento.' },
-    { q: 'A clínica faz procedimentos isolados?', a: 'A clínica trabalha com planos de tratamento. Um procedimento pode ser a primeira etapa, mas a indicação sempre parte da análise do rosto inteiro, feita na consulta.' },
-  ];
+  const av = site.avaliacoesGoogle && site.avaliacoesGoogle.total ? site.avaliacoesGoogle : null;
+  const catDe = (q) => servicoPorSlug[q.servico]?.ativo && servicoPorSlug[q.servico].categoria;
+  const sinaisRosto = queixas.filter((q) => catDe(q) === 'facial');
+  const sinaisCorpo = queixas.filter((q) => catDe(q) && catDe(q) !== 'facial');
+  const destaques = destaquesHome.map((slug) => servicoPorSlug[slug]).filter((sv) => sv && sv.ativo);
   const corpo = `
 ${heroHome()}
+
+<section class="faixa-confianca" aria-label="Por que confiar em nós">
+  <div class="container">
+    <ul>
+      ${g.anosDeExperiencia ? `<li>${icone('relogio')}<span><strong>${g.anosDeExperiencia} anos</strong>de experiência em estética</span></li>` : ''}
+      <li>${icone('selo')}<span><strong>Biomédica esteta</strong>${registroTexto(g)}</span></li>
+      <li>${icone('check')}<span><strong>Plano de reestruturação facial e corporal</strong>nada de procedimento solto</span></li>
+    </ul>
+  </div>
+</section>
 
 <section class="secao" aria-labelledby="titulo-metodo">
   <div class="container">
     <div class="cabecalho-secao centro">
-      <span class="sobretitulo">O método</span>
       <h2 id="titulo-metodo">Três pilares. Um plano só seu.</h2>
-      <p class="lead">O rosto envelhece em camadas. Por isso a gente trata em camadas, na ordem certa, em vez de correr atrás de uma ruga de cada vez.</p>
     </div>
-    <div class="grade grade-3">
-      ${Object.values(pilares).map((p, i) => `<article class="pilar"><span class="pilar-numero">0${i + 1}</span><small>${esc(p.resumo)}</small><h3>${esc(p.nome)}</h3><p>${esc(p.texto)}</p></article>`).join('')}
+    <div class="grade pilares-lado">
+      ${Object.values(pilares).map((p) => `<article class="pilar"><h3>${esc(p.nome)}</h3><p>${esc(p.texto)}</p></article>`).join('')}
     </div>
     <p class="centro" style="margin-top:32px"><a class="link-seta" href="${href('/metodo')}">Como o plano de tratamento funciona ${icone('direita')}</a></p>
   </div>
 </section>
 
-<section class="secao secao-creme" aria-labelledby="titulo-tratamentos">
-  <div class="container cabecalho-secao">
-    <span class="sobretitulo">Tratamentos</span>
-    <h2 id="titulo-tratamentos">Rosto, corpo e nutrição no mesmo lugar.</h2>
-    <p class="lead">Cada tratamento tem uma página com indicações, como funciona, cuidados e respostas às dúvidas mais comuns.</p>
-  </div>
-  <div class="carrossel-envoltorio">
-    <div class="carrossel" id="carrossel-tratamentos" tabindex="0" aria-label="Lista de tratamentos">
-      ${servicosAtivos.map(cartaoServico).join('')}
+<section class="secao secao-creme" aria-labelledby="titulo-sinais">
+  <div class="container">
+    <div class="cabecalho-secao">
+      <h2 id="titulo-sinais">Você reconhece esses sinais no seu rosto?</h2>
+      <p class="lead">O envelhecimento é natural. O que tratamos é o que tira o equilíbrio do seu rosto.</p>
     </div>
-    <div class="container carrossel-setas">
-      <button class="seta" type="button" data-carrossel="carrossel-tratamentos" data-direcao="-1" aria-label="Tratamentos anteriores">${icone('esquerda')}</button>
-      <button class="seta" type="button" data-carrossel="carrossel-tratamentos" data-direcao="1" aria-label="Próximos tratamentos">${icone('direita')}</button>
+    <div class="grade grade-3">
+      ${sinaisRosto.map((q) => `<a class="sinal" href="${href('/tratamentos/' + q.servico)}"><h3>${esc(q.titulo)}</h3><p>${esc(q.texto)}</p></a>`).join('')}
     </div>
+    ${sinaisCorpo.length ? `<p class="sinais-corpo"><span>Para o corpo:</span> ${sinaisCorpo.map((q) => `<a href="${href('/tratamentos/' + q.servico)}">${esc(q.titulo)}</a>`).join('<span aria-hidden="true"> · </span>')}</p>` : ''}
   </div>
 </section>
-
-${blocoAntesDepois({ servicos: facial, titulo: 'Resultados que continuam parecendo você.', texto: 'Casos reais de pacientes da clínica, publicados com autorização. Arraste para comparar.', pagina: 'home' })}
 
 <section class="secao" aria-labelledby="titulo-dra">
   <div class="container perfil">
@@ -138,8 +178,8 @@ ${blocoAntesDepois({ servicos: facial, titulo: 'Resultados que continuam parecen
     <div>
       <span class="sobretitulo">Quem cuida de você</span>
       <h2 id="titulo-dra">${esc(nomeCompleto(g))}</h2>
-      <p class="lead">${esc(g.bioCurta)}</p>
-      <p><span class="credencial">${icone('selo')}${registroTexto(g)}</span><span class="credencial">${icone('check')}${esc(g.conselho.habilitacao)}</span></p>
+      ${(g.apresentacao || [g.bioCurta]).map((t, i) => `<p class="${i ? 'apresentacao' : 'lead'}">${esc(t)}</p>`).join('')}
+      <p><span class="credencial">${icone('selo')}${registroTexto(g)}</span><span class="credencial">${icone('check')}${esc(g.conselho.habilitacao)}</span>${g.anosDeExperiencia ? `<span class="credencial">${icone('relogio')}${g.anosDeExperiencia} anos de experiência em estética</span>` : ''}</p>
       <a class="link-seta" href="${href('/dra-girlane-ferreira')}">Formação e trajetória ${icone('direita')}</a>
     </div>
   </div>
@@ -148,39 +188,92 @@ ${blocoAntesDepois({ servicos: facial, titulo: 'Resultados que continuam parecen
 <section class="secao secao-creme" aria-labelledby="titulo-etapas">
   <div class="container">
     <div class="cabecalho-secao">
-      <span class="sobretitulo">Como funciona</span>
       <h2 id="titulo-etapas">Da consulta ao acompanhamento.</h2>
     </div>
-    <ol class="etapas">
-      <li><h3>Consulta</h3><p>Conversa sem pressa, histórico de saúde e fotos padronizadas do rosto em repouso e em movimento.</p></li>
-      <li><h3>Plano por escrito</h3><p>Prioridades, técnicas, número de sessões e investimento. Você decide com calma.</p></li>
-      <li><h3>Tratamento</h3><p>Produtos com registro na Anvisa, lote anotado no prontuário e material descartável.</p></li>
-      <li><h3>Acompanhamento</h3><p>Entre 15 e 30 dias depois, comparamos as fotos e definimos a manutenção.</p></li>
+    <ol class="etapas etapas-sem-numero">
+      <li><h3>Consulta</h3><p>Conversamos sem pressa. Aqui entendemos suas queixas e os resultados que vamos construir juntos.</p></li>
+      <li><h3>Tratamento</h3><p>Definimos as prioridades, a melhor técnica e o tratamento indicado para o seu caso.</p></li>
+      <li><h3>Acompanhamento</h3><p>Depois do tratamento, acompanhamos você de perto para chegar ao melhor resultado.</p></li>
     </ol>
   </div>
 </section>
 
-<section class="secao" aria-labelledby="titulo-conteudo">
+<section class="secao" aria-labelledby="titulo-tratamentos">
+  <div class="container cabecalho-secao">
+    <h2 id="titulo-tratamentos">O <strong><em>rosto</em></strong> em primeiro lugar.<br>Corpo e nutrição complementam o cuidado.</h2>
+  </div>
+  <div class="carrossel-envoltorio">
+    <div class="carrossel" id="carrossel-tratamentos" tabindex="0" aria-label="Tratamentos em destaque">
+      ${destaques.map(cartaoServico).join('')}
+    </div>
+    <div class="container carrossel-setas">
+      <a class="botao botao-secundario" href="${href('/tratamentos')}">Ver todos os tratamentos</a>
+      <span class="carrossel-setas-botoes">
+        <button class="seta" type="button" data-carrossel="carrossel-tratamentos" data-direcao="-1" aria-label="Tratamentos anteriores">${icone('esquerda')}</button>
+        <button class="seta" type="button" data-carrossel="carrossel-tratamentos" data-direcao="1" aria-label="Próximos tratamentos">${icone('direita')}</button>
+      </span>
+    </div>
+  </div>
+</section>
+
+${depoimentos.length || av ? `<section class="secao secao-creme" aria-labelledby="titulo-depoimentos">
   <div class="container">
     <div class="cabecalho-secao">
-      <span class="sobretitulo">Conteúdo educativo</span>
-      <h2 id="titulo-conteudo">Antes de decidir, entenda.</h2>
-      <p class="lead">Artigos escritos pela Dra. Girlane para quem quer saber como cada tratamento funciona de verdade.</p>
+      <h2 id="titulo-depoimentos">O que dizem as pacientes.</h2>
     </div>
-    <div class="grade grade-3">${artigos.slice(0, 3).map(cartaoArtigo).join('')}</div>
-    <p style="margin-top:32px"><a class="link-seta" href="${href('/conteudo')}">Todos os artigos ${icone('direita')}</a></p>
+  </div>
+  ${depoimentos.length ? (() => {
+    // Foto só de quem autorizou (campo "foto" em site.mjs); as demais ficam com a inicial do nome.
+    const avatar = (d) => d.foto
+      ? `<img class="avatar" src="${href(d.foto)}" alt="" width="36" height="36" loading="lazy" decoding="async">`
+      : `<span class="avatar" aria-hidden="true">${esc(d.autor.trim().charAt(0).toUpperCase())}</span>`;
+    const cartoes = (lista, oculto) => lista.map((d) => `<figure class="depoimento"${oculto ? ' aria-hidden="true"' : ''}><div class="estrelas"${oculto ? '' : ' role="img" aria-label="5 estrelas"'}>${icone('estrela').repeat(5)}</div><blockquote>“${esc(d.texto)}”</blockquote><figcaption>${avatar(d)}<span>${esc(d.autor)}${d.fonte ? ' · avaliação no ' + esc(d.fonte) : ''}</span></figcaption></figure>`).join('');
+    // Duas faixas: a de cima anda para a esquerda, a de baixo para a direita.
+    // Cada lista aparece duas vezes para o movimento emendar sem salto; a cópia fica escondida dos leitores de tela.
+    const meio = Math.ceil(depoimentos.length / 2);
+    const linhas = depoimentos.length > 3 ? [depoimentos.slice(0, meio), depoimentos.slice(meio)] : [depoimentos];
+    const faixa = (lista, i) => `<div class="faixa-avaliacoes${i ? ' faixa-avaliacoes-direita' : ''}" tabindex="0" aria-label="Avaliações de pacientes no Google${linhas.length > 1 ? `, faixa ${i + 1} de ${linhas.length}` : ''}"><div class="faixa-avaliacoes-trilho" style="--duracao:${lista.length * 15}s">${cartoes(lista, false)}${cartoes(lista, true)}</div></div>`;
+    return `<div class="faixas-avaliacoes">${linhas.map(faixa).join('')}</div>`;
+  })() : ''}
+  <div class="container">
+    ${preenchido(site.perfis.googleMaps) ? `<p class="depoimentos-rodape"><a class="link-seta" href="${site.perfis.googleMaps}" rel="noopener">Ver todas as avaliações no Google ${icone('direita')}</a></p>` : ''}
+  </div>
+</section>` : ''}
+
+${blocoAntesDepois({ servicos: facial, titulo: 'Resultados que continuam parecendo você.', texto: 'Casos reais das nossas pacientes, publicados com autorização. Arraste para comparar.', pagina: 'home' })}
+
+<section class="secao editorial" aria-labelledby="titulo-conteudo">
+  <div class="container">
+    <header class="editorial-cabecalho">
+      <span class="editorial-rubrica">Escrito pela Dra. Girlane Ferreira</span>
+      <h2 id="titulo-conteudo">Artigos que escrevi recentemente</h2>
+      <a class="link-seta" href="${href('/conteudo')}">Todos os artigos ${icone('direita')}</a>
+    </header>
+    ${(() => {
+      const [principal, ...outros] = artigos.slice(0, 4);
+      const data = (x) => `<time datetime="${x.publicado}">${dataBR(x.publicado)}</time>`;
+      const foto = fotoPro('girlane');
+      return `<div class="editorial-grade">
+      <article class="materia materia-principal">
+        <span class="materia-editoria">${esc(principal.categoria)}</span>
+        <h3><a href="${href('/conteudo/' + principal.slug)}">${esc(principal.titulo)}</a></h3>
+        <p class="materia-linha-fina">${esc(principal.resumo)}</p>
+        <p class="materia-assinatura">${foto ? `<img src="${href(foto.src)}" alt="" width="44" height="44" loading="lazy" decoding="async">` : ''}<span>Por <strong>${esc(nomeCompleto(g))}</strong><br>Biomédica esteta, ${registroTexto(g)} · ${data(principal)}</span></p>
+        <a class="link-seta" href="${href('/conteudo/' + principal.slug)}">Ler o artigo ${icone('direita')}</a>
+      </article>
+      <div class="materias-secundarias">
+        ${outros.map((x) => `<article class="materia">
+          <span class="materia-editoria">${esc(x.categoria)}</span>
+          <h3><a href="${href('/conteudo/' + x.slug)}">${esc(x.titulo)}</a></h3>
+          <p class="materia-data">Por Dra. Girlane Ferreira · ${data(x)}</p>
+        </article>`).join('')}
+      </div>
+    </div>`;
+    })()}
   </div>
 </section>
 
-<section class="secao secao-clara" aria-labelledby="titulo-faq">
-  <div class="container-texto">
-    <h2 id="titulo-faq">Perguntas frequentes</h2>
-    ${faqHtml(faqsHome)}
-    <p style="margin-top:24px"><a class="link-seta" href="${href('/perguntas-frequentes')}">Ver todas as perguntas ${icone('direita')}</a></p>
-  </div>
-</section>
-
-<section class="secao" aria-labelledby="titulo-local">
+<section class="secao secao-clara" aria-labelledby="titulo-local">
   <div class="container">
     <div class="cabecalho-secao">
       <span class="sobretitulo">Visite a clínica</span>
@@ -189,7 +282,7 @@ ${blocoAntesDepois({ servicos: facial, titulo: 'Resultados que continuam parecen
     </div>
     ${fotoClinica('recepcao') ? `<div class="foto-larga" style="margin-bottom:24px">${imagem({ foto: fotoClinica('recepcao'), alt: 'Recepção da Clínica Girlane Ferreira no Jardim Iririú, Joinville' })}</div>` : ''}
     ${galeria().length ? `<div class="galeria" style="margin-bottom:24px">${galeria().slice(0, 3).map((f) => `<figure class="foto-larga" style="margin:0">${imagem({ foto: f, alt: altClinica(f) })}</figure>`).join('')}</div>` : ''}
-    ${blocoLocal()}
+    ${blocoVisita()}
   </div>
 </section>
 ${ctaFinal()}`;
@@ -198,10 +291,10 @@ ${ctaFinal()}`;
     prioridade: '1.0',
     html: pagina({
       caminho,
-      titulo: 'Clínica Girlane Ferreira | Estética avançada em Joinville, SC',
-      descricao: 'Clínica de estética em Joinville com a biomédica esteta Dra. Girlane Ferreira: harmonização facial, bioestimuladores, botox, corpo e nutrição em um só plano.',
+      titulo: 'Clínica Girlane Ferreira | Rejuvenescimento e harmonização facial em Joinville',
+      descricao: 'Rejuvenescimento e harmonização facial com naturalidade em Joinville, com a biomédica esteta Dra. Girlane Ferreira. Planos de tratamento para o seu rosto, com acompanhamento.',
       corpo,
-      schema: [...paginaSchema({ caminho, nome: site.nome, descricao: site.descricao }), faqSchema(caminho, faqsHome)],
+      schema: [...paginaSchema({ caminho, nome: site.nome, descricao: site.descricao })],
     }),
   };
 }
@@ -735,7 +828,7 @@ export function privacidade() {
 <section class="secao"><div class="container-texto prosa">
   <p>Esta política explica como a ${esc(site.nome)} (${mostrar(site.razaoSocial, 'Razão social')}, CNPJ ${mostrar(site.cnpj, 'CNPJ')}) trata dados pessoais, de acordo com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).</p>
   <h2>Dados que coletamos pelo site</h2>
-  <p>Este site não tem formulários nem cookies de publicidade. ${site.analyticsVercel ? 'Usamos o Vercel Web Analytics, que mede visitas de forma agregada e sem cookies.' : ''} Quando você clica para falar pelo WhatsApp, a conversa acontece no aplicativo, e os dados que você enviar serão usados apenas para agendamento e atendimento.</p>
+  <p>Este site não tem formulários nem cookies de publicidade. ${site.analyticsVercel ? 'Usamos o Vercel Web Analytics, que mede visitas de forma agregada e sem cookies.' : ''} A página inicial mostra um mapa do Google Maps; ao carregá-lo, o Google pode registrar dados de navegação conforme a política de privacidade dele. Quando você clica para falar pelo WhatsApp, a conversa acontece no aplicativo, e os dados que você enviar serão usados apenas para agendamento e atendimento.</p>
   <h2>Dados de saúde</h2>
   <p>Informações de saúde e fotos feitas na clínica são dados sensíveis. Ficam no prontuário, com acesso restrito à equipe responsável pelo seu atendimento, e não são divulgadas sem autorização expressa e por escrito.</p>
   <h2>Seus direitos</h2>

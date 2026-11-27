@@ -31,8 +31,8 @@ export const site = {
     cep: '89224-090',
     pais: 'BR',
     // Copie do Google Maps (clique com o botão direito no pin da clínica)
-    latitude: null,                           // ex.: -26.3044
-    longitude: null,                          // ex.: -48.8487
+    latitude: -26.2634218,                    // do Perfil da Empresa no Google
+    longitude: -48.8037049,
     referencia: '',                           // ex.: 'Em frente ao Shopping Mueller'
   },
 
@@ -56,7 +56,8 @@ export const site = {
   perfis: {
     instagram: 'https://www.instagram.com/dra.girlaneferreira/',
     instagramClinica: 'https://www.instagram.com/clinicagirlaneferreira/',
-    googleMaps: '',        // link "Compartilhar" do Perfil da Empresa no Google
+    googleMaps: 'https://maps.google.com/?cid=12780584382842996891', // Perfil da Empresa no Google
+    googleMapsLugar: '0x94deafed6802f801:0xb15dc1c82143089b', // código do lugar no Google (o mapa da página inicial mostra este perfil)
     googleAvaliar: '',     // link "Pedir avaliações" do Perfil da Empresa
     facebook: '',
     tiktok: '',
@@ -67,6 +68,12 @@ export const site = {
   // Dados legais (política de privacidade)
   razaoSocial: '',
   cnpj: '30.344.954/0001-82',
+
+  // Nota no Google (copiar do Perfil da Empresa e atualizar de vez em quando).
+  // O perfil ainda aparece com o nome antigo, "Mais que Rubis Studio".
+  // Fica só no texto da página, fora dos dados estruturados: o Google não
+  // aceita que o próprio site marque as suas avaliações.
+  avaliacoesGoogle: { nota: '5,0', total: 47, nomeNoGoogle: 'Mais que Rubis Studio', conferidoEm: '2026-11-27' },
 
   // Ferramentas
   googleVerificacao: '',   // código da meta tag do Search Console (se não usar verificação por DNS)
@@ -101,10 +108,15 @@ export const profissionais = {
     atualizacoes: [
       // 'Congresso XYZ de Estética Avançada (2025)',
     ],
-    anosDeExperiencia: null,                // ex.: 8
+    anosDeExperiencia: 12,                  // atuação em estética
     foto: null,                             // ex.: '/img/dra-girlane-ferreira-biomedica-esteta-joinville.webp'
     instagram: 'https://www.instagram.com/dra.girlaneferreira/',
     areas: ['Gerenciamento do envelhecimento facial', 'Harmonização facial', 'Preenchimento com ácido hialurônico', 'Toxina botulínica', 'Bioestimuladores de colágeno', 'Qualidade de pele'],
+    // Apresentação em primeira pessoa (página inicial, seção "Quem cuida de você")
+    apresentacao: [
+      'Sou biomédica esteta e há 12 anos trabalho com estética. Nesse tempo, aprendi que um rosto bonito não vem de procedimentos soltos, e sim de um plano pensado para cada pessoa, feito na ordem certa e acompanhado de perto.',
+      'Foi com essa experiência que criei a Clínica Girlane Ferreira, em Joinville. Meu trabalho não é mudar quem você é: é cuidar para que o que é seu permaneça, com naturalidade e critério.',
+    ],
     bioCurta:
       'Biomédica esteta e fundadora da Clínica Girlane Ferreira, em Joinville. Trabalha com planos de tratamento para o rosto, pensados para acompanhar o envelhecimento com naturalidade, em vez de procedimentos soltos.',
   },
@@ -146,7 +158,25 @@ export const profissionais = {
 // de preferência copiados das avaliações do Google. Sem promessa de
 // resultado e sem fotos de antes e depois.
 // Ex.: { texto: 'Fui muito bem orientada desde a consulta...', autor: 'Mariana S.', fonte: 'Google', data: '2026-12-01' }
-export const depoimentos = [];
+// Foto da paciente: só com autorização dela. Salve a imagem em
+// public/img/depoimentos/ e preencha, por ex.: foto: '/img/depoimentos/ana-carolina.webp'.
+// Sem foto, o cartão mostra a inicial do nome. As fotos atuais vieram do
+// perfil de cada paciente no Google, com autorização (27/11/2026).
+export const depoimentos = [
+  // Copiados das avaliações do Google (perfil da clínica), em 27/11/2026.
+  { texto: 'Eu amei o atendimento, desde a recepção até chegar à Dra. Girlane, que é muito atenciosa e amorosa! (…) Vou voltar e indicar para muitas pessoas!', autor: 'Ana Carolina', foto: '/img/depoimentos/ana-carolina.jpg', fonte: 'Google', data: '2026-11' },
+  { texto: 'Sem palavras, começando pelo atendimento maravilhoso da Gi, e o ambiente super aconchegante, com canções que alegram seu coração e te fazem relaxar. Muito profissional, super indico!', autor: 'Fernanda F.', fonte: 'Google', data: '2023' },
+  { texto: 'A clínica é impecável em todos os aspectos, da estrutura ao atendimento! Só agradecer e indicar esse trabalho maravilhoso!', autor: 'Kami N.', foto: '/img/depoimentos/kami-n.jpg', fonte: 'Google', data: '2026-11' },
+  { texto: 'A clínica é maravilhosa, fui muito bem recebida. Profissionais competentes e atendimento responsável.', autor: 'Margarete Z.', fonte: 'Google', data: '2026-11' },
+  { texto: 'Excelente atendimento. Fazem tudo com muito amor e profissionalismo. Recomendo.', autor: 'Marilia O.', foto: '/img/depoimentos/marilia-o.jpg', fonte: 'Google', data: '2022' },
+  { texto: 'Cada cantinho é muito lindo e aconchegante! Profissionalismo do digital ao presencial… recomendo muito.', autor: 'Evellyn K.', foto: '/img/depoimentos/evellyn-k.jpg', fonte: 'Google', data: '2026-11' },
+  { texto: 'Lugar maravilhoso, pessoas queridas, excelente profissional, carinhosa, atenciosa. Espaço limpo e organizado. Estão de parabéns, super recomendo!', autor: 'Aline F.', foto: '/img/depoimentos/aline-f.jpg', fonte: 'Google', data: '2022' },
+  { texto: 'Excelentes profissionais! Um local onde você se sente muito bem acolhida.', autor: 'Marcia B.', foto: '/img/depoimentos/marcia-b.jpg', fonte: 'Google', data: '2023' },
+  { texto: 'Lugar maravilhoso, pessoas atenciosas, fui muito bem recebida.', autor: 'Julie Cristine S.', fonte: 'Google', data: '2026-11' },
+  { texto: 'Atendimento maravilhoso, profissionais excelentes, amei o trabalho.', autor: 'Anah D.', fonte: 'Google', data: '2023' },
+  { texto: 'Melhor lugar para estética! As meninas são super atenciosas, me sinto muito bem cuidada.', autor: 'Adriana F.', fonte: 'Google', data: '2024' },
+  { texto: 'Super indico! Atendimento excelente e com qualidade.', autor: 'Jenifer F.', fonte: 'Google', data: '2024' },
+];
 
 // Data da última revisão geral do conteúdo (aparece nas páginas)
 export const revisadoEm = '2026-11-24';

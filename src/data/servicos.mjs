@@ -9,10 +9,31 @@ export const categorias = {
   nutricao: { nome: 'Nutrição', descricao: 'O que acontece por dentro aparece na pele.', cor: 'nutricao' },
 };
 
+// Queixas: como a paciente descreve o que sente, no lugar do nome técnico.
+// Cada uma aponta para o tratamento que a resolve. Usadas na página inicial.
+export const queixas = [
+  { titulo: 'Rugas na testa e pés de galinha', texto: 'Marcas que aparecem quando você sorri ou franze e, com o tempo, ficam mesmo parada.', servico: 'toxina-botulinica' },
+  { titulo: 'Bigode chinês marcado', texto: 'O vinco do nariz à boca costuma vir da perda de suporte das maçãs do rosto, não da pele.', servico: 'preenchimento-com-acido-hialuronico' },
+  { titulo: 'Rosto caído ou flácido', texto: 'A pele perde colágeno e firmeza, e o contorno do rosto começa a ceder.', servico: 'bioestimuladores-de-colageno' },
+  { titulo: 'Olheiras e olhar cansado', texto: 'Parece cansaço mesmo depois de dormir bem. Muitas vezes é perda de volume embaixo dos olhos.', servico: 'preenchimento-com-acido-hialuronico' },
+  { titulo: 'Manchas e melasma', texto: 'Manchas de sol, de acne ou melasma que voltam e deixam o tom da pele irregular.', servico: 'tratamento-de-manchas' },
+  { titulo: 'Pele opaca e sem viço', texto: 'A pele desidratada perde brilho e mostra linhas finas mais cedo.', servico: 'skinbooster' },
+  { titulo: 'Lábios finos ou sem contorno', texto: 'Com os anos, os lábios perdem volume e o desenho da boca fica menos definido.', servico: 'preenchimento-com-acido-hialuronico' },
+  { titulo: 'Mandíbula e queixo sem definição', texto: 'Quando o contorno do rosto perde a linha, ele parece mais pesado e mais velho.', servico: 'harmonizacao-facial' },
+  { titulo: 'Cicatrizes de acne e poros', texto: 'Textura irregular que a maquiagem não disfarça.', servico: 'microagulhamento' },
+  { titulo: 'Inchaço e pernas pesadas', texto: 'Retenção de líquido que piora no fim do dia ou antes da menstruação.', servico: 'drenagem-linfatica' },
+  { titulo: 'Celulite e contorno do corpo', texto: 'Furinhos e sensação de corpo pesado, mesmo cuidando da alimentação.', servico: 'massagem-modeladora' },
+  { titulo: 'Emagrecer sem ficar flácida', texto: 'Perder medidas mantendo músculo, firmeza e uma pele bonita.', servico: 'nutricao-estetica' },
+];
+
+// Carros-chefes: os tratamentos que aparecem em cartões na página inicial.
+// Os demais ficam em "Ver todos os tratamentos". Troque ou reordene à vontade.
+export const destaquesHome = ['harmonizacao-facial', 'bioestimuladores-de-colageno', 'toxina-botulinica', 'preenchimento-com-acido-hialuronico'];
+
 export const pilares = {
-  reestruturacao: { nome: 'Reestruturação', resumo: 'Estrutura e volume', texto: 'Repor o suporte que o rosto perde com o tempo: osso, gordura e ligamentos mudam, e o contorno cai junto.' },
-  pelequetoca: { nome: 'Pele que toca', resumo: 'Firmeza', texto: 'Estimular colágeno e elastina para a pele voltar a ter densidade e firmeza ao toque.' },
-  pelequeseve: { nome: 'Pele que se vê', resumo: 'Linhas, manchas e textura', texto: 'Tratar o que aparece na superfície: rugas de expressão, manchas, poros e viço.' },
+  reestruturacao: { nome: 'Reestruturação', queixa: 'Quando o rosto parece caído ou cansado', resumo: 'Estrutura e volume', texto: 'Repor o suporte que o rosto perde com o tempo: osso, gordura e ligamentos mudam com o passar dos anos, e por isso o contorno do rosto cai.' },
+  pelequetoca: { nome: 'Pele que toca', queixa: 'Quando a pele perdeu firmeza', resumo: 'Firmeza', texto: 'Estimular colágeno e elastina para a pele voltar a ter densidade e firmeza ao toque.' },
+  pelequeseve: { nome: 'Pele que se vê', queixa: 'Quando incomodam rugas, manchas e textura', resumo: 'Linhas, manchas e textura', texto: 'Tratar o que aparece na superfície: rugas de expressão, manchas, poros e viço.' },
 };
 
 export const servicos = [

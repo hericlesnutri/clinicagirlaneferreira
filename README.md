@@ -19,7 +19,8 @@ Todo campo marcado como `PREENCHER` aparece como aviso no build e fica fora dos 
 ## Comandos
 
 ```bash
-npm run build     # gera /dist (é o que a Vercel roda)
+npm run dev       # roda o site em http://localhost:4321 e atualiza a cada mudança
+npm run build     # gera /dist (é o que a hospedagem roda)
 npm run preview   # gera /dist-preview com links .html para abrir direto no navegador
 npm run validar   # build + checagem de links, títulos, H1 e JSON-LD
 ```

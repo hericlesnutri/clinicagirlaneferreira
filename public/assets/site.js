@@ -7,10 +7,25 @@
       botao.setAttribute('aria-expanded', String(abrir));
       botao.setAttribute('aria-label', abrir ? 'Fechar menu' : 'Abrir menu');
       menu.classList.toggle('aberto', abrir);
+      document.body.classList.toggle('menu-aberto', abrir);
     };
     botao.addEventListener('click', () => alternar(botao.getAttribute('aria-expanded') !== 'true'));
     document.addEventListener('keydown', (e) => e.key === 'Escape' && alternar(false));
     menu.addEventListener('click', (e) => e.target.closest('a') && alternar(false));
+  }
+
+  // Rodapé: grupos abertos no computador, sanfona fechada no celular
+  const celular = matchMedia('(max-width: 760px)');
+  const grupos = document.querySelectorAll('.rodape-grupo');
+  const ajustarRodape = () => grupos.forEach((d) => { d.open = !celular.matches; });
+  ajustarRodape();
+  celular.addEventListener('change', ajustarRodape);
+
+  // Esconde o botão flutuante enquanto a abertura está visível
+  const hero = document.querySelector('.hero');
+  if (hero && 'IntersectionObserver' in window) {
+    const obsHero = new IntersectionObserver(([e]) => document.body.classList.toggle('hero-visivel', e.isIntersecting), { threshold: 0.25 });
+    obsHero.observe(hero);
   }
 
   const reduzir = matchMedia('(prefers-reduced-motion: reduce)').matches;

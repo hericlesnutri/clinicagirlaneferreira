@@ -6,6 +6,7 @@
   "description": "Site da Clínica Girlane Ferreira (Joinville, SC). HTML estático gerado sem dependências.",
   "engines": { "node": ">=18" },
   "scripts": {
+    "dev": "node scripts/dev.mjs",
     "build": "node scripts/build.mjs",
     "preview": "node scripts/build.mjs --preview",
     "validar": "node scripts/build.mjs && node tools/validar.mjs dist"
