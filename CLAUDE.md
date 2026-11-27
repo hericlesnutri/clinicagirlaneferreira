@@ -21,18 +21,18 @@ Site estático de www.clinicagirlaneferreira.com.br (Joinville, SC), gerado por 
 
 ## Design
 
-Inspiração: www.apple.com. Elegante, limpo e minimalista. Cores da marca: principais #9E7F60 e #333333; apoio #DFD7CC e #F5F3E7.
+Inspiração: www.apple.com. Elegante, limpo e minimalista. **Só tema claro**: o site não tem modo escuro (decisão da Dra. Girlane, 27/11/2026); não crie regras `prefers-color-scheme: dark`. Cores da marca: principais #9E7F60 e #333333; apoio #DFD7CC e #F5F3E7.
 
 Ao terminar uma mudança de interface, confira estes 10 itens no que você alterou e diga quais aplicou:
 
 1. Raio concêntrico: elemento arredondado dentro de outro usa o raio de fora menos o espaçamento entre eles (cartão 24px com padding 8px → dentro `calc(24px - 8px)`). Nunca o mesmo raio nos dois.
-2. Bordas com transparência: `rgb(0 0 0 / 0.12)` no claro e `rgb(255 255 255 / 0.12)` no escuro, no lugar de hex sólido.
+2. Bordas com transparência: `rgb(0 0 0 / 0.12)` (ou `0.07` nas suaves), no lugar de hex sólido.
 3. Paletas em OKLCH, não HSL: cores irmãs com mesmo L e C, mudando só o H. C dentro do sRGB.
 4. Degradês com `in oklch` (ou `in oklab` se surgir um matiz que não está nas pontas), com a mesma linha sem o `in` logo antes como reserva.
 5. Traço do ícone acompanha o peso do texto ao lado. Ícone 20px com texto 16px: peso 400 = 1.75, 500 = 2, 600 = 2.5, 700 = 2.75. Outros tamanhos: haste do texto em px × 24 ÷ tamanho do ícone.
 6. Carrosséis e listas com rolagem horizontal somem nas pontas com `mask-image` (e `-webkit-mask-image`) `linear-gradient(90deg, transparent, #000 15% 85%, transparent)`. Setas ficam fora do elemento com máscara.
 7. Troca de ícone (menu/fechar etc.): os dois no mesmo lugar, o escondido com `opacity: 0` e `filter: blur(4px)`, transição de 200ms, e `transition: none` em `prefers-reduced-motion: reduce`.
-8. Modo escuro mostra profundidade com superfície mais clara, não com sombra: página, cartão e menu sobem ~7 pontos de L em OKLCH, com borda `rgb(255 255 255 / 0.08)` na camada de cima.
+8. (Sem modo escuro.) Profundidade com superfícies em camadas: página branca, seções creme e cartões brancos com borda suave, sombra só bem leve.
 9. Tela cheia: `min-height: 100vh` seguido de `min-height: 100dvh`, nunca 100vh sozinho (100svh se a seção pular com a barra do navegador).
 10. Foto de produto com fundo branco sobre fundo claro colorido: `mix-blend-mode: multiply` na img e `isolation: isolate` no cartão. Nunca em fundo escuro.
 

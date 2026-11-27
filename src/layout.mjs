@@ -42,13 +42,14 @@ export function imagem({ src, alt, largura = 1200, altura = 900, prioridade = fa
   return `<img src="${href(src)}" alt="${esc(alt)}" width="${largura}" height="${altura}" ${prioridade ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async">`;
 }
 
+// Só os nomes mudaram; os endereços das páginas continuam os mesmos (bom para o Google).
+// A apresentação da Dra. Girlane fica na página Equipe.
 const menu = [
-  ['/tratamentos', 'Tratamentos'],
-  ['/metodo', 'Método'],
-  ['/dra-girlane-ferreira', 'Dra. Girlane'],
+  ['/tratamentos', 'Serviços'],
+  ['/metodo', 'Como funciona'],
   ['/equipe', 'Equipe'],
   ['/resultados', 'Resultados'],
-  ['/conteudo', 'Conteúdo'],
+  ['/conteudo', 'Artigos'],
   ['/contato', 'Contato'],
 ];
 
@@ -147,8 +148,8 @@ export function pagina(o) {
 <meta name="description" content="${esc(o.descricao)}">
 <link rel="canonical" href="${canonica}">
 <meta name="robots" content="${o.noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'}">
-<meta name="theme-color" content="#F5F3E7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#1c1a18" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F5F3E7">
+<meta name="color-scheme" content="light">
 <meta name="author" content="${esc(nomeCompleto(profissionais.girlane))}">
 <meta name="geo.region" content="BR-SC">
 <meta name="geo.placename" content="Joinville">
@@ -199,7 +200,7 @@ export function faqHtml(faqs) {
     .join('')}</div>`;
 }
 
-export function ctaFinal(titulo = 'O primeiro passo é uma consulta.', texto = 'Conversamos sobre o que você quer, analisamos o seu rosto com calma e alinhamos expectativas. Sem pressa para decidir.') {
+export function ctaFinal(titulo = 'O primeiro passo é uma consulta.', texto = 'Conversamos sobre o que você quer, analisamos o seu rosto com calma e alinhamos expectativas.') {
   return `
 <section class="secao secao-creme cta-final">
   <div class="container">

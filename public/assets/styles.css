@@ -5,7 +5,7 @@
    ===================================================================== */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light; /* só tema claro */
 
   /* Marca (hex exato + equivalente OKLCH) */
   --bronze: #9E7F60;            /* oklch(61.8% 0.058 66.4) */
@@ -48,28 +48,6 @@
   --sombra: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 28px rgb(0 0 0 / 0.06);
 }
 
-/* Modo escuro: profundidade por superfície mais clara (ajuste 8)
-   página 17% → cartão 24% → menu 31% de L no OKLCH */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --pagina: oklch(17% 0.006 66);
-    --superficie: oklch(17% 0.006 66);
-    --superficie-2: oklch(20% 0.006 66);
-    --cartao: oklch(24% 0.006 66);
-    --menu: oklch(31% 0.006 66);
-    --texto: oklch(95% 0.01 90);
-    --texto-2: oklch(76% 0.012 80);
-    --link: oklch(76% 0.058 66.4);
-    --bronze-forte: oklch(70% 0.058 66.4);
-    --borda: rgb(255 255 255 / 0.12);
-    --borda-suave: rgb(255 255 255 / 0.08);
-    --vidro: oklch(17% 0.006 66 / 0.72);
-    --sombra: none;
-    --cat-facial: oklch(72% 0.058 66.4);
-    --cat-corporal: oklch(72% 0.058 150);
-    --cat-nutricao: oklch(72% 0.058 25);
-  }
-}
 
 /* ---------------- Base ---------------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -131,7 +109,6 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .marca-simbolo { width: 28px; height: 28px; }
 .logo { height: 26px; width: auto; }
 .logo-rodape { height: 56px; width: auto; }
-@media (prefers-color-scheme: dark) { .logo, .logo-rodape { filter: invert(1) brightness(1.05); } }
 .nav-links { display: flex; gap: 28px; list-style: none; margin: 0; padding: 0; }
 .nav-links a { color: var(--texto); font-size: 14px; opacity: .82; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { opacity: 1; text-decoration: none; }
@@ -186,11 +163,6 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .botao-primario, .rodape a.botao-primario, .nav-links a.botao-primario { background: var(--bronze-forte); color: #fff; opacity: 1; }
 .botao-primario:hover, .rodape a.botao-primario:hover { color: #fff; }
 .botao-primario:hover { background: oklch(42% 0.058 66.4); }
-@media (prefers-color-scheme: dark) {
-  .botao-primario, .botao-primario:hover, .rodape a.botao-primario, .rodape a.botao-primario:hover, .nav-links a.botao-primario { color: oklch(17% 0.006 66); }
-  .botao-primario:hover { background: oklch(76% 0.058 66.4); }
-  .botao-secundario:hover { background: rgb(255 255 255 / 0.06); }
-}
 .botao-secundario { background: transparent; color: var(--link); border-color: var(--borda); }
 .botao-secundario:hover { background: rgb(0 0 0 / 0.04); }
 .botao-pequeno { min-height: 32px; padding: 6px 14px; font-size: 13px; }
@@ -211,12 +183,6 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   background: linear-gradient(180deg, var(--creme), #ffffff);
   background: linear-gradient(180deg in oklab, var(--creme), #ffffff); /* oklab: o branco não tem matiz e em oklch puxava rosa */
 }
-@media (prefers-color-scheme: dark) {
-  .hero {
-    background: linear-gradient(180deg, oklch(22% 0.012 66), oklch(17% 0.006 66));
-    background: linear-gradient(180deg in oklch, oklch(22% 0.012 66), oklch(17% 0.006 66));
-  }
-}
 .hero h1 { max-width: 15ch; margin-inline: auto; }
 .hero .lead { margin: 0 auto 2rem; }
 .hero-selo { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--texto-2); margin-bottom: 1.5rem; padding: 6px 14px; border: 1px solid var(--borda); border-radius: var(--r-pilula); }
@@ -227,9 +193,6 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   background: linear-gradient(90deg, var(--bronze-forte), var(--grafite));
   background: linear-gradient(90deg in oklab, var(--bronze-forte), var(--grafite));
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
-@media (prefers-color-scheme: dark) {
-  .texto-degrade { background: linear-gradient(90deg, var(--link), var(--texto)); background: linear-gradient(90deg in oklab, var(--link), var(--texto)); -webkit-background-clip: text; background-clip: text; }
 }
 
 /* ---------------- Cartões (ajuste 1: raio concêntrico) ---------------- */
@@ -253,7 +216,6 @@ a.cartao:hover { text-decoration: none; transform: translateY(-2px); }
 /* Foto de produto sobre fundo claro colorido (ajuste 10) */
 .foto-produto { isolation: isolate; background: var(--creme); }
 .foto-produto img { mix-blend-mode: multiply; }
-@media (prefers-color-scheme: dark) { .foto-produto img { mix-blend-mode: normal; } }
 
 /* Marcador visual quando ainda não há foto */
 .placeholder-visual {
@@ -263,16 +225,11 @@ a.cartao:hover { text-decoration: none; transform: translateY(-2px); }
   color: var(--bronze-forte);
 }
 .placeholder-visual svg { width: 44%; height: auto; opacity: .55; }
-@media (prefers-color-scheme: dark) {
-  .placeholder-visual { background: radial-gradient(120% 120% at 20% 10%, oklch(31% 0.012 66), oklch(24% 0.006 66)); }
-}
 .tag { display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: .02em; text-transform: uppercase; padding: 4px 10px; border-radius: var(--r-pilula); margin-bottom: 10px; }
 .tag-facial { color: var(--cat-facial); background: color-mix(in oklch, var(--cat-facial) 14%, transparent); }
 .tag-corporal { color: var(--cat-corporal); background: color-mix(in oklch, var(--cat-corporal) 14%, transparent); }
 .tag-nutricao { color: var(--cat-nutricao); background: color-mix(in oklch, var(--cat-nutricao) 14%, transparent); }
-@media (prefers-color-scheme: light) {
-  .tag-facial { color: oklch(46% 0.058 66.4); } .tag-corporal { color: oklch(46% 0.058 150); } .tag-nutricao { color: oklch(46% 0.058 25); }
-}
+.tag-facial { color: oklch(46% 0.058 66.4); } .tag-corporal { color: oklch(46% 0.058 150); } .tag-nutricao { color: oklch(46% 0.058 25); }
 
 /* ---------------- Grades ---------------- */
 .grade { display: grid; gap: 20px; }
@@ -518,20 +475,17 @@ a.tag { text-decoration: none; }
 .hero-claro .botao-primario { background: var(--grafite); color: var(--creme); }
 .hero-claro .botao-primario:hover { background: #222; color: #fff; }
 @media (max-width: 800px) {
-  /* Celular: foto no alto (rosto livre), texto embaixo sobre o tom do piso da foto */
-  .hero-claro .hero-fundo { height: 62%; }
+  /* Celular: foto no alto com o rosto livre; o texto começa na metade da foto,
+     sobre um véu no tom do fundo. A abertura termina no botão (sem sobrar espaço). */
+  .hero-claro { display: block; min-height: 0; padding: 58vw 0 36px; }
+  .hero-claro .hero-fundo { height: 120vw; }
   .hero-claro .hero-fundo img { height: 100%; object-position: 62% top; }
   .hero-claro::before {
-    background: linear-gradient(180deg, rgb(242 223 236 / 0) 44%, var(--hero-fundo) 62%);
-    background: linear-gradient(180deg in oklab, rgb(242 223 236 / 0) 44%, var(--hero-fundo) 62%);
+    background: linear-gradient(180deg, rgb(242 223 236 / 0) 38vw, rgb(242 223 236 / 0.88) 62vw, var(--hero-fundo) 96vw);
+    background: linear-gradient(180deg in oklab, rgb(242 223 236 / 0) 38vw, rgb(242 223 236 / 0.88) 62vw, var(--hero-fundo) 96vw);
   }
-}
-@media (max-width: 800px) and (max-height: 740px) {
-  .hero-claro .hero-fundo { height: 56%; }
-  .hero-claro::before {
-    background: linear-gradient(180deg, rgb(242 223 236 / 0) 38%, var(--hero-fundo) 56%);
-    background: linear-gradient(180deg in oklab, rgb(242 223 236 / 0) 38%, var(--hero-fundo) 56%);
-  }
+  .hero-claro .botoes { justify-content: center; }
+  .hero-claro .botoes .botao { width: min(100%, 340px); justify-content: center; min-height: 52px; }
 }
 
 /* Botão flutuante some enquanto a abertura (que já tem "Agendar consulta") está na tela */
@@ -595,8 +549,7 @@ body.hero-visivel .whats-flutuante { opacity: 0; visibility: hidden; }
 .sinal h3 { font-size: 1.2rem; margin-bottom: .4em; }
 .sinal p { color: var(--texto-2); font-size: 16px; margin: 0; }
 @media (prefers-reduced-motion: reduce) { .sinal { transition: none; } .sinal:hover { transform: none; } }
-.sinais-corpo { margin: 32px 0 0; font-size: 16px; color: var(--texto-2); }
-.sinais-corpo span:first-child { font-weight: 600; color: var(--texto); margin-right: 4px; }
+.sinais-corpo-titulo { font-size: 1.3rem; margin: 48px 0 20px; }
 
 /* Tratamentos em destaque: botão "Ver todos" à esquerda, setas à direita */
 .carrossel-setas:has(.botao) { justify-content: space-between; align-items: center; }
@@ -748,4 +701,58 @@ img.avatar { background: var(--areia); }
   .visita-mapa { aspect-ratio: 4 / 3; }
   .visita-info { padding: 24px; }
   .visita-agendar { margin-top: 28px; }
+}
+
+/* ---------------- Ajustes do celular (página inicial) ---------------- */
+@media (max-width: 600px) {
+  /* Pilares mais compactos */
+  .pilares-lado { gap: 12px; }
+  .pilares-lado .pilar { padding: 20px; }
+  .pilares-lado .pilar h3 { font-size: 1.15rem; margin-bottom: .35em; }
+  .pilares-lado .pilar p { font-size: 15px; line-height: 1.45; }
+  .sinais-corpo-titulo { font-size: 1.15rem; margin: 36px 0 16px; }
+
+  /* Selos da Dra. Girlane mais discretos */
+  .perfil .credencial { font-size: 13px; padding: 5px 10px; gap: 6px; margin: 0 6px 6px 0; }
+  .perfil .credencial .icone { width: 14px; height: 14px; stroke-width: 2.3; } /* 14px com texto 13px peso 500 */
+
+  /* Avaliações: no celular a faixa para e vira lista de arrastar com o dedo;
+     cartões mais estreitos deixam o próximo aparecendo na borda */
+  .faixa-avaliacoes { overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; scroll-padding-inline: 20px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5% 82%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 5% 82%, transparent); }
+  .faixa-avaliacoes::-webkit-scrollbar { display: none; }
+  .faixa-avaliacoes-trilho { animation: none; padding-inline: 20px 8px; }
+  .faixa-avaliacoes .depoimento { width: 72vw; margin-inline-end: 12px; padding: 16px 18px; scroll-snap-align: start; }
+  .faixa-avaliacoes .depoimento[aria-hidden="true"] { display: none; }
+  .faixa-avaliacoes .estrelas { margin-bottom: 8px; }
+  .faixa-avaliacoes .estrelas .icone { width: 12px; height: 12px; }
+  .faixa-avaliacoes .depoimento blockquote { font-size: 14px; line-height: 1.45; margin-bottom: 10px; }
+  .faixa-avaliacoes .depoimento figcaption { font-size: 12px; gap: 8px; }
+  .faixa-avaliacoes .avatar { width: 28px; height: 28px; }
+  span.avatar { font-size: 12px; }
+}
+
+/* Fotos da clínica (Visite a clínica): no computador, recepção larga + 3 fotos */
+.visita-fotos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 24px; }
+.visita-fotos figure { margin: 0; aspect-ratio: 4 / 3; }
+.visita-fotos figure:first-child { grid-column: 1 / -1; aspect-ratio: auto; }
+.visita-fotos figure img { height: 100%; object-fit: cover; }
+.visita-resumo { display: none; }
+
+@media (max-width: 600px) {
+  /* Celular: fotos em carrossel de arrastar (ajuste 6: some nas pontas) */
+  .visita-fotos { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none;
+    margin-inline: -20px; padding-inline: 20px; scroll-padding-inline: 20px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5% 82%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 5% 82%, transparent); }
+  .visita-fotos::-webkit-scrollbar { display: none; }
+  .visita-fotos figure, .visita-fotos figure:first-child { flex: none; width: 80vw; aspect-ratio: 4 / 3; scroll-snap-align: start; }
+
+  /* Celular: sem cartão de horários; uma linha simples sob o mapa e o botão como o da abertura */
+  .visita-info { background: none; border: 0; box-shadow: none; padding: 4px 0 0; align-items: center; text-align: center; }
+  .visita-info h3, .visita-horarios, .visita-obs { display: none; }
+  .visita-resumo { display: block; margin: 0 0 20px; font-size: 15px; color: var(--texto-2); }
+  .visita-agendar { margin-top: 0; width: min(100%, 340px); min-height: 52px; background: var(--grafite); color: var(--creme); }
+  .visita-agendar:hover { background: #222; color: #fff; }
 }

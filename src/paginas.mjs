@@ -119,6 +119,7 @@ function blocoVisita() {
         ? `<dl class="visita-horarios">${site.horarios.map((h) => `<div><dt>${dias(h)}</dt><dd>${hora(h.abre)} às ${hora(h.fecha)}</dd></div>`).join('')}</dl>`
         : `<p>${mostrar('PREENCHER: Horários de atendimento', 'Horários')}</p>`}
       <p class="visita-obs">${esc(site.atendimentoObservacao)}</p>
+      ${site.horarios.length ? `<p class="visita-resumo">${site.horarios.map((h) => `${dias(h)}, ${hora(h.abre)} às ${hora(h.fecha)}`).join(' · ')}. ${esc(site.atendimentoObservacao)}</p>` : ''}
       <a class="botao botao-primario visita-agendar" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar consulta</a>
       ${preenchido(site.telefone) ? `<p class="visita-tel">ou ligue <a href="${telLink()}">${esc(site.telefone)}</a></p>` : ''}
     </aside>
@@ -168,7 +169,7 @@ ${heroHome()}
     <div class="grade grade-3">
       ${sinaisRosto.map((q) => `<a class="sinal" href="${href('/tratamentos/' + q.servico)}"><h3>${esc(q.titulo)}</h3><p>${esc(q.texto)}</p></a>`).join('')}
     </div>
-    ${sinaisCorpo.length ? `<p class="sinais-corpo"><span>Para o corpo:</span> ${sinaisCorpo.map((q) => `<a href="${href('/tratamentos/' + q.servico)}">${esc(q.titulo)}</a>`).join('<span aria-hidden="true"> · </span>')}</p>` : ''}
+    ${sinaisCorpo.length ? `<h3 class="sinais-corpo-titulo">Para o corpo</h3><div class="grade grade-3">${sinaisCorpo.map((q) => `<a class="sinal" href="${href('/tratamentos/' + q.servico)}"><h3>${esc(q.titulo)}</h3><p>${esc(q.texto)}</p></a>`).join('')}</div>` : ''}
   </div>
 </section>
 
@@ -201,6 +202,7 @@ ${heroHome()}
 <section class="secao" aria-labelledby="titulo-tratamentos">
   <div class="container cabecalho-secao">
     <h2 id="titulo-tratamentos">O <strong><em>rosto</em></strong> em primeiro lugar.<br>Corpo e nutrição complementam o cuidado.</h2>
+    <p class="lead">Estes são os serviços que você encontra aqui.</p>
   </div>
   <div class="carrossel-envoltorio">
     <div class="carrossel" id="carrossel-tratamentos" tabindex="0" aria-label="Tratamentos em destaque">
@@ -280,8 +282,14 @@ ${blocoAntesDepois({ servicos: facial, titulo: 'Resultados que continuam parecen
       <h2 id="titulo-local">Clínica de estética em Joinville.</h2>
       <p class="lead">Atendemos pacientes de Joinville e região: ${esc(site.areasAtendidas.slice(1).join(', '))}.</p>
     </div>
-    ${fotoClinica('recepcao') ? `<div class="foto-larga" style="margin-bottom:24px">${imagem({ foto: fotoClinica('recepcao'), alt: 'Recepção da Clínica Girlane Ferreira no Jardim Iririú, Joinville' })}</div>` : ''}
-    ${galeria().length ? `<div class="galeria" style="margin-bottom:24px">${galeria().slice(0, 3).map((f) => `<figure class="foto-larga" style="margin:0">${imagem({ foto: f, alt: altClinica(f) })}</figure>`).join('')}</div>` : ''}
+    ${(() => {
+      // Computador: recepção grande + 3 fotos embaixo. Celular: todas num carrossel de arrastar.
+      const fotos = [
+        ...(fotoClinica('recepcao') ? [{ foto: fotoClinica('recepcao'), alt: 'Recepção da Clínica Girlane Ferreira no Jardim Iririú, Joinville' }] : []),
+        ...galeria().slice(0, 3).map((f) => ({ foto: f, alt: altClinica(f) })),
+      ];
+      return fotos.length ? `<div class="visita-fotos" tabindex="0" aria-label="Fotos da clínica">${fotos.map((f) => `<figure class="foto-larga">${imagem(f)}</figure>`).join('')}</div>` : '';
+    })()}
     ${blocoVisita()}
   </div>
 </section>
