@@ -7,8 +7,8 @@ import { limpar, absoluta, preenchido, registroPlano, nomeCompleto, pendente } f
 export const ID = {
   site: `${site.dominio}/#website`,
   clinica: `${site.dominio}/#clinica`,
-  girlane: `${site.dominio}/dra-girlane-ferreira#pessoa`,
-  pessoa: (p) => (p.slug === profissionais.girlane.slug ? `${site.dominio}/dra-girlane-ferreira#pessoa` : `${site.dominio}/equipe#${p.slug}`),
+  girlane: `${site.dominio}/equipe#dra-girlane-ferreira`,
+  pessoa: (p) => `${site.dominio}/equipe#${p.slug}`,
 };
 
 const sameAs = () => Object.values(site.perfis).filter((u) => preenchido(u) && /^https?:/.test(u));
@@ -54,7 +54,7 @@ export function pessoaSchema(p, completo = false) {
     jobTitle: p.cargo,
     description: p.bioCurta,
     image: p.foto ? absoluta(p.foto) : undefined,
-    url: p.slug === profissionais.girlane.slug ? absoluta('/dra-girlane-ferreira') : absoluta('/equipe') + '#' + p.slug,
+    url: absoluta('/equipe') + '#' + p.slug,
     worksFor: { '@id': ID.clinica },
     hasOccupation: { '@type': 'Occupation', name: p.profissao === 'Biomédica' ? 'Biomédica esteta' : p.profissao, occupationLocation: { '@type': 'City', name: 'Joinville' } },
     knowsAbout: p.areas,

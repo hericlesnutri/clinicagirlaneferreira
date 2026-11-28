@@ -756,3 +756,219 @@ img.avatar { background: var(--areia); }
   .visita-agendar { margin-top: 0; width: min(100%, 340px); min-height: 52px; background: var(--grafite); color: var(--creme); }
   .visita-agendar:hover { background: #222; color: #fff; }
 }
+
+/* Links do profissional na Equipe (site e Instagram) lado a lado */
+.perfil-links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 8px 0 0; }
+.perfil-links .link-seta .icone:first-child { width: 16px; height: 16px; margin-right: 2px; }
+
+/* ---------------- Equipe: um bloco por profissional ----------------
+   foto à esquerda, apresentação à direita; "Como eu trabalho" embaixo,
+   com o título em cima e o texto na largura toda. Blocos compactos. */
+.equipe-bloco { padding-block: clamp(48px, 6vw, 80px); }
+.equipe-bloco .perfil { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 48px; }
+.equipe-bloco .perfil-foto { aspect-ratio: 1 / 1; }
+.equipe-bloco .perfil-foto img { object-position: center 20%; }
+.equipe-bloco h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); margin-bottom: .35em; }
+.equipe-bloco .lead { font-size: clamp(1.05rem, 1.6vw, 1.2rem); margin-bottom: .8em; max-width: none; }
+.equipe-bloco .apresentacao { max-width: none; }
+.equipe-apresentacao .formacao { margin-top: 4px; }
+.equipe-servicos { margin-top: 12px; }
+.equipe-como { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--borda); }
+.equipe-como h3 { font-size: 1.25rem; margin: 0 0 10px; }
+.equipe-como-texto p { color: var(--texto-2); font-size: 1.0625rem; line-height: 1.6; margin: 0; max-width: none; }
+.equipe-como-texto p + p { margin-top: .8em; }
+.equipe-como-texto strong { color: var(--texto); font-weight: 600; }
+@media (max-width: 800px) {
+  .equipe-bloco .perfil { grid-template-columns: 1fr; gap: 24px; }
+  .equipe-bloco .perfil-foto { aspect-ratio: 4 / 3; }
+}
+@media (max-width: 600px) {
+  .equipe-bloco { padding-block: 40px; }
+  .equipe-bloco h2 { font-size: 1.6rem; }
+  .equipe-bloco .lead { font-size: 1rem; }
+  .equipe-bloco .apresentacao { font-size: 15px; }
+  .equipe-como { margin-top: 28px; padding-top: 22px; }
+  .equipe-como h3 { font-size: 1.15rem; }
+  .equipe-como-texto p { font-size: 15px; }
+}
+.equipe-apresentacao .formacao li { padding: 8px 0; font-size: 15px; line-height: 1.4; }
+.equipe-apresentacao .formacao li:first-child { border-top: 1px solid var(--borda-suave); }
+.equipe-apresentacao .formacao span { font-size: 14px; }
+
+/* Equipe: foto acompanha a altura da apresentação; títulos, nome, texto, tags e botões */
+@media (min-width: 801px) {
+  .equipe-bloco .perfil { align-items: stretch; }
+  .equipe-bloco .perfil-foto { aspect-ratio: auto; height: 100%; min-height: 380px; }
+}
+.equipe-titulos { font-size: 14px; font-weight: 600; letter-spacing: 0; line-height: 1.4; }
+.equipe-tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 24px; }
+.tag-servico { display: inline-flex; align-items: center; font-size: 14px; font-weight: 500; line-height: 1; padding: 8px 14px; border-radius: var(--r-pilula); color: var(--texto); background: color-mix(in oklch, var(--bronze) 10%, var(--cartao)); border: 1px solid rgb(0 0 0 / 0.07); }
+a.tag-servico:hover { text-decoration: none; border-color: rgb(0 0 0 / 0.12); color: var(--bronze-forte); }
+.equipe-botoes { gap: 10px; }
+.equipe-botoes .botao .icone { stroke-width: 2; } /* texto do botão peso 500 */
+@media (max-width: 600px) {
+  .equipe-titulos { font-size: 13px; }
+  .equipe-tags { gap: 6px; margin-bottom: 20px; }
+  .tag-servico { font-size: 13px; padding: 7px 12px; }
+  .equipe-botoes .botao { flex: 1 1 auto; justify-content: center; }
+}
+@media (max-width: 600px) {
+  .cta-equipe .botao { width: min(100%, 340px); justify-content: center; }
+}
+
+/* ---------------- Serviços de nutrição no formato do site do Hericles ---------------- */
+.nutri-abertura-grade { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 48px; align-items: center; }
+.nutri-abertura h1 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); max-width: 16ch; }
+.nutri-abertura .lead { max-width: 44ch; }
+.nutri-abertura-foto { aspect-ratio: 4 / 3; }
+.nutri-abertura-foto img { height: 100%; object-fit: cover; }
+
+/* Jornada: 8 etapas com foto (ajuste 1: raio concêntrico entre cartão e foto) */
+.jornada { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.jornada-cartao { background: var(--cartao); border: 1px solid var(--borda-suave); border-radius: var(--r-cartao); padding: var(--p-cartao); display: flex; flex-direction: column; }
+.jornada-foto { border-radius: var(--r-interno); overflow: hidden; aspect-ratio: 16 / 10; background: var(--areia); }
+.jornada-foto img { width: 100%; height: 100%; object-fit: cover; }
+.jornada-corpo { padding: 16px 12px 14px; }
+.jornada-rotulo { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--bronze-forte); margin-bottom: 8px; }
+.jornada-rotulo b { font-weight: 600; letter-spacing: 0; color: var(--texto-2); }
+.jornada-corpo h3 { font-size: 1.05rem; line-height: 1.25; margin-bottom: .4em; }
+.jornada-corpo p { font-size: 15px; line-height: 1.5; color: var(--texto-2); margin: 0; }
+@media (max-width: 1000px) and (min-width: 601px) { .jornada { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 860px) {
+  .nutri-abertura-grade { grid-template-columns: 1fr; gap: 28px; }
+}
+@media (max-width: 600px) {
+  /* Celular: jornada de arrastar (ajuste 6: some nas pontas) */
+  .jornada { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none;
+    margin-inline: -20px; padding-inline: 20px; scroll-padding-inline: 20px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5% 82%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 5% 82%, transparent); }
+  .jornada::-webkit-scrollbar { display: none; }
+  .jornada-cartao { flex: none; width: 78vw; scroll-snap-align: start; }
+  .nutri-abertura h1 { font-size: clamp(2rem, 8.6vw, 2.4rem); }
+}
+
+/* Como funciona: serviços dentro de cada pilar e cartões de corpo e nutrição */
+.pilar-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+.pilar-tags .tag-servico { font-size: 13px; padding: 7px 12px; }
+.parceiro { display: flex; flex-direction: column; }
+.parceiro-topo { display: flex; align-items: center; gap: 14px; margin-bottom: 4px; }
+.parceiro-topo h3 { font-size: 1.2rem; margin: 0; }
+.parceiro-cargo { font-size: 14px; color: var(--texto-2); }
+.parceiro-foto { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex: none; background: var(--areia); }
+.parceiro .pilar-tags { margin: 14px 0 18px; }
+.parceiro .link-seta { margin-top: auto; }
+
+/* ---------------- Serviços: blocos por área com cartões compactos ---------------- */
+.servicos-cabecalho { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; margin-bottom: 28px; }
+.servicos-cabecalho h2 { margin: 0; }
+.servicos-quem { display: inline-flex; align-items: center; gap: 10px; color: var(--texto); padding: 6px 16px 6px 6px; border-radius: var(--r-pilula); background: var(--cartao); border: 1px solid var(--borda-suave); }
+.servicos-quem:hover { text-decoration: none; border-color: var(--borda); }
+.servicos-quem img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; object-position: center 20%; }
+.servicos-quem span { display: flex; flex-direction: column; font-size: 15px; font-weight: 600; line-height: 1.25; }
+.servicos-quem small { font-size: 13px; font-weight: 400; color: var(--texto-2); }
+.grade-servicos { grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); gap: 16px; }
+.cartao-servico .cartao-midia { aspect-ratio: 3 / 2; }
+.cartao-servico .cartao-corpo { padding: 14px 12px 16px; }
+.cartao-servico h3 { font-size: 1.1rem; }
+.cartao-servico p { font-size: 15px; line-height: 1.45; margin-bottom: 10px; }
+.servicos-extras { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 24px; }
+.servicos-extras > span { font-size: 15px; font-weight: 600; margin-right: 4px; }
+@media (max-width: 600px) {
+  .grade-servicos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .cartao-servico .cartao-corpo { padding: 10px 8px 12px; }
+  .cartao-servico h3 { font-size: 0.98rem; }
+  .cartao-servico p { font-size: 13px; }
+  .cartao-servico .link-seta { font-size: 14px; }
+  .servicos-extras > span { width: 100%; }
+}
+
+/* Antes e depois (nutrição): cartões com a foto lado a lado (ajuste 1: raio concêntrico) */
+.casos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 20px; }
+.caso { background: var(--cartao); border: 1px solid var(--borda-suave); border-radius: var(--r-cartao); padding: var(--p-cartao); display: flex; flex-direction: column; }
+.caso-foto { position: relative; border-radius: var(--r-interno); overflow: hidden; aspect-ratio: 4 / 5; background: var(--areia); }
+.caso-foto img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.caso-tempo { position: absolute; top: 10px; left: 10px; font-size: 13px; font-weight: 600; padding: 5px 10px; border-radius: var(--r-pilula); background: rgb(255 255 255 / 0.9); color: var(--texto); }
+.caso-rotulos { position: absolute; left: 0; right: 0; bottom: 10px; display: grid; grid-template-columns: 1fr 1fr; text-align: center; pointer-events: none; }
+.caso-rotulos span { justify-self: center; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 4px 10px; border-radius: var(--r-pilula); background: rgb(0 0 0 / 0.55); color: #fff; }
+.caso-corpo { padding: 14px 10px 10px; }
+.caso-corpo h3 { font-size: 1.15rem; margin-bottom: 2px; }
+.caso-perfil { display: block; font-size: 14px; font-weight: 600; color: var(--bronze-forte); margin-bottom: 10px; }
+.caso-dados { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.caso-dados span { font-size: 13px; font-weight: 500; padding: 4px 10px; border-radius: var(--r-pilula); background: color-mix(in oklch, var(--bronze) 10%, var(--cartao)); border: 1px solid rgb(0 0 0 / 0.07); }
+.caso-corpo p { font-size: 15px; line-height: 1.45; color: var(--texto-2); margin: 0; }
+@media (max-width: 600px) {
+  /* Celular: casos de arrastar (ajuste 6: some nas pontas) */
+  .casos { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none;
+    margin-inline: -20px; padding-inline: 20px; scroll-padding-inline: 20px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5% 82%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 5% 82%, transparent); }
+  .casos::-webkit-scrollbar { display: none; }
+  .caso { flex: none; width: 74vw; scroll-snap-align: start; }
+}
+
+/* Serviços: subgrupos por profissional dentro de uma área (ex.: Corpo) */
+.servicos-subgrupo + .servicos-subgrupo { margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--borda); }
+.servicos-subcabecalho { margin-bottom: 20px; }
+
+/* Subtítulo logo abaixo do título da página de serviço (ex.: Botox / Toxina botulínica) */
+.subtitulo-servico { font-size: clamp(1.2rem, 2.4vw, 1.6rem); font-weight: 500; color: var(--bronze-forte); margin: -0.2em 0 0.6em; letter-spacing: -0.01em; }
+
+/* Aviso único sobre as imagens de antes e depois, discreto, no fim da página */
+.aviso-imagens { padding: 20px 0; border-top: 1px solid var(--borda-suave); }
+.aviso-imagens p { margin: 0; font-size: 12px; line-height: 1.5; color: var(--texto-2); max-width: 70ch; }
+
+/* Cartões da página Serviços: capa de resultado (antes | depois) com rótulos discretos */
+.capa-resultado { position: relative; }
+.capa-resultado span { position: absolute; bottom: 8px; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; padding: 3px 8px; border-radius: var(--r-pilula); background: rgb(0 0 0 / 0.55); color: #fff; }
+.capa-resultado span:first-of-type { left: 8px; }
+.capa-resultado span:last-of-type { right: 8px; }
+
+/* Menu: itens em destaque (Reestruturação facial e Nutrição) e espaço para 8 itens */
+.nav-links a.nav-destaque { color: var(--bronze-forte); font-weight: 600; opacity: 1; }
+@media (min-width: 901px) and (max-width: 1180px) { .nav-links { gap: 18px; } .nav-links a { font-size: 13px; } }
+
+/* Menu: a página aberta fica marcada com um traço bronze embaixo (computador)
+   e com fundo suave e barra lateral (menu do celular) */
+.nav-links a { position: relative; }
+.nav-links a[aria-current="page"] { color: var(--bronze-forte); font-weight: 600; opacity: 1; }
+@media (min-width: 901px) {
+  .nav-links a[aria-current="page"]::after { content: ""; position: absolute; left: 0; right: 0; bottom: -8px; height: 2px; border-radius: 2px; background: var(--bronze); }
+}
+@media (max-width: 900px) {
+  .nav-links a[aria-current="page"] { padding-left: 14px; }
+  .nav-links a[aria-current="page"]::before { content: ""; position: absolute; left: 0; top: 14px; bottom: 14px; width: 3px; border-radius: 3px; background: var(--bronze); }
+}
+/* páginas de nutrição sem foto ao lado do título: abertura em uma coluna */
+.nutri-abertura-grade { grid-template-columns: 1fr; }
+
+/* ---------------- Nutrição: abertura com a foto do Hericles (fundo escuro) ---------------- */
+.hero-nutri .hero-fundo img { object-position: 80% center; }
+.hero-nutri .trilha, .hero-nutri .trilha a, .hero-nutri .trilha li { color: rgb(245 243 231 / 0.75); }
+.hero-nutri .trilha { margin-bottom: 20px; }
+.hero-sobretitulo { display: block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--areia); margin-bottom: 14px; }
+.hero-nutri h1 { max-width: 14ch; }
+.hero-nutri .titulo-linha { display: block; }
+@media (max-width: 800px) {
+  .hero-nutri .hero-fundo img { object-position: 60% top; }
+  .hero-sobretitulo { font-size: 12px; }
+}
+
+/* Palavra que troca sozinha no título (como no site do Hericles) */
+.rotador { display: inline-block; height: 1.25em; overflow: hidden; vertical-align: bottom; color: var(--areia); margin-bottom: -0.08em; }
+.secao .rotador { color: var(--bronze-forte); }
+.rotador-trilho { display: flex; flex-direction: column; }
+.rotador-trilho > span { display: block; height: 1.25em; line-height: 1.25em; white-space: nowrap; }
+.rotador-5 { animation: rotar5 10s cubic-bezier(.7, 0, .3, 1) infinite; }
+.rotador-6 { animation: rotar6 12.5s cubic-bezier(.7, 0, .3, 1) infinite; }
+@keyframes rotar5 { 0%, 20% { transform: translateY(0); } 25%, 45% { transform: translateY(-20%); } 50%, 70% { transform: translateY(-40%); } 75%, 95% { transform: translateY(-60%); } 100% { transform: translateY(-80%); } }
+@keyframes rotar6 { 0%, 16% { transform: translateY(0); } 20%, 36% { transform: translateY(-16.667%); } 40%, 56% { transform: translateY(-33.333%); } 60%, 76% { transform: translateY(-50%); } 80%, 96% { transform: translateY(-66.667%); } 100% { transform: translateY(-83.333%); } }
+@media (prefers-reduced-motion: reduce) { .rotador-trilho { animation: none; } }
+
+/* Jornada: fecho com chamada */
+.jornada-fecho { margin-top: 32px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding: 24px 28px; border-radius: var(--r-cartao); background: var(--superficie); border: 1px solid var(--borda-suave); }
+.jornada-fecho p { margin: 0; font-size: 1.1rem; font-weight: 500; max-width: 52ch; }
+
+/* Chamada "Você não precisa tentar outra dieta da moda" */
+.chamada-nutri h2 { max-width: 22ch; margin-inline: auto; }
+.chamada-nutri h2 em { color: var(--bronze-forte); font-style: italic; }

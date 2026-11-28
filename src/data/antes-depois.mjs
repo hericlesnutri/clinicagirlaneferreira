@@ -16,6 +16,15 @@
 //  observacao: limitações, o que ainda pode evoluir, efeitos esperados
 
 export const casosInfo = {
+  // Botox: as três regiões da mesma foto, separadas em três casos
+  'toxina-botulinica-1': { queixa: 'Linhas ao redor dos olhos (pés de galinha)' },
+  'toxina-botulinica-2': { queixa: 'Linhas entre as sobrancelhas' },
+  'toxina-botulinica-3': { queixa: 'Linhas da testa' },
+  'rinomodelacao-1': { tratamento: 'Rinomodelação, harmonização do queixo (mento) e preenchimento labial' },
+  'preenchimento-labial-1': { tratamento: 'Preenchimento labial e micropigmentação labial' },
+  'reestruturacao-facial-1': { tratamento: 'Reestruturação facial masculina, com plano de tratamento individualizado' },
+  'reestruturacao-facial-2': { tratamento: 'Rejuvenescimento facial' },
+  'olheiras-1': { tratamento: 'Protocolo Reset Eyes' },
   // 'harmonizacao-facial-1': {
   //   queixa: 'Perda de contorno da mandíbula e olhar cansado',
   //   tratamento: 'Ácido hialurônico em malar, mandíbula e queixo',

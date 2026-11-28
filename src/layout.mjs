@@ -44,24 +44,32 @@ export function imagem({ src, alt, largura = 1200, altura = 900, prioridade = fa
 
 // Só os nomes mudaram; os endereços das páginas continuam os mesmos (bom para o Google).
 // A apresentação da Dra. Girlane fica na página Equipe.
+// Os dois primeiros ficam em destaque (cor da marca)
 const menu = [
+  ['/tratamentos/reestruturacao-facial', 'Reestruturação facial', true],
+  ['/nutricao', 'Nutrição', true],
   ['/tratamentos', 'Serviços'],
-  ['/metodo', 'Como funciona'],
   ['/equipe', 'Equipe'],
   ['/resultados', 'Resultados'],
   ['/conteudo', 'Artigos'],
-  ['/contato', 'Contato'],
 ];
 
 function cabecalho(caminho) {
-  const ativo = (p) => (caminho === p || caminho.startsWith(p + '/') ? ' aria-current="page"' : '');
+  // Qual item do menu corresponde à página aberta:
+  // Reestruturação facial e Nutrição têm prioridade; os demais serviços acendem "Serviços".
+  const servicoAtual = caminho.startsWith('/tratamentos/') ? servicosAtivos.find((s) => '/tratamentos/' + s.slug === caminho) : null;
+  const itemAtivo = caminho === '/tratamentos/reestruturacao-facial' ? '/tratamentos/reestruturacao-facial'
+    : caminho === '/nutricao' || (servicoAtual && servicoAtual.categoria === 'nutricao') ? '/nutricao'
+    : caminho === '/tratamentos' || caminho.startsWith('/tratamentos/') ? '/tratamentos'
+    : (menu.find(([p]) => !p.includes('#') && p !== '/tratamentos' && (caminho === p || caminho.startsWith(p + '/'))) || [])[0];
+  const ativo = (p) => (p === itemAtivo ? ' aria-current="page"' : '');
   return `
 <a class="pular" href="#conteudo-principal">Pular para o conteúdo</a>
 <header class="nav">
   <nav class="container" aria-label="Principal">
     <a class="marca" href="${href('/')}" aria-label="${esc(site.nome)}, página inicial"><img class="logo" src="${href('/assets/logo-horizontal.png')}" alt="${esc(site.nome)}" width="879" height="223"></a>
     <ul class="nav-links" id="menu-principal">
-      ${menu.map(([p, t]) => `<li><a href="${href(p)}"${ativo(p)}>${t}</a></li>`).join('')}
+      ${menu.map(([p, t, destaque]) => `<li><a href="${href(p)}"${ativo(p)}${destaque ? ' class="nav-destaque"' : ''}>${t}</a></li>`).join('')}
       <li class="nav-cta"><a class="botao botao-primario" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar consulta</a></li>
     </ul>
     <div class="nav-acoes">
@@ -94,6 +102,15 @@ function rodape() {
   const g = profissionais.girlane;
   const ano = new Date().getFullYear();
   const link = (s) => [href('/tratamentos/' + s.slug), esc(s.nome)];
+  // Corpo: serviços com página própria e, em seguida, os demais serviços da Diva
+  // (sem página própria ainda, levam ao perfil dela na Equipe), na ordem das tags dela.
+  const corpoRodape = () => {
+    const comPagina = servicosAtivos.filter((s) => s.categoria === 'corporal');
+    const nomes = new Set(comPagina.map((s) => s.nome.toLowerCase()));
+    const diva = profissionais.diva;
+    const extras = (diva?.servicosTags || []).filter((n) => !nomes.has(n.toLowerCase())).map((n) => [href('/equipe#' + diva.slug), esc(n)]);
+    return [...comPagina.map(link), ...extras];
+  };
   return `
 <footer class="rodape">
   <div class="container">
@@ -101,9 +118,9 @@ function rodape() {
       <a class="rodape-marca" href="${href('/')}"><img class="logo-rodape" src="${href('/assets/logo-principal.png')}" alt="${esc(site.nome)}" width="756" height="386" loading="lazy"></a>
       <a class="botao botao-primario" href="${whatsappUrl()}" rel="noopener">${icone('whatsapp', 'icone-500')}Agendar consulta</a>
     </div>
-    <nav class="rodape-grade" aria-label="Rodapé">${grupo('Rosto', servicosAtivos.filter((s) => s.categoria === 'facial').map(link))}${grupo('Corpo', servicosAtivos.filter((s) => s.categoria === 'corporal').map(link))}${grupo('Nutrição', servicosAtivos.filter((s) => s.categoria === 'nutricao').map(link))}${grupo('A clínica', [
+    <nav class="rodape-grade" aria-label="Rodapé">${grupo('Rosto', servicosAtivos.filter((s) => s.categoria === 'facial').map(link))}${grupo('Corpo', corpoRodape())}${grupo('Nutrição', servicosAtivos.filter((s) => s.categoria === 'nutricao').map(link))}${grupo('A clínica', [
       [href('/tratamentos'), 'Todos os tratamentos'],
-      [href('/dra-girlane-ferreira'), 'Dra. Girlane Ferreira'],
+      [href('/equipe'), 'Dra. Girlane Ferreira'],
       [href('/metodo'), 'Nosso método'],
       [href('/equipe'), 'Equipe'],
       [href('/resultados'), 'Antes e depois'],
@@ -178,6 +195,7 @@ ${o.publicado ? `<meta property="article:published_time" content="${o.publicado}
 ${cabecalho(o.caminho)}
 <main id="conteudo-principal">
 ${o.corpo}
+${/class="(cartao ad|caso)"/.test(o.corpo) ? `<aside class="aviso-imagens"><div class="container"><p>As imagens de antes e depois são publicadas com autorização dos pacientes, sem edição. Resultados variam de pessoa para pessoa e dependem de consulta individual.</p></div></aside>` : ''}
 </main>
 ${rodape()}
 <script src="${href(comVersao('/assets/site.js'))}" defer></script>
@@ -200,7 +218,7 @@ export function faqHtml(faqs) {
     .join('')}</div>`;
 }
 
-export function ctaFinal(titulo = 'O primeiro passo é uma consulta.', texto = 'Conversamos sobre o que você quer, analisamos o seu rosto com calma e alinhamos expectativas.') {
+export function ctaFinal(titulo = 'O primeiro passo é uma consulta.', texto = 'Conversamos sobre o que você quer, analisamos o seu caso com calma e alinhamos expectativas.') {
   return `
 <section class="secao secao-creme cta-final">
   <div class="container">
@@ -221,7 +239,7 @@ export function caixaAutor(chave, rotulo = 'Escrito e revisado por') {
   <div class="avatar">${p.foto ? `<img src="${href(p.foto)}" alt="${esc(nomeCompleto(p))}" width="72" height="72" loading="lazy">` : placeholder(nomeCompleto(p))}</div>
   <div>
     <p>${rotulo}</p>
-    <strong><a href="${href('/' + (chave === 'girlane' ? p.slug : 'equipe#' + p.slug))}">${esc(nomeCompleto(p))}</a></strong>
+    <strong><a href="${href(chave === 'girlane' ? '/equipe' : '/equipe#' + p.slug)}">${esc(nomeCompleto(p))}</a></strong>
     <p>${esc(p.cargo)}${p.conselho && !pendente(p.conselho.numero) ? ' · ' + registroTexto(p) : ''}</p>
   </div>
 </aside>`;
@@ -252,19 +270,18 @@ export function antesDepois(c, prioridade = false) {
     <a class="tag tag-facial" href="${href('/tratamentos/' + c.servico)}">${esc(nome)}</a>
     ${detalhes.length ? `<dl class="ad-detalhes">${detalhes.map(([t, d]) => `<div><dt>${t}</dt><dd>${esc(d)}</dd></div>`).join('')}</dl>` : ''}
     ${c.observacao ? `<p>${esc(c.observacao)}</p>` : ''}
-    <p class="ad-nota">Imagem publicada com autorização da paciente, sem edição. Resultados variam de pessoa para pessoa e dependem de consulta individual.</p>
   </figcaption>
 </figure>`;
 }
 
 /** Seção com 1 ou 2 casos. `servicos` define a prioridade; sem casos, não renderiza nada. */
-export function blocoAntesDepois({ servicos = [], max = 2, titulo = 'Resultados reais', texto = '', fundo = '', pagina = '' } = {}) {
-  const lista = casosPara(servicos, max);
+export function blocoAntesDepois({ servicos = [], max = 2, titulo = 'Resultados reais', texto = '', fundo = '', pagina = '', completar = true, sobretitulo = 'Antes e depois' } = {}) {
+  const lista = casosPara(servicos, max, completar);
   if (!lista.length) { faltando.add(pagina || servicos.join(',') || 'geral'); return ''; }
   return `<section class="secao ${fundo}" aria-labelledby="ad-${esc(pagina || 'x').replace(/\W/g, '')}">
   <div class="container">
-    <div class="cabecalho-secao"><span class="sobretitulo">Antes e depois</span><h2 id="ad-${esc(pagina || 'x').replace(/\W/g, '')}">${esc(titulo)}</h2>${texto ? `<p class="lead">${esc(texto)}</p>` : ''}</div>
-    <div class="grade ${lista.length > 1 ? 'grade-2' : 'ad-unico'}">${lista.map((c) => antesDepois(c)).join('')}</div>
+    <div class="cabecalho-secao">${sobretitulo ? `<span class="sobretitulo">${esc(sobretitulo)}</span>` : ''}<h2 id="ad-${esc(pagina || 'x').replace(/\W/g, '')}">${esc(titulo)}</h2>${texto ? `<p class="lead">${esc(texto)}</p>` : ''}</div>
+    <div class="grade ${lista.length > 2 ? 'grade-3' : lista.length > 1 ? 'grade-2' : 'ad-unico'}">${lista.map((c) => antesDepois(c)).join('')}</div>
     <p style="margin-top:24px"><a class="link-seta" href="${href('/resultados')}">Ver mais resultados ${icone('direita')}</a></p>
   </div>
 </section>`;

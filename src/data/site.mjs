@@ -109,7 +109,7 @@ export const profissionais = {
       // 'Congresso XYZ de Estética Avançada (2025)',
     ],
     anosDeExperiencia: 12,                  // atuação em estética
-    foto: null,                             // ex.: '/img/dra-girlane-ferreira-biomedica-esteta-joinville.webp'
+    foto: '/img/equipe/girlane-perfil.webp',   // foto de perfil (enviada pela Dra. Girlane), usada nos cartões de autor e selos
     instagram: 'https://www.instagram.com/dra.girlaneferreira/',
     areas: ['Gerenciamento do envelhecimento facial', 'Harmonização facial', 'Preenchimento com ácido hialurônico', 'Toxina botulínica', 'Bioestimuladores de colágeno', 'Qualidade de pele'],
     // Apresentação em primeira pessoa (página inicial, seção "Quem cuida de você")
@@ -117,24 +117,56 @@ export const profissionais = {
       'Sou biomédica esteta e há 12 anos trabalho com estética. Nesse tempo, aprendi que um rosto bonito não vem de procedimentos soltos, e sim de um plano pensado para cada pessoa, feito na ordem certa e acompanhado de perto.',
       'Foi com essa experiência que criei a Clínica Girlane Ferreira, em Joinville. Meu trabalho não é mudar quem você é: é cuidar para que o que é seu permaneça, com naturalidade e critério.',
     ],
+    // Tags de serviços na página Equipe: [nome que aparece, página do tratamento]
+    servicosTags: [
+      ['Harmonização facial e corporal', 'harmonizacao-facial'],
+      ['Reestruturação facial', 'reestruturacao-facial'],
+      ['Preenchimento labial', 'preenchimento-labial'],
+      ['Micropigmentação labial', 'micropigmentacao-labial'],
+      ['Micropigmentação de sobrancelhas', 'micropigmentacao-de-sobrancelhas'],
+      ['Botox', 'toxina-botulinica'],
+      ['Estímulo de colágeno', 'bioestimuladores-de-colageno'],
+      ['Manchas e melasma', 'tratamento-de-manchas'],
+      ['Bigode chinês', 'bigode-chines'],
+      ['Olheiras', 'olheiras'],
+      ['Vasinhos', 'tratamento-de-vasinhos'],
+      ['Empina bumbum', 'empina-bumbum'],
+      ['Gordura localizada', 'gordura-localizada'],
+      ['Flacidez', 'flacidez-corporal'],
+      ['Estrias', 'estrias'],
+    ],
+    // Página Equipe, bloco "Como eu trabalho" (primeira pessoa)
+    comoTrabalho: [
+      'Não acredito em procedimento solto. Começo sempre por uma consulta, para entender suas queixas e alinhar expectativas, e organizo o tratamento em três pilares: reestruturação, pele que toca e pele que se vê. O objetivo é que você continue se reconhecendo no espelho.',
+    ],
     bioCurta:
       'Biomédica esteta e fundadora da Clínica Girlane Ferreira, em Joinville. Trabalha com planos de tratamento para o rosto, pensados para acompanhar o envelhecimento com naturalidade, em vez de procedimentos soltos.',
   },
+  // Dados tirados do site do Hericles (nutrihericles.com.br, repositório hericlesnutricionista-site), em 27/11/2026.
   hericles: {
     slug: 'nutricionista-hericles',
-    nome: 'Hericles',                       // PREENCHER sobrenome
+    nome: 'Hericles Ferreira',
     tratamento: '',
     cargo: 'Nutricionista',
     profissao: 'Nutricionista',
-    conselho: { sigla: 'CRN', regiao: '10', numero: 'PREENCHER: 00000', habilitacao: '', url: '' },
-    formacao: [{ titulo: 'PREENCHER: Graduação em Nutrição', instituicao: 'PREENCHER', ano: '' }],
+    conselho: { sigla: 'CRN', regiao: '10', numero: '12284', habilitacao: '', url: '' },
+    formacao: [
+      { titulo: 'Graduação em Nutrição', instituicao: 'Católica de Santa Catarina', ano: '' },
+      { titulo: 'Pós-graduação em Metabolismo e Emagrecimento', instituicao: 'Faculdade Uniguaçu', ano: '' },
+    ],
     atualizacoes: [],
-    foto: null,
-    instagram: '',
+    foto: '/img/equipe/hericles-perfil.webp',   // foto de perfil (do site dele), usada nos cartões de autor
+    instagram: 'https://www.instagram.com/nutrihericles/',
+    linkedin: 'https://www.linkedin.com/in/hericlesnutri',
     site: 'https://nutrihericles.com.br',   // página própria do Hericles
-    areas: ['Nutrição estética', 'Composição corporal', 'Alimentação e envelhecimento da pele'],
+    areas: ['Nutrição estética', 'Emagrecimento', 'Ganho de massa muscular (hipertrofia)', 'Composição corporal', 'Metabolismo', 'Alimentação e envelhecimento da pele'],
+    // Tags de serviços na página Equipe (as que têm página própria viram link)
+    servicosTags: ['Emagrecimento', 'Hipertrofia', 'Nutrição esportiva', 'Nutrição estética', 'Nutrição comportamental'],
+    comoTrabalho: [
+      'Antes de montar o seu planejamento, procuro entender sua rotina, suas preferências e suas dificuldades. Trabalho em três etapas (entender, planejar e acompanhar), com atendimento aqui na clínica ou on-line, e o plano alimentar fica pronto em até 72 horas.',
+    ],
     bioCurta:
-      'Nutricionista da clínica. Cuida da parte de dentro do plano: alimentação, composição corporal e hábitos que interferem na pele e na resposta aos tratamentos.',
+      'Nutricionista formado pela Católica de Santa Catarina e pós-graduado em Metabolismo e Emagrecimento. Na clínica, cuida da parte de dentro do plano: alimentação, composição corporal e hábitos que interferem na pele e na resposta aos tratamentos, sem dietas extremas e com acompanhamento individualizado.',
   },
   diva: {
     slug: 'esteticista-diva',
@@ -145,9 +177,11 @@ export const profissionais = {
     conselho: null,
     formacao: [{ titulo: 'PREENCHER: Formação em Estética', instituicao: 'PREENCHER', ano: '' }],
     atualizacoes: [],
-    foto: null,
+    foto: '/img/equipe/diva-perfil.webp',   // foto de perfil, usada nos cartões de autor e selos
     instagram: '',
     areas: ['Drenagem linfática', 'Massagem modeladora', 'Tratamentos corporais'],
+    servicosTags: ['Drenagem linfática', 'Massagem relaxante', 'Massagem terapêutica', 'Massagem modeladora', 'Criolipólise', 'Ultrassom microfocado', 'Estrias', 'Celulite'],
+    comoTrabalho: [],                       // PREENCHER: como a Diva trabalha (primeira pessoa)
     bioCurta:
       'Esteticista responsável pelos tratamentos corporais: drenagem linfática, massagem modeladora e protocolos para o corpo.',
   },
@@ -167,11 +201,13 @@ export const depoimentos = [
   { texto: 'Eu amei o atendimento, desde a recepção até chegar à Dra. Girlane, que é muito atenciosa e amorosa! (…) Vou voltar e indicar para muitas pessoas!', autor: 'Ana Carolina', foto: '/img/depoimentos/ana-carolina.jpg', fonte: 'Google', data: '2026-11' },
   { texto: 'Sem palavras, começando pelo atendimento maravilhoso da Gi, e o ambiente super aconchegante, com canções que alegram seu coração e te fazem relaxar. Muito profissional, super indico!', autor: 'Fernanda F.', fonte: 'Google', data: '2023' },
   { texto: 'A clínica é impecável em todos os aspectos, da estrutura ao atendimento! Só agradecer e indicar esse trabalho maravilhoso!', autor: 'Kami N.', foto: '/img/depoimentos/kami-n.jpg', fonte: 'Google', data: '2026-11' },
+  { texto: 'Top! Nota 10! Fiz minha sobrancelha com a Gi e super recomendo!', autor: 'Milli P.', fonte: 'Google', data: '2023' },
   { texto: 'A clínica é maravilhosa, fui muito bem recebida. Profissionais competentes e atendimento responsável.', autor: 'Margarete Z.', fonte: 'Google', data: '2026-11' },
   { texto: 'Excelente atendimento. Fazem tudo com muito amor e profissionalismo. Recomendo.', autor: 'Marilia O.', foto: '/img/depoimentos/marilia-o.jpg', fonte: 'Google', data: '2022' },
   { texto: 'Cada cantinho é muito lindo e aconchegante! Profissionalismo do digital ao presencial… recomendo muito.', autor: 'Evellyn K.', foto: '/img/depoimentos/evellyn-k.jpg', fonte: 'Google', data: '2026-11' },
   { texto: 'Lugar maravilhoso, pessoas queridas, excelente profissional, carinhosa, atenciosa. Espaço limpo e organizado. Estão de parabéns, super recomendo!', autor: 'Aline F.', foto: '/img/depoimentos/aline-f.jpg', fonte: 'Google', data: '2022' },
   { texto: 'Excelentes profissionais! Um local onde você se sente muito bem acolhida.', autor: 'Marcia B.', foto: '/img/depoimentos/marcia-b.jpg', fonte: 'Google', data: '2023' },
+  { texto: 'Presta um ótimo atendimento. (…) Minha esposa fez a micropigmentação de sobrancelhas e parece bem natural.', autor: 'Tiago A.', fonte: 'Google', data: '2023' },
   { texto: 'Lugar maravilhoso, pessoas atenciosas, fui muito bem recebida.', autor: 'Julie Cristine S.', fonte: 'Google', data: '2026-11' },
   { texto: 'Atendimento maravilhoso, profissionais excelentes, amei o trabalho.', autor: 'Anah D.', fonte: 'Google', data: '2023' },
   { texto: 'Melhor lugar para estética! As meninas são super atenciosas, me sinto muito bem cuidada.', autor: 'Adriana F.', fonte: 'Google', data: '2024' },

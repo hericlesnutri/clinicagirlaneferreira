@@ -14,7 +14,7 @@ export const artigos = [
     autor: 'girlane',
     categoria: 'Envelhecimento',
     leitura: 7,
-    servicos: ['harmonizacao-facial', 'bioestimuladores-de-colageno', 'preenchimento-com-acido-hialuronico'],
+    servicos: ['harmonizacao-facial', 'bioestimuladores-de-colageno', 'preenchimento-labial'],
     corpo: `
 <h2>O que muda no rosto com a idade?</h2>
 <p>Quando a gente se olha no espelho e nota que "algo mudou", quase sempre aponta para uma ruga ou para o bigode chinês. Só que essa marca é a parte visível de mudanças que começam bem mais fundo.</p>
@@ -68,7 +68,7 @@ export const artigos = [
     autor: 'girlane',
     categoria: 'Harmonização',
     leitura: 6,
-    servicos: ['harmonizacao-facial', 'preenchimento-com-acido-hialuronico', 'toxina-botulinica'],
+    servicos: ['harmonizacao-facial', 'preenchimento-labial', 'toxina-botulinica'],
     corpo: `
 <h2>De onde vem a "cara de harmonização"</h2>
 <p>Quase todo mundo já viu um rosto que parece igual a outros cem: maçãs muito altas, lábios projetados, mandíbula quadrada demais. O problema não é a harmonização em si. É um tipo de planejamento que segue tendência, e não a anatomia da pessoa.</p>
@@ -114,7 +114,7 @@ export const artigos = [
     autor: 'girlane',
     categoria: 'Procedimentos',
     leitura: 5,
-    servicos: ['toxina-botulinica', 'preenchimento-com-acido-hialuronico'],
+    servicos: ['toxina-botulinica', 'preenchimento-labial'],
     corpo: `
 <h2>A diferença em uma frase</h2>
 <p>A toxina trata o <strong>movimento</strong>. O preenchimento trata a <strong>falta de estrutura</strong>.</p>
@@ -257,7 +257,7 @@ export const artigos = [
     autor: 'girlane',
     categoria: 'Segurança',
     leitura: 5,
-    servicos: ['harmonizacao-facial', 'preenchimento-com-acido-hialuronico', 'toxina-botulinica'],
+    servicos: ['harmonizacao-facial', 'preenchimento-labial', 'toxina-botulinica'],
     corpo: `
 <h2>1. Registro no conselho</h2>
 <p>Procedimentos injetáveis estéticos são feitos por profissionais de saúde habilitados, como médicos, biomédicos, dentistas, enfermeiros e farmacêuticos, cada um dentro das normas do próprio conselho. Peça o número do registro e confira no site do conselho regional. No caso de biomédicos, a consulta é feita no Conselho Regional de Biomedicina (CRBM) da região.</p>

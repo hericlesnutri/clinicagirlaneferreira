@@ -1,0 +1,580 @@
+# PERGUNTAS FREQUENTES DO SITE — Clínica Girlane Ferreira
+#
+# Como editar:
+#  - Mude o texto depois de "P:" (pergunta) e de "R:" (resposta).
+#  - Para incluir uma pergunta, escreva uma nova linha "P:" e, logo abaixo, "R:".
+#  - Para tirar uma pergunta, apague as duas linhas (P: e R:).
+#  - NÃO mude as linhas "CÓDIGO:". Elas dizem em qual página cada bloco aparece.
+#  - Uma página sem nenhuma pergunta fica sem a seção de perguntas.
+
+==================================================
+PÁGINA: Nutrição (página inicial de nutrição)
+CÓDIGO: nutricao
+--------------------------------------------------
+P: Como funciona a consulta nutricional presencial?
+R: Antes da consulta, você recebe o questionário pré-consulta. Na consulta, aqui na clínica, entendemos sua rotina, seus hábitos alimentares e seu comportamento, medimos a composição corporal e definimos como será o seu plano alimentar.
+
+P: Como funciona a consultoria on-line?
+R: A consultoria on-line começa com um questionário detalhado, que substitui a consulta presencial. Com base nas respostas, o nutricionista elabora o seu planejamento alimentar.
+
+P: Preciso cortar pão, arroz e os alimentos de que gosto?
+R: Não necessariamente. O planejamento alimentar considera suas preferências, sua rotina e suas necessidades.
+
+P: O acompanhamento inclui contato depois do plano alimentar?
+R: Sim. Além do suporte pelo WhatsApp, você tem o check-in semanal.
+
+P: É possível ganhar massa muscular e perder gordura?
+R: Sim, dependendo do histórico e do contexto. Mudanças na composição corporal podem acontecer com planejamento alimentar e treinamento adequados, e a estratégia precisa ser individualizada.
+
+P: Vocês acompanham quem usa Mounjaro, Ozempic ou tirzepatida?
+R: Sim. O planejamento nutricional ajuda a organizar a alimentação, olhar a ingestão de proteínas e lidar com dificuldades nutricionais durante o tratamento.
+
+P: Quanto tempo demora para receber o planejamento alimentar?
+R: Depois da consulta, o planejamento alimentar e as orientações ficam prontos em até 72 horas.
+
+P: Onde encontro o plano e as orientações?
+R: Você recebe o planejamento e as orientações pelo WhatsApp e tem acesso ao aplicativo Dietitian, onde ficam o plano alimentar, receitas, prescrições e exames.
+
+P: Onde é o atendimento presencial?
+R: Aqui na Clínica Girlane Ferreira, na Rua Areia Branca, 1035, Jardim Iririú, em Joinville (SC).
+
+==================================================
+PÁGINA: Harmonização facial
+CÓDIGO: tratamentos/harmonizacao-facial
+--------------------------------------------------
+P: Harmonização facial deixa o rosto artificial?
+R: Não. Minha prioridade é um resultado natural. Inclusive, se algum procedimento não for indicado pra você porque pode comprometer sua naturalidade, eu vou contra indicar. O rosto artificial costuma vir de excesso de produto, áreas tratadas fora de proporção ou procedimentos repetidos sem acompanhamento.
+
+P: Quanto custa uma harmonização facial em Joinville?
+R: O valor depende de quais procedimentos entram no plano e da quantidade de produto. Por isso a gente só passa o investimento depois da consulta.
+
+P: Eu sinto dor durante o tratamento?
+R: Usamos anestésico tópico e produtos com anestésico na fórmula. A maior parte das pacientes descreve como um incômodo suportável.
+
+==================================================
+PÁGINA: Reestruturação facial
+CÓDIGO: tratamentos/reestruturacao-facial
+--------------------------------------------------
+P: Reestruturação facial deixa o rosto artificial?
+R: Não. Minha prioridade é um resultado natural. Inclusive, se algum procedimento não for indicado pra você porque pode comprometer sua naturalidade, eu vou contra indicar. O rosto artificial costuma vir de excesso de produto, áreas tratadas fora de proporção ou procedimentos repetidos sem acompanhamento.
+
+P: Quanto custa uma reestruturação facial em Joinville?
+R: O valor depende de quais procedimentos entram no plano e da quantidade de produto. Por isso a gente só passa o investimento depois da consulta.
+
+P: Com que idade posso fazer reestruturação facial?
+R: Não existe idade certa. Aos 25 a indicação costuma ser preventiva e pontual; aos 45 o foco costuma ser repor estrutura e firmeza. O que define é a consulta.
+
+P: Eu sinto dor durante o tratamento?
+R: Usamos anestésico tópico e produtos com anestésico na fórmula. A maior parte das pacientes descreve como um incômodo suportável.
+
+==================================================
+PÁGINA: Toxina botulínica
+CÓDIGO: tratamentos/toxina-botulinica
+--------------------------------------------------
+P: Botox deixa o rosto parado?
+R: Não. Seu sorriso e olhar vão continuar sendo sua assinatura, e eles não mudam com o botox. A técnica que a gente usa, busca suavizar a ruga mantendo movimento.
+
+P: Com que frequência preciso reaplicar?
+R: Em média a cada 4 a 6 meses.
+
+P: Quem faz botox desde cedo envelhece melhor?
+R: A toxina reduz a formação de rugas marcadas pelo movimento repetido, por isso é usada como prevenção. Ela não trata flacidez nem perda de volume, que pedem outros tratamentos.
+
+P: Posso fazer botox e preenchimento no mesmo dia?
+R: Muitas vezes sim, dependendo das áreas. Isso é decidido no plano de tratamento.
+
+==================================================
+PÁGINA: Preenchimento labial
+CÓDIGO: tratamentos/preenchimento-labial
+--------------------------------------------------
+P: O preenchimento labial fica artificial?
+R: A quantidade e o desenho são planejados para manter a proporção com o seu rosto.
+
+P: Dói para fazer preenchimento labial?
+R: O produto tem anestésico e usamos anestesia tópica antes. A sensação costuma ser bem tolerada.
+
+==================================================
+PÁGINA: Micropigmentação labial
+CÓDIGO: tratamentos/micropigmentacao-labial
+--------------------------------------------------
+P: A cor fica muito forte?
+R: Logo depois a cor fica mais intensa e vai suavizando durante a cicatrização, até chegar ao tom escolhido.
+
+P: Dói para fazer micropigmentação labial?
+R: Usamos anestésico tópico. A sensação costuma ser bem tolerada.
+
+==================================================
+PÁGINA: Micropigmentação de sobrancelhas
+CÓDIGO: tratamentos/micropigmentacao-de-sobrancelhas
+--------------------------------------------------
+P: Fica artificial?
+R: O desenho e o tom são escolhidos para o seu rosto e aprovados por você antes da aplicação, para um resultado natural.
+
+P: Precisa de retoque?
+R: Sim. Realizamos o retoque entre 20 e 30 dias, feito depois da cicatrização, acerta a cor e o desenho.
+
+==================================================
+PÁGINA: Olheiras
+CÓDIGO: tratamentos/olheiras
+--------------------------------------------------
+P: O preenchimento resolve toda olheira?
+R: Ele trata a olheira causada por perda de volume. Olheira de pigmentação ou de bolsas pede outros cuidados, que conversamos na consulta.
+
+P: Fica inchado?
+R: Pode haver um inchaço leve nos primeiros dias, que melhora sozinho.
+
+==================================================
+PÁGINA: Bigode chinês
+CÓDIGO: tratamentos/bigode-chines
+--------------------------------------------------
+P: Por que não preencher só o sulco?
+R: Porque o vinco costuma ser consequência da perda de suporte acima dele. Tratar a causa deixa o resultado mais leve e natural.
+
+P: Quanto tempo dura?
+R: Em média de 9 a 12 meses, variando de pessoa para pessoa.
+
+==================================================
+PÁGINA: Estímulo de colágeno
+CÓDIGO: tratamentos/bioestimuladores-de-colageno
+--------------------------------------------------
+P: Em quanto tempo vejo o resultado do bioestimulador?
+R: Os primeiros sinais aparecem por volta de 30 dias, e o resultado mais evidente entre 60 e 90 dias, porque depende da produção de colágeno pelo seu corpo.
+
+P: Bioestimulador engorda o rosto?
+R: Não. Ele não adiciona volume como um preenchedor. Melhora a densidade e a firmeza da pele.
+
+P: Qual a diferença entre Sculptra e Radiesse?
+R: São marcas de substâncias diferentes, ácido poli-L-lático e hidroxiapatita de cálcio. Ambas estimulam colágeno, com comportamentos e indicações um pouco diferentes. A escolha é feita na consulta.
+
+==================================================
+PÁGINA: Perfiloplastia
+CÓDIGO: tratamentos/perfiloplastia
+--------------------------------------------------
+P: Perfiloplastia substitui cirurgia?
+R: Não substitui. É uma alternativa sem cortes para ajustes de proporção, com limites que conversamos na consulta.
+
+P: O resultado é definitivo?
+R: Não. O ácido hialurônico é absorvido aos poucos, e o resultado dura em média de 12 a 18 meses.
+
+==================================================
+PÁGINA: Rinomodelação
+CÓDIGO: tratamentos/rinomodelacao
+--------------------------------------------------
+P: A rinomodelação afina o nariz?
+R: Ela não diminui o tamanho. Ela melhora o contorno e a proporção, o que pode dar a impressão de um nariz mais harmônico.
+
+P: Quanto tempo dura?
+R: Em média de 12 a 18 meses.
+
+==================================================
+PÁGINA: Queixo (harmonização do mento)
+CÓDIGO: tratamentos/harmonizacao-do-queixo
+--------------------------------------------------
+P: O queixo fica grande demais?
+R: Não. A projeção é definida a partir das proporções do seu rosto.
+
+P: Dá para fazer junto com outros procedimentos?
+R: Sim. Muitas vezes o queixo faz parte de um plano com nariz, lábios ou mandíbula.
+
+==================================================
+PÁGINA: Skinbooster
+CÓDIGO: tratamentos/skinbooster
+--------------------------------------------------
+P: Skinbooster é igual a preenchimento?
+R: Não. Usa ácido hialurônico mais fluido, em pequenas doses, para hidratar e melhorar a qualidade da pele. Não muda o contorno do rosto.
+
+P: Posso fazer skinbooster antes de um evento?
+R: Pode, mas o ideal é fazer pelo menos 3 semanas antes, para as pápulas e eventuais roxos sumirem e a pele responder.
+
+==================================================
+PÁGINA: Tratamento de manchas e melasma
+CÓDIGO: tratamentos/tratamento-de-manchas
+--------------------------------------------------
+P: Melasma tem cura?
+R: Não existe cura definitiva, mas existe controle. Com tratamento e manutenção, a maioria das pacientes consegue clarear bastante e manter a pele estável.
+
+P: Por que o melasma volta?
+R: Porque os gatilhos continuam: sol, luz visível, calor e hormônios. Por isso a fase de manutenção é parte do tratamento.
+
+==================================================
+PÁGINA: Remoção de sinais
+CÓDIGO: tratamentos/remocao-de-sinais
+--------------------------------------------------
+P: Qualquer sinal pode ser removido?
+R: A indicação é feita na consulta, de forma individual, depois de analisar cada lesão.
+
+P: Fica cicatriz?
+R: Pode ficar uma marca discreta, que depende do tamanho da lesão e da sua pele. Conversamos sobre isso na consulta.
+
+==================================================
+PÁGINA: Xantelasma
+CÓDIGO: tratamentos/xantelasma
+--------------------------------------------------
+P: O xantelasma volta?
+R: Pode voltar com o tempo. Por isso o acompanhamento faz parte do tratamento.
+
+P: Fica marca?
+R: A pele das pálpebras costuma cicatrizar bem. Pode ficar uma vermelhidão temporária, que melhora nas semanas seguintes.
+
+==================================================
+PÁGINA: Microagulhamento
+CÓDIGO: tratamentos/microagulhamento
+--------------------------------------------------
+P: Microagulhamento resolve cicatriz de acne?
+R: Melhora bastante, principalmente cicatrizes mais rasas. Cicatrizes profundas podem precisar de técnicas combinadas.
+
+==================================================
+PÁGINA: Laser de CO2
+CÓDIGO: tratamentos/laser-co2
+--------------------------------------------------
+P: Quanto tempo de recuperação?
+R: A pele fica vermelha e descama por cerca de 5 a 7 dias. Por isso combinamos o melhor momento para fazer.
+
+P: Posso fazer no verão?
+R: O ideal é evitar períodos de muito sol. Conversamos sobre a melhor época na consulta.
+
+==================================================
+PÁGINA: Tratamento de vasinhos
+CÓDIGO: tratamentos/tratamento-de-vasinhos
+--------------------------------------------------
+P: Os vasinhos voltam?
+R: Os vasinhos tratados não voltam, mas novos podem surgir com o tempo, por isso pode ser necessária manutenção.
+
+P: Trata varizes?
+R: O tratamento é indicado para vasinhos finos. Na consulta, analisamos o seu caso e indicamos o melhor caminho.
+
+==================================================
+PÁGINA: Empina bumbum
+CÓDIGO: tratamentos/empina-bumbum
+--------------------------------------------------
+P: Aumenta muito o bumbum?
+R: O foco pode ser firmeza, contorno, qualidade da pele e volume, com resultado natural.
+
+P: Quando aparece o resultado?
+R: O colágeno novo se forma aos poucos; a melhora começa a aparecer entre 30 e 60 dias e continua nos meses seguintes.
+
+==================================================
+PÁGINA: Gordura localizada
+CÓDIGO: tratamentos/gordura-localizada
+--------------------------------------------------
+P: Serve para emagrecer?
+R: Não. Ele ajuda a melhorar o contorno de áreas específicas. Para emagrecer, o caminho é o acompanhamento nutricional.
+
+P: Quantas sessões preciso?
+R: Em geral de 6 a 10, dependendo da área e da quantidade de gordura.
+
+==================================================
+PÁGINA: Flacidez
+CÓDIGO: tratamentos/flacidez-corporal
+--------------------------------------------------
+P: Resolve flacidez de pele muito sobrando?
+R: Grandes sobras de pele podem precisar de cirurgia. O bioestimulador melhora a firmeza e a qualidade da pele.
+
+P: Posso combinar com outros tratamentos?
+R: Sim. Costuma combinar bem com nutrição, ultrassom microfocado e tratamentos corporais.
+
+==================================================
+PÁGINA: Estrias
+CÓDIGO: tratamentos/estrias
+--------------------------------------------------
+
+==================================================
+PÁGINA: Drenagem linfática
+CÓDIGO: tratamentos/drenagem-linfatica
+--------------------------------------------------
+P: Drenagem linfática emagrece?
+R: Não. Ela reduz líquido retido, o que diminui medidas e inchaço, mas não elimina gordura.
+
+P: Quantas sessões preciso?
+R: Depende do objetivo. Para inchaço do dia a dia, uma vez por semana. No pós-procedimento, a frequência é maior.
+
+==================================================
+PÁGINA: Massagem modeladora
+CÓDIGO: tratamentos/massagem-modeladora
+--------------------------------------------------
+P: Massagem modeladora elimina gordura?
+R: Não elimina gordura por si só. Ela melhora circulação, textura e contorno, e potencializa o resultado de alimentação e exercício.
+
+P: Massagem modeladora dói?
+R: É firme. A pressão é ajustada ao seu limite durante a sessão.
+
+==================================================
+PÁGINA: Massagem relaxante
+CÓDIGO: tratamentos/massagem-relaxante
+--------------------------------------------------
+P: Qual a diferença para a massagem terapêutica?
+R: A relaxante foca no bem-estar, com pressão mais suave. A terapêutica trabalha pontos de tensão e dores musculares com mais intensidade.
+
+P: Com que frequência posso fazer?
+R: Pode ser semanal, quinzenal ou quando você sentir necessidade.
+
+==================================================
+PÁGINA: Massagem terapêutica
+CÓDIGO: tratamentos/massagem-terapeutica
+--------------------------------------------------
+P: Dói?
+R: A pressão é mais firme, mas sempre ajustada ao seu limite durante a sessão.
+
+P: Com que frequência posso fazer?
+R: Pode ser semanal, quinzenal ou quando você sentir necessidade. Conversamos sobre isso na consulta.
+
+==================================================
+PÁGINA: Criolipólise
+CÓDIGO: tratamentos/criolipolise
+--------------------------------------------------
+P: Criolipólise emagrece?
+R: Não. Ela reduz gordura localizada em áreas específicas. Para emagrecer, o caminho é o acompanhamento nutricional.
+
+P: Quando vejo o resultado?
+R: Aos poucos, com melhora mais visível entre 60 e 90 dias.
+
+==================================================
+PÁGINA: Ultrassom microfocado
+CÓDIGO: tratamentos/ultrassom-microfocado
+--------------------------------------------------
+P: Dói?
+R: Há uma sensação de calor e de pequenas picadas, e a intensidade é ajustada ao seu conforto.
+
+P: Substitui o bioestimulador?
+R: São tratamentos diferentes, que podem se complementar. O plano define o que é indicado para você.
+
+==================================================
+PÁGINA: Celulite
+CÓDIGO: tratamentos/celulite
+--------------------------------------------------
+P: A celulite some?
+R: Ela melhora de aparência. Como tem várias causas, manter os resultados depende também da alimentação e dos exercícios.
+
+P: Quantas sessões preciso?
+R: Depende do grau da celulite. Em geral, um pacote de sessões semanais.
+
+==================================================
+PÁGINA: Emagrecimento
+CÓDIGO: tratamentos/emagrecimento
+--------------------------------------------------
+P: Como funciona a consulta nutricional presencial?
+R: Antes da consulta, você recebe o questionário pré-consulta. Na consulta, aqui na clínica, entendemos sua rotina, seus hábitos alimentares e seu comportamento, medimos a composição corporal e definimos como será o seu plano alimentar.
+
+P: Como funciona a consultoria on-line?
+R: A consultoria on-line começa com um questionário detalhado, que substitui a consulta presencial. Com base nas respostas, o nutricionista elabora o seu planejamento alimentar.
+
+P: Preciso cortar pão, arroz e os alimentos de que gosto?
+R: Não necessariamente. O planejamento alimentar considera suas preferências, sua rotina e suas necessidades.
+
+P: O acompanhamento inclui contato depois do plano alimentar?
+R: Sim. Além do suporte pelo WhatsApp, você tem o check-in semanal.
+
+P: É possível ganhar massa muscular e perder gordura?
+R: Sim, dependendo do histórico e do contexto. Mudanças na composição corporal podem acontecer com planejamento alimentar e treinamento adequados, e a estratégia precisa ser individualizada.
+
+P: Vocês acompanham quem usa Mounjaro, Ozempic ou tirzepatida?
+R: Sim. O planejamento nutricional ajuda a organizar a alimentação, olhar a ingestão de proteínas e lidar com dificuldades nutricionais durante o tratamento.
+
+P: Quanto tempo demora para receber o planejamento alimentar?
+R: Depois da consulta, o planejamento alimentar e as orientações ficam prontos em até 72 horas.
+
+P: Onde encontro o plano e as orientações?
+R: Você recebe o planejamento e as orientações pelo WhatsApp e tem acesso ao aplicativo Dietitian, onde ficam o plano alimentar, receitas, prescrições e exames.
+
+P: Onde é o atendimento presencial?
+R: Aqui na Clínica Girlane Ferreira, na Rua Areia Branca, 1035, Jardim Iririú, em Joinville (SC).
+
+==================================================
+PÁGINA: Hipertrofia
+CÓDIGO: tratamentos/hipertrofia
+--------------------------------------------------
+P: Preciso usar whey para ganhar massa muscular?
+R: Não necessariamente. A necessidade de suplementos depende da alimentação, da rotina e da análise individual.
+
+P: Atende quem está começando a musculação?
+R: Sim. A estratégia é adaptada tanto a quem está começando quanto a quem já treina com regularidade.
+
+P: É possível ganhar massa muscular e perder gordura?
+R: Sim, dependendo do histórico e do contexto. Mudanças na composição corporal podem acontecer com planejamento alimentar e treinamento adequados, e a estratégia precisa ser individualizada.
+
+P: Como funciona a consulta nutricional presencial?
+R: Antes da consulta, você recebe o questionário pré-consulta. Na consulta, aqui na clínica, entendemos sua rotina, seus hábitos alimentares e seu comportamento, medimos a composição corporal e definimos como será o seu plano alimentar.
+
+P: Como funciona a consultoria on-line?
+R: A consultoria on-line começa com um questionário detalhado, que substitui a consulta presencial. Com base nas respostas, o nutricionista elabora o seu planejamento alimentar.
+
+P: O acompanhamento inclui contato depois do plano alimentar?
+R: Sim. Além do suporte pelo WhatsApp, você tem o check-in semanal.
+
+P: Quanto tempo demora para receber o planejamento alimentar?
+R: Depois da consulta, o planejamento alimentar e as orientações ficam prontos em até 72 horas.
+
+P: Onde encontro o plano e as orientações?
+R: Você recebe o planejamento e as orientações pelo WhatsApp e tem acesso ao aplicativo Dietitian, onde ficam o plano alimentar, receitas, prescrições e exames.
+
+P: Onde é o atendimento presencial?
+R: Aqui na Clínica Girlane Ferreira, na Rua Areia Branca, 1035, Jardim Iririú, em Joinville (SC).
+
+==================================================
+PÁGINA: Nutrição esportiva
+CÓDIGO: tratamentos/nutricao-esportiva
+--------------------------------------------------
+P: O atendimento é apenas para atletas?
+R: Não. Quem pratica atividade física e quer melhorar a alimentação e a composição corporal também pode se beneficiar.
+
+P: Preciso usar whey para ganhar massa muscular?
+R: Não necessariamente. A necessidade de suplementos depende da alimentação, da rotina e da análise individual.
+
+P: Atende quem está começando a musculação?
+R: Sim. A estratégia é adaptada tanto a quem está começando quanto a quem já treina com regularidade.
+
+P: É possível ganhar massa muscular e perder gordura?
+R: Sim, dependendo do histórico e do contexto. Mudanças na composição corporal podem acontecer com planejamento alimentar e treinamento adequados, e a estratégia precisa ser individualizada.
+
+P: Como funciona a consulta nutricional presencial?
+R: Antes da consulta, você recebe o questionário pré-consulta. Na consulta, aqui na clínica, entendemos sua rotina, seus hábitos alimentares e seu comportamento, medimos a composição corporal e definimos como será o seu plano alimentar.
+
+P: Como funciona a consultoria on-line?
+R: A consultoria on-line começa com um questionário detalhado, que substitui a consulta presencial. Com base nas respostas, o nutricionista elabora o seu planejamento alimentar.
+
+P: O acompanhamento inclui contato depois do plano alimentar?
+R: Sim. Além do suporte pelo WhatsApp, você tem o check-in semanal.
+
+P: Quanto tempo demora para receber o planejamento alimentar?
+R: Depois da consulta, o planejamento alimentar e as orientações ficam prontos em até 72 horas.
+
+P: Onde é o atendimento presencial?
+R: Aqui na Clínica Girlane Ferreira, na Rua Areia Branca, 1035, Jardim Iririú, em Joinville (SC).
+
+==================================================
+PÁGINA: Nutrição estética
+CÓDIGO: tratamentos/nutricao-estetica
+--------------------------------------------------
+P: Alimentação interfere no envelhecimento da pele?
+R: Sim. Proteína, vitamina C, zinco e gorduras boas participam da produção de colágeno, e o excesso de açúcar acelera a glicação, processo que deixa as fibras de colágeno mais rígidas.
+
+P: Preciso tomar colágeno?
+R: Depende da sua alimentação e do objetivo. O nutricionista analisa se faz sentido e qual tipo e dose.
+
+P: Como funciona a consulta nutricional presencial?
+R: Antes da consulta, você recebe o questionário pré-consulta. Na consulta, aqui na clínica, entendemos sua rotina, seus hábitos alimentares e seu comportamento, medimos a composição corporal e definimos como será o seu plano alimentar.
+
+P: Como funciona a consultoria on-line?
+R: A consultoria on-line começa com um questionário detalhado, que substitui a consulta presencial. Com base nas respostas, o nutricionista elabora o seu planejamento alimentar.
+
+P: O acompanhamento inclui contato depois do plano alimentar?
+R: Sim. Além do suporte pelo WhatsApp, você tem o check-in semanal.
+
+P: Quanto tempo demora para receber o planejamento alimentar?
+R: Depois da consulta, o planejamento alimentar e as orientações ficam prontos em até 72 horas.
+
+P: Onde encontro o plano e as orientações?
+R: Você recebe o planejamento e as orientações pelo WhatsApp e tem acesso ao aplicativo Dietitian, onde ficam o plano alimentar, receitas, prescrições e exames.
+
+P: Onde é o atendimento presencial?
+R: Aqui na Clínica Girlane Ferreira, na Rua Areia Branca, 1035, Jardim Iririú, em Joinville (SC).
+
+==================================================
+PÁGINA: Nutrição comportamental
+CÓDIGO: tratamentos/nutricao-comportamental
+--------------------------------------------------
+P: E se eu sair do plano alimentar?
+R: Não é tratado como fracasso. Usamos essas situações para entender o que precisa mudar e criar estratégias mais viáveis para a sua rotina.
+
+P: Vou ter uma lista de alimentos proibidos?
+R: Não. O planejamento trabalha com flexibilidade, quantidades e frequência, sem proibições arbitrárias.
+
+P: Preciso cortar pão, arroz e os alimentos de que gosto?
+R: Não necessariamente. O planejamento alimentar considera suas preferências, sua rotina e suas necessidades.
+
+P: O acompanhamento inclui contato depois do plano alimentar?
+R: Sim. Além do suporte pelo WhatsApp, você tem o check-in semanal.
+
+P: Como funciona a consulta nutricional presencial?
+R: Antes da consulta, você recebe o questionário pré-consulta. Na consulta, aqui na clínica, entendemos sua rotina, seus hábitos alimentares e seu comportamento, medimos a composição corporal e definimos como será o seu plano alimentar.
+
+P: Como funciona a consultoria on-line?
+R: A consultoria on-line começa com um questionário detalhado, que substitui a consulta presencial. Com base nas respostas, o nutricionista elabora o seu planejamento alimentar.
+
+P: Quanto tempo demora para receber o planejamento alimentar?
+R: Depois da consulta, o planejamento alimentar e as orientações ficam prontos em até 72 horas.
+
+P: Onde encontro o plano e as orientações?
+R: Você recebe o planejamento e as orientações pelo WhatsApp e tem acesso ao aplicativo Dietitian, onde ficam o plano alimentar, receitas, prescrições e exames.
+
+P: Onde é o atendimento presencial?
+R: Aqui na Clínica Girlane Ferreira, na Rua Areia Branca, 1035, Jardim Iririú, em Joinville (SC).
+
+==================================================
+PÁGINA: Artigo: Por que o rosto envelhece: pele, gordura, músculo e osso
+CÓDIGO: conteudo/envelhecimento-facial-camadas
+--------------------------------------------------
+P: Com que idade o rosto começa a envelhecer?
+R: A queda de colágeno começa por volta dos 25 anos. As mudanças de gordura e osso ficam mais visíveis a partir dos 35 a 40 e aceleram na menopausa.
+
+P: Qual o melhor tratamento para o envelhecimento facial?
+R: Não existe um único. O tratamento depende de qual camada mais mudou no seu rosto. Por isso a consulta vem antes de qualquer procedimento.
+
+==================================================
+PÁGINA: Artigo: Harmonização facial natural: o que é e como evitar exageros
+CÓDIGO: conteudo/harmonizacao-facial-natural
+--------------------------------------------------
+P: Harmonização facial é reversível?
+R: O ácido hialurônico pode ser dissolvido com hialuronidase. A toxina botulínica perde o efeito sozinha em alguns meses. Bioestimuladores não são reversíveis, por isso exigem mais cuidado na indicação.
+
+P: Quanto produto é "demais"?
+R: Não existe número fixo. Depende da anatomia e do objetivo. O sinal mais confiável é o acompanhamento, se a cada sessão o plano pede mais volume, algo está errado.
+
+==================================================
+PÁGINA: Artigo: Botox ou preenchimento: qual a diferença e quando usar cada um
+CÓDIGO: conteudo/toxina-botulinica-ou-preenchimento
+--------------------------------------------------
+P: Botox preenche ruga?
+R: Não. Ele impede que a ruga continue sendo marcada pelo movimento. Se o vinco já está fixo, pode ser preciso associar outro tratamento.
+
+P: Preenchimento trata ruga da testa?
+R: Raramente é a primeira escolha. A ruga da testa é causada principalmente pelo músculo, então a toxina costuma ser o tratamento principal.
+
+==================================================
+PÁGINA: Artigo: Bioestimuladores de colágeno: como funcionam e quando aparece o resultado
+CÓDIGO: conteudo/bioestimuladores-de-colageno-como-funcionam
+--------------------------------------------------
+P: Bioestimulador dói?
+R: Usamos anestésico e, em geral, cânula. A sensação é de pressão e ardência leve.
+
+P: Bioestimulador funciona no corpo?
+R: Sim. É usado em braços, abdome, glúteos, coxas e colo para tratar flacidez.
+
+==================================================
+PÁGINA: Artigo: Melasma: por que volta e como tratar com constância
+CÓDIGO: conteudo/melasma-por-que-volta
+--------------------------------------------------
+P: Protetor solar comum resolve para melasma?
+R: Ajuda, mas o ideal é protetor com cor (com óxido de ferro), que também bloqueia luz visível, reaplicado ao longo do dia.
+
+P: Melasma some depois da gravidez?
+R: Às vezes clareia sozinho, às vezes não. Quando persiste, pode ser tratado depois da amamentação.
+
+==================================================
+PÁGINA: Artigo: Como escolher um profissional de estética injetável com segurança
+CÓDIGO: conteudo/como-escolher-profissional-estetica-injetavel
+--------------------------------------------------
+P: Como consultar o registro de um biomédico?
+R: No site do Conselho Regional de Biomedicina da região em que o profissional atua, pelo nome ou número de registro.
+
+==================================================
+PÁGINA: Perguntas frequentes (sobre a clínica e o atendimento)
+CÓDIGO: perguntas-frequentes
+--------------------------------------------------
+P: Como agendar uma consulta?
+R: Pelo WhatsApp da clínica. A equipe confirma o melhor horário e envia as orientações para o dia. [link aqui]
+
+P: Preciso fazer consulta antes de qualquer procedimento?
+R: Sim. A consulta é o que define se o procedimento é indicado, qual técnica usar e em que ordem. Nenhum procedimento injetável é feito sem ela.
+
+P: Quem aplica os procedimentos injetáveis?
+R: A Dra. Girlane Ferreira, biomédica esteta com habilitação em Biomedicina Estética e registro no Conselho Regional de Biomedicina.
+
+P: Os produtos usados são registrados na Anvisa?
+R: Sim. Todos os produtos injetáveis têm registro na Anvisa, e o lote fica anotado no prontuário da paciente.
+
+P: A clínica atende pacientes de outras cidades?
+R: Sim. Atendemos pacientes de Joinville, Araquari, São Francisco do Sul, Garuva, Guaramirim, Jaraguá do Sul, Itapoá, Barra Velha e região.
+
+P: Existe acompanhamento depois do procedimento?
+R: Sim. O acompanhamento entre 15 e 30 dias faz parte do plano de tratamento, para comparar as fotos e ajustar detalhes.

@@ -90,5 +90,261 @@
  "img/clinica/hero-girlane-mobile.webp": [
   1000,
   1000
+ ],
+ "img/tratamentos/emagrecimento.webp": [
+  1600,
+  1000
+ ],
+ "img/tratamentos/hipertrofia.webp": [
+  1600,
+  1000
+ ],
+ "img/tratamentos/nutricao-esportiva.webp": [
+  1600,
+  933
+ ],
+ "img/tratamentos/nutricao-comportamental.webp": [
+  1600,
+  1000
+ ],
+ "img/nutricao/pre-consulta.webp": [
+  900,
+  563
+ ],
+ "img/nutricao/consulta.webp": [
+  900,
+  563
+ ],
+ "img/nutricao/composicao-corporal.webp": [
+  900,
+  563
+ ],
+ "img/nutricao/plano-alimentar.webp": [
+  900,
+  563
+ ],
+ "img/nutricao/check-in-semanal.webp": [
+  900,
+  563
+ ],
+ "img/nutricao/suporte.webp": [
+  900,
+  563
+ ],
+ "img/nutricao/aplicativo.webp": [
+  900,
+  563
+ ],
+ "img/nutricao/caixa-de-ferramentas.webp": [
+  900,
+  563
+ ],
+ "img/equipe/hericles-perfil.webp": [
+  400,
+  400
+ ],
+ "img/equipe/girlane-perfil.webp": [
+  400,
+  400
+ ],
+ "img/nutricao/casos/leonardo.webp": [
+  720,
+  900
+ ],
+ "img/nutricao/casos/daniela.webp": [
+  720,
+  900
+ ],
+ "img/nutricao/casos/gabriel.webp": [
+  720,
+  900
+ ],
+ "img/nutricao/casos/djonatan.webp": [
+  720,
+  900
+ ],
+ "img/nutricao/casos/hericles.webp": [
+  900,
+  792
+ ],
+ "img/tratamentos/preenchimento-labial.webp": [
+  1600,
+  1200
+ ],
+ "img/antes-depois/toxina-botulinica-1-antes.webp": [
+  508,
+  428
+ ],
+ "img/antes-depois/toxina-botulinica-1-depois.webp": [
+  508,
+  428
+ ],
+ "img/antes-depois/flacidez-corporal-1-antes.webp": [
+  1000,
+  481
+ ],
+ "img/antes-depois/flacidez-corporal-1-depois.webp": [
+  1000,
+  481
+ ],
+ "img/antes-depois/tratamento-de-vasinhos-1-antes.webp": [
+  1000,
+  421
+ ],
+ "img/antes-depois/tratamento-de-vasinhos-1-depois.webp": [
+  1000,
+  421
+ ],
+ "img/antes-depois/rinomodelacao-1-antes.webp": [
+  900,
+  1468
+ ],
+ "img/antes-depois/rinomodelacao-1-depois.webp": [
+  900,
+  1468
+ ],
+ "img/antes-depois/preenchimento-labial-1-antes.webp": [
+  1000,
+  1333
+ ],
+ "img/antes-depois/preenchimento-labial-1-depois.webp": [
+  1000,
+  1333
+ ],
+ "img/antes-depois/xantelasma-1-antes.webp": [
+  828,
+  395
+ ],
+ "img/antes-depois/xantelasma-1-depois.webp": [
+  828,
+  395
+ ],
+ "img/antes-depois/toxina-botulinica-2-antes.webp": [
+  508,
+  432
+ ],
+ "img/antes-depois/toxina-botulinica-2-depois.webp": [
+  508,
+  432
+ ],
+ "img/antes-depois/toxina-botulinica-3-antes.webp": [
+  508,
+  408
+ ],
+ "img/antes-depois/toxina-botulinica-3-depois.webp": [
+  508,
+  408
+ ],
+ "img/tratamentos/resultado/toxina-botulinica.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/preenchimento-labial.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/rinomodelacao.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/flacidez-corporal.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/tratamento-de-vasinhos.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/xantelasma.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/emagrecimento.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/hipertrofia.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/nutricao-esportiva.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/nutricao-estetica.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/nutricao-comportamental.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/micropigmentacao-labial.webp": [
+  1200,
+  800
+ ],
+ "img/antes-depois/reestruturacao-facial-1-antes.webp": [
+  537,
+  1080
+ ],
+ "img/antes-depois/reestruturacao-facial-1-depois.webp": [
+  537,
+  1080
+ ],
+ "img/antes-depois/reestruturacao-facial-2-antes.webp": [
+  639,
+  1280
+ ],
+ "img/antes-depois/reestruturacao-facial-2-depois.webp": [
+  639,
+  1280
+ ],
+ "img/antes-depois/olheiras-1-antes.webp": [
+  720,
+  558
+ ],
+ "img/antes-depois/olheiras-1-depois.webp": [
+  720,
+  558
+ ],
+ "img/antes-depois/rinomodelacao-2-antes.webp": [
+  637,
+  1160
+ ],
+ "img/antes-depois/rinomodelacao-2-depois.webp": [
+  637,
+  1160
+ ],
+ "img/tratamentos/resultado/reestruturacao-facial.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/resultado/olheiras.webp": [
+  1200,
+  800
+ ],
+ "img/tratamentos/reestruturacao-facial.webp": [
+  1600,
+  1200
+ ],
+ "img/equipe/diva-perfil.webp": [
+  356,
+  356
+ ],
+ "img/nutricao/hero-nutri.webp": [
+  2000,
+  1167
+ ],
+ "img/nutricao/hero-nutri-mobile.webp": [
+  750,
+  1000
+ ],
+ "img/nutricao/quem-sou-eu.webp": [
+  1600,
+  933
+ ],
+ "img/tratamentos/resultado/harmonizacao-do-queixo.webp": [
+  1200,
+  800
  ]
 }

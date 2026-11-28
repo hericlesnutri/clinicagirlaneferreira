@@ -1,8 +1,10 @@
 /index /  301
-/sobre /dra-girlane-ferreira 301
+/sobre /equipe 301
+/dra-girlane-ferreira /equipe 301
 /blog /conteudo 301
 /blog/* /conteudo/:splat 301
 /faq /perguntas-frequentes 301
 /botox /tratamentos/toxina-botulinica 301
 /hericles https://nutrihericles.com.br 302
 /nutricionista https://nutrihericles.com.br 302
+/tratamentos/preenchimento-com-acido-hialuronico /tratamentos/preenchimento-labial 301

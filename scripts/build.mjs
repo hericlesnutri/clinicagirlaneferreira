@@ -21,9 +21,9 @@ await cp(join(raiz, 'public'), saida, { recursive: true });
 
 const paginas = [
   P.home(),
-  P.sobreGirlane(),
   P.metodo(),
   P.tratamentos(),
+  P.nutricao(),
   ...servicosAtivos.map(P.paginaServico),
   P.equipe(),
   P.resultados(),
@@ -49,6 +49,10 @@ ${urls.map((p) => `  <url><loc>${absoluta(p.caminho)}</loc><lastmod>${p.lastmod 
 </urlset>
 `;
 await writeFile(join(saida, 'sitemap.xml'), sitemap);
+if (process.argv.includes('--exportar-perguntas')) {
+  const { exportarPerguntas } = await import('../src/perguntas.mjs');
+  console.log(`✓ perguntas-frequentes.txt gerado (${exportarPerguntas()} páginas)`);
+}
 
 // ---------------- robots.txt ----------------
 // Libera buscadores e os robôs de IA que citam fontes (ChatGPT, Claude, Perplexity, Gemini).
@@ -98,12 +102,12 @@ const llms = `# ${site.nome}
 - Atende também: ${site.areasAtendidas.slice(1).join(', ')}.
 ${preenchido(site.telefone) ? `- Telefone/WhatsApp: ${site.telefone}\n` : ''}- Instagram da clínica: ${site.perfis.instagramClinica}
 - Instagram da Dra. Girlane: ${site.perfis.instagram}
-- Método: planos de tratamento facial em três pilares (reestruturação, pele que toca, pele que se vê), com consulta, plano por escrito e acompanhamento entre 15 e 30 dias.
+- Método: planos de tratamento facial em três pilares (reestruturação, pele que toca, pele que se vê), com consulta, tratamento e acompanhamento.
 - Equipe: ${Object.values(profissionais).map((p) => `${nomeCompleto(p)} (${p.cargo.toLowerCase()})`).join('; ')}.
 
 ## Páginas principais
-- [Dra. Girlane Ferreira](${absoluta('/dra-girlane-ferreira')}): formação, registro e método de trabalho
-- [Método](${absoluta('/metodo')}): como funciona o plano de tratamento
+- [Equipe e Dra. Girlane Ferreira](${absoluta('/equipe')}): apresentação, formação, registro e método de trabalho
+- [Como funciona](${absoluta('/metodo')}): o plano de tratamento em três pilares, da consulta ao acompanhamento
 - [Tratamentos](${absoluta('/tratamentos')}): lista completa
 - [Perguntas frequentes](${absoluta('/perguntas-frequentes')})
 - [Contato](${absoluta('/contato')}): endereço, horários e WhatsApp

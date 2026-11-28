@@ -3,6 +3,8 @@
 // "resumo" é o parágrafo que responde a pergunta logo no início da página:
 // é o trecho que o Google e as IAs costumam citar. Mantenha entre 40 e 60 palavras.
 
+import { servicosNovos, ordemServicos } from './servicos-novos.mjs';
+
 export const categorias = {
   facial: { nome: 'Rosto', descricao: 'Estrutura, firmeza e qualidade de pele.', cor: 'facial' },
   corporal: { nome: 'Corpo', descricao: 'Drenagem, modelagem e bem-estar.', cor: 'corporal' },
@@ -13,22 +15,22 @@ export const categorias = {
 // Cada uma aponta para o tratamento que a resolve. Usadas na página inicial.
 export const queixas = [
   { titulo: 'Rugas na testa e pés de galinha', texto: 'Marcas que aparecem quando você sorri ou franze e, com o tempo, ficam mesmo parada.', servico: 'toxina-botulinica' },
-  { titulo: 'Bigode chinês marcado', texto: 'O vinco do nariz à boca costuma vir da perda de suporte das maçãs do rosto, não da pele.', servico: 'preenchimento-com-acido-hialuronico' },
+  { titulo: 'Bigode chinês marcado', texto: 'O vinco do nariz à boca costuma vir da perda de suporte das maçãs do rosto, não da pele.', servico: 'bigode-chines' },
   { titulo: 'Rosto caído ou flácido', texto: 'A pele perde colágeno e firmeza, e o contorno do rosto começa a ceder.', servico: 'bioestimuladores-de-colageno' },
-  { titulo: 'Olheiras e olhar cansado', texto: 'Parece cansaço mesmo depois de dormir bem. Muitas vezes é perda de volume embaixo dos olhos.', servico: 'preenchimento-com-acido-hialuronico' },
+  { titulo: 'Olheiras e olhar cansado', texto: 'Parece cansaço mesmo depois de dormir bem. Muitas vezes é perda de volume embaixo dos olhos.', servico: 'olheiras' },
   { titulo: 'Manchas e melasma', texto: 'Manchas de sol, de acne ou melasma que voltam e deixam o tom da pele irregular.', servico: 'tratamento-de-manchas' },
   { titulo: 'Pele opaca e sem viço', texto: 'A pele desidratada perde brilho e mostra linhas finas mais cedo.', servico: 'skinbooster' },
-  { titulo: 'Lábios finos ou sem contorno', texto: 'Com os anos, os lábios perdem volume e o desenho da boca fica menos definido.', servico: 'preenchimento-com-acido-hialuronico' },
-  { titulo: 'Mandíbula e queixo sem definição', texto: 'Quando o contorno do rosto perde a linha, ele parece mais pesado e mais velho.', servico: 'harmonizacao-facial' },
+  { titulo: 'Lábios finos ou sem contorno', texto: 'Com os anos, os lábios perdem volume e o desenho da boca fica menos definido.', servico: 'preenchimento-labial' },
+  { titulo: 'Mandíbula e queixo sem definição', texto: 'Quando o contorno do rosto perde a linha, ele parece mais pesado e mais velho.', servico: 'harmonizacao-do-queixo' },
   { titulo: 'Cicatrizes de acne e poros', texto: 'Textura irregular que a maquiagem não disfarça.', servico: 'microagulhamento' },
   { titulo: 'Inchaço e pernas pesadas', texto: 'Retenção de líquido que piora no fim do dia ou antes da menstruação.', servico: 'drenagem-linfatica' },
-  { titulo: 'Celulite e contorno do corpo', texto: 'Furinhos e sensação de corpo pesado, mesmo cuidando da alimentação.', servico: 'massagem-modeladora' },
+  { titulo: 'Celulite e contorno do corpo', texto: 'Furinhos e sensação de corpo pesado, mesmo cuidando da alimentação.', servico: 'celulite' },
   { titulo: 'Emagrecer sem ficar flácida', texto: 'Perder medidas mantendo músculo, firmeza e uma pele bonita.', servico: 'nutricao-estetica' },
 ];
 
 // Carros-chefes: os tratamentos que aparecem em cartões na página inicial.
 // Os demais ficam em "Ver todos os tratamentos". Troque ou reordene à vontade.
-export const destaquesHome = ['harmonizacao-facial', 'bioestimuladores-de-colageno', 'toxina-botulinica', 'preenchimento-com-acido-hialuronico'];
+export const destaquesHome = ['harmonizacao-facial', 'bioestimuladores-de-colageno', 'toxina-botulinica', 'preenchimento-labial'];
 
 export const pilares = {
   reestruturacao: { nome: 'Reestruturação', queixa: 'Quando o rosto parece caído ou cansado', resumo: 'Estrutura e volume', texto: 'Repor o suporte que o rosto perde com o tempo: osso, gordura e ligamentos mudam com o passar dos anos, e por isso o contorno do rosto cai.' },
@@ -36,7 +38,7 @@ export const pilares = {
   pelequeseve: { nome: 'Pele que se vê', queixa: 'Quando incomodam rugas, manchas e textura', resumo: 'Linhas, manchas e textura', texto: 'Tratar o que aparece na superfície: rugas de expressão, manchas, poros e viço.' },
 };
 
-export const servicos = [
+const servicosBase = [
   // ===================================================== ROSTO
   {
     slug: 'harmonizacao-facial',
@@ -45,6 +47,7 @@ export const servicos = [
     pilar: 'reestruturacao',
     profissional: 'girlane',
     nome: 'Harmonização facial',
+    curto: 'Proporções do rosto em equilíbrio, com resultado natural.',   // frase curta da página Serviços
     h1: 'Harmonização facial em Joinville',
     seoTitle: 'Harmonização facial em Joinville | Dra. Girlane Ferreira',
     metaDescription: 'Harmonização facial em Joinville com plano individual, feito pela biomédica esteta Dra. Girlane Ferreira. Resultado natural, sem exageros.',
@@ -53,7 +56,7 @@ export const servicos = [
     oQueE: [
       'Harmonização facial não é um procedimento. É um jeito de planejar vários deles olhando o rosto inteiro, e não só a ruga que incomoda no espelho.',
       'Na prática, a gente avalia testa, olhos, maçãs do rosto, nariz, lábios, mandíbula e queixo, entende o que mudou com o tempo (ou o que sempre esteve desproporcional) e decide o que tratar, em que ordem e com qual técnica.',
-      'O objetivo aqui é discreto: que as pessoas digam que você está descansada, e não que você "fez alguma coisa".',
+      'O objetivo aqui é ser discreto, alcançar resultados onde as pessoas digam que você está melhor, e não que você "fez alguma coisa".',
     ],
     indicacoes: ['Perda de contorno da mandíbula e do queixo', 'Olhar cansado ou olheiras profundas', 'Perda de volume nas maçãs do rosto', 'Desequilíbrio entre lábios, nariz e queixo', 'Rugas de expressão na testa e ao redor dos olhos', 'Quem quer começar a prevenir o envelhecimento com acompanhamento'],
     etapas: [
@@ -72,16 +75,17 @@ export const servicos = [
       { q: 'Dói?', a: 'Usamos anestésico tópico e produtos com anestésico na fórmula. A maior parte das pacientes descreve como um incômodo suportável.' },
       { q: 'Biomédica pode fazer harmonização facial?', a: 'Sim. O biomédico com habilitação em Biomedicina Estética, registrado no Conselho Regional de Biomedicina, tem respaldo do Conselho Federal de Biomedicina (CFBM) para realizar procedimentos estéticos injetáveis não cirúrgicos.' },
     ],
-    relacionados: ['preenchimento-com-acido-hialuronico', 'toxina-botulinica', 'bioestimuladores-de-colageno'],
+    relacionados: ['preenchimento-labial', 'toxina-botulinica', 'bioestimuladores-de-colageno'],
     artigos: ['harmonizacao-facial-natural', 'como-escolher-profissional-estetica-injetavel'],
   },
   {
     slug: 'preenchimento-com-acido-hialuronico',
-    ativo: true,
+    ativo: false,   // dividido em preenchimento labial, olheiras e bigode chinês (27/11/2026)
     categoria: 'facial',
     pilar: 'reestruturacao',
     profissional: 'girlane',
     nome: 'Preenchimento com ácido hialurônico',
+    curto: 'Volume e suporte onde o rosto perdeu estrutura.',   // frase curta da página Serviços
     h1: 'Preenchimento com ácido hialurônico em Joinville',
     seoTitle: 'Preenchimento com ácido hialurônico em Joinville',
     metaDescription: 'Preenchimento com ácido hialurônico em Joinville: lábios, olheiras, mandíbula, queixo e malar. Consulta com a biomédica esteta Dra. Girlane Ferreira.',
@@ -118,7 +122,10 @@ export const servicos = [
     pilar: 'pelequeseve',
     profissional: 'girlane',
     nome: 'Toxina botulínica',
-    h1: 'Toxina botulínica (botox) em Joinville',
+    curto: 'Suaviza as rugas de expressão da testa e ao redor dos olhos.',   // frase curta da página Serviços
+    h1: 'Botox',
+    subtitulo: 'Toxina botulínica',
+    casosMax: 3,   // mostra as três regiões do antes e depois
     seoTitle: 'Botox em Joinville: toxina botulínica | Girlane Ferreira',
     metaDescription: 'Botox em Joinville para rugas da testa, entre as sobrancelhas e pés de galinha, com aplicação que preserva a expressão. Com a Dra. Girlane Ferreira.',
     resumo: 'A toxina botulínica, conhecida como botox, relaxa músculos da expressão e suaviza rugas dinâmicas da testa, da região entre as sobrancelhas e dos pés de galinha. O efeito começa entre 3 e 7 dias, fica completo em cerca de 15 dias e dura em média de 4 a 6 meses. Bem dosada, preserva a expressão.',
@@ -126,7 +133,6 @@ export const servicos = [
     oQueE: [
       'A toxina botulínica é um medicamento que bloqueia por um tempo a comunicação entre o nervo e o músculo. O músculo contrai menos, e a pele por cima para de dobrar sempre no mesmo lugar.',
       '"Botox" é o nome de uma das marcas. Existem outras aprovadas pela Anvisa, e todas têm o mesmo princípio.',
-      'O medo mais comum é ficar com cara congelada. Isso é questão de dose e de ponto de aplicação. Dá para suavizar a ruga e continuar levantando a sobrancelha quando se surpreende.',
     ],
     indicacoes: ['Rugas horizontais da testa', 'Linhas entre as sobrancelhas (glabela)', 'Pés de galinha', 'Prevenção de rugas em quem franze muito', 'Sorriso gengival e bruxismo (após consulta)'],
     etapas: [
@@ -143,7 +149,7 @@ export const servicos = [
       { q: 'Quem faz botox desde cedo envelhece melhor?', a: 'A toxina reduz a formação de rugas marcadas pelo movimento repetido, por isso é usada como prevenção. Ela não trata flacidez nem perda de volume, que pedem outros tratamentos.' },
       { q: 'Posso fazer botox e preenchimento no mesmo dia?', a: 'Muitas vezes sim, dependendo das áreas. Isso é decidido no plano de tratamento.' },
     ],
-    relacionados: ['harmonizacao-facial', 'preenchimento-com-acido-hialuronico', 'skinbooster'],
+    relacionados: ['harmonizacao-facial', 'bigode-chines', 'skinbooster'],
     artigos: ['toxina-botulinica-ou-preenchimento'],
   },
   {
@@ -152,10 +158,11 @@ export const servicos = [
     categoria: 'facial',
     pilar: 'pelequetoca',
     profissional: 'girlane',
-    nome: 'Bioestimuladores de colágeno',
-    h1: 'Bioestimuladores de colágeno em Joinville',
-    seoTitle: 'Bioestimulador de colágeno em Joinville | Girlane Ferreira',
-    metaDescription: 'Bioestimuladores de colágeno em Joinville para flacidez do rosto, pescoço e corpo. Resultado gradual e natural, com a biomédica esteta Dra. Girlane Ferreira.',
+    nome: 'Estímulo de colágeno',   // antes "Bioestimuladores de colágeno"; o endereço da página continua o mesmo
+    curto: 'Estimula o seu próprio colágeno para devolver firmeza.',   // frase curta da página Serviços
+    h1: 'Estímulo de colágeno em Joinville',
+    seoTitle: 'Estímulo de colágeno (bioestimulador) em Joinville | Girlane Ferreira',
+    metaDescription: 'Estímulo de colágeno com bioestimuladores em Joinville para flacidez do rosto, pescoço e corpo. Resultado gradual e natural, com a biomédica esteta Dra. Girlane Ferreira.',
     resumo: 'Bioestimuladores de colágeno são substâncias injetáveis, como o ácido poli-L-lático e a hidroxiapatita de cálcio, que estimulam o corpo a produzir colágeno novo. Tratam flacidez e perda de firmeza com resultado gradual, que aparece entre 30 e 90 dias e pode durar de 12 a 24 meses.',
     procedimentoTipo: 'NoninvasiveProcedure',
     oQueE: [
@@ -188,6 +195,7 @@ export const servicos = [
     pilar: 'pelequeseve',
     profissional: 'girlane',
     nome: 'Skinbooster',
+    curto: 'Hidratação profunda para uma pele com mais viço.',   // frase curta da página Serviços
     h1: 'Skinbooster em Joinville',
     seoTitle: 'Skinbooster em Joinville | Clínica Girlane Ferreira',
     metaDescription: 'Skinbooster em Joinville para pele desidratada, sem viço e com linhas finas. Hidratação injetável com ácido hialurônico, com a Dra. Girlane Ferreira.',
@@ -220,6 +228,7 @@ export const servicos = [
     pilar: 'pelequeseve',
     profissional: 'girlane',
     nome: 'Tratamento de manchas e melasma',
+    curto: 'Tom de pele mais uniforme, com constância e proteção.',   // frase curta da página Serviços
     h1: 'Tratamento de manchas e melasma em Joinville',
     seoTitle: 'Tratamento de melasma e manchas em Joinville',
     metaDescription: 'Tratamento de melasma e manchas em Joinville com peelings, microagulhamento e manutenção. Consulta com a biomédica esteta Dra. Girlane Ferreira.',
@@ -254,6 +263,7 @@ export const servicos = [
     pilar: 'pelequeseve',
     profissional: 'girlane',
     nome: 'Microagulhamento',
+    curto: 'Textura, poros e cicatrizes de acne com indução de colágeno.',   // frase curta da página Serviços
     h1: 'Microagulhamento em Joinville',
     seoTitle: 'Microagulhamento em Joinville | Clínica Girlane Ferreira',
     metaDescription: 'Microagulhamento em Joinville para cicatrizes de acne, poros dilatados, textura e manchas. Indução de colágeno com protocolo individual. Agende sua consulta.',
@@ -288,6 +298,7 @@ export const servicos = [
     pilar: null,
     profissional: 'diva',
     nome: 'Drenagem linfática',
+    curto: 'Para inchaço, retenção de líquido e pernas pesadas.',   // frase curta da página Serviços
     h1: 'Drenagem linfática em Joinville',
     seoTitle: 'Drenagem linfática em Joinville | Clínica Girlane Ferreira',
     metaDescription: 'Drenagem linfática manual em Joinville para retenção de líquido, inchaço e pós-procedimento estético. Feita pela esteticista Diva na Clínica Girlane Ferreira.',
@@ -320,6 +331,7 @@ export const servicos = [
     pilar: null,
     profissional: 'diva',
     nome: 'Massagem modeladora',
+    curto: 'Circulação ativa e cuidado com o contorno do corpo.',   // frase curta da página Serviços
     h1: 'Massagem modeladora em Joinville',
     seoTitle: 'Massagem modeladora em Joinville | Clínica Girlane Ferreira',
     metaDescription: 'Massagem modeladora em Joinville para contorno corporal, celulite e circulação. Com a esteticista Diva, na Clínica Girlane Ferreira.',
@@ -346,6 +358,109 @@ export const servicos = [
   },
 
   // ===================================================== NUTRIÇÃO
+  // Serviços do Hericles Ferreira (nutricionista). Textos adaptados do site dele
+  // (nutrihericles.com.br, repositório hericlesnutricionista-site), em 27/11/2026.
+  // Ele deve revisar antes de publicar.
+  {
+    slug: 'emagrecimento',
+    ativo: true,
+    categoria: 'nutricao',
+    pilar: null,
+    profissional: 'hericles',
+    nome: 'Emagrecimento',
+    curto: 'Perder gordura com estratégia, sem dieta maluca.',   // frase curta da página Serviços
+    h1: 'Nutricionista para emagrecimento em Joinville',
+    seoTitle: 'Nutricionista para emagrecimento em Joinville',
+    metaDescription: 'Acompanhamento nutricional para emagrecimento em Joinville com o nutricionista Hericles Ferreira: plano alimentar adaptado à sua rotina e check-ins semanais.',
+    resumo: 'Emagrecer não precisa significar cortar tudo o que você gosta. Na Clínica Girlane Ferreira, em Joinville, o nutricionista Hericles Ferreira monta um plano alimentar a partir da sua rotina, das suas preferências e do seu histórico, com acompanhamento semanal para ajustar o caminho.',
+    procedimentoTipo: 'TherapeuticProcedure',
+    oQueE: [
+      'O acompanhamento considera sua rotina, preferências, histórico e objetivos para planejar mudanças que façam sentido na vida real. A ideia é reduzir gordura corporal sem transformar cada refeição em uma lista de proibições.',
+      'Não existe uma proibição universal de arroz, pão ou da vida social. O planejamento pode acomodar alimentos de que você gosta e ocasiões sociais, considerando quantidades, frequência e as suas necessidades.',
+    ],
+    indicacoes: ['Reduzir gordura corporal com estratégia', 'Quem já tentou dietas restritivas e não conseguiu manter', 'Emagrecer preservando massa muscular', 'Organizar a alimentação para a rotina real', 'Apoio aos tratamentos corporais da clínica'],
+    etapas: [
+      { titulo: 'Consulta', texto: 'Histórico, alimentação, rotina, dificuldades e medidas.' },
+      { titulo: 'Plano alimentar', texto: 'Plano personalizado em até 72 horas, com acesso ao aplicativo Dietitian.' },
+      { titulo: 'Acompanhamento', texto: 'Check-ins semanais e suporte pelo WhatsApp para ajustar a estratégia.' },
+    ],
+    dados: { duracao: '', sessoes: 'Consulta (presencial na clínica ou on-line) e acompanhamento semanal', recuperacao: 'Não se aplica', resultado: 'Progressivo', durabilidade: 'Depende da manutenção dos hábitos' },
+    contraindicacoes: [],
+    cuidados: [],
+    faqs: [
+      { q: 'Preciso passar fome para emagrecer?', a: 'Não. O plano considera saciedade, preferências e adequação energética, para buscar uma estratégia que você consiga manter.' },
+      { q: 'Existe acompanhamento depois da consulta?', a: 'Sim. O acompanhamento inclui check-ins semanais, orientações e ajustes conforme a sua evolução e o plano contratado.' },
+      { q: 'É preciso cortar arroz, pão ou sair da vida social?', a: 'Não. O planejamento pode incluir alimentos de que você gosta e ocasiões sociais, ajustando quantidades e frequência.' },
+    ],
+    relacionados: ['hipertrofia', 'nutricao-comportamental', 'nutricao-estetica'],
+    artigos: [],
+  },
+  {
+    slug: 'hipertrofia',
+    ativo: true,
+    categoria: 'nutricao',
+    pilar: null,
+    profissional: 'hericles',
+    nome: 'Hipertrofia',
+    curto: 'Ganho de massa muscular com alimentação ajustada aos treinos.',   // frase curta da página Serviços
+    h1: 'Nutrição para hipertrofia e ganho de massa muscular em Joinville',
+    seoTitle: 'Nutricionista para hipertrofia em Joinville',
+    metaDescription: 'Nutrição para hipertrofia e ganho de massa muscular em Joinville com o nutricionista Hericles Ferreira: estratégia ajustada aos treinos, à rotina e à composição corporal.',
+    resumo: 'Hipertrofia é o ganho de massa muscular, e a alimentação é parte central desse processo. Na Clínica Girlane Ferreira, em Joinville, o nutricionista Hericles Ferreira ajusta energia e nutrientes aos seus treinos, à sua rotina e ao seu objetivo, com metas realistas e acompanhamento da evolução.',
+    procedimentoTipo: 'TherapeuticProcedure',
+    oQueE: [
+      'O planejamento ajusta a ingestão de energia e de nutrientes de acordo com os seus objetivos e as suas necessidades individuais, considerando intensidade e frequência dos treinos, rotina e preferências alimentares.',
+      'A estratégia pode ser direcionada para ganho de massa muscular (bulking) ou para redução de gordura preservando músculo (cutting), sem extremismos e com adaptações conforme a sua resposta.',
+    ],
+    indicacoes: ['Ganhar massa muscular', 'Recomposição corporal (perder gordura e ganhar músculo)', 'Quem está começando a musculação', 'Quem já treina e não vê evolução', 'Organizar as refeições em torno dos treinos'],
+    etapas: [
+      { titulo: 'Consulta', texto: 'Rotina de treinos, alimentação, objetivos e medidas.' },
+      { titulo: 'Plano alimentar', texto: 'Energia e nutrientes ajustados ao seu objetivo, em até 72 horas.' },
+      { titulo: 'Acompanhamento', texto: 'Evolução física, adesão e ajustes da estratégia.' },
+    ],
+    dados: { duracao: '', sessoes: 'Consulta (presencial na clínica ou on-line) e acompanhamento semanal', recuperacao: 'Não se aplica', resultado: 'Progressivo', durabilidade: 'Depende da manutenção dos hábitos e dos treinos' },
+    contraindicacoes: [],
+    cuidados: [],
+    faqs: [
+      { q: 'Preciso usar whey para ganhar massa muscular?', a: 'Não necessariamente. A necessidade de suplementos depende da sua alimentação, da rotina e da análise individual.' },
+      { q: 'Atende quem está começando a musculação?', a: 'Sim. A estratégia é adaptada tanto a quem está começando quanto a quem já treina com regularidade.' },
+    ],
+    relacionados: ['nutricao-esportiva', 'emagrecimento', 'nutricao-estetica'],
+    artigos: [],
+  },
+  {
+    slug: 'nutricao-esportiva',
+    ativo: true,
+    categoria: 'nutricao',
+    pilar: null,
+    profissional: 'hericles',
+    nome: 'Nutrição esportiva',
+    curto: 'Alimentação alinhada aos seus treinos e objetivos.',   // frase curta da página Serviços
+    h1: 'Nutricionista esportivo em Joinville',
+    seoTitle: 'Nutricionista esportivo em Joinville | Nutrição esportiva',
+    metaDescription: 'Nutrição esportiva em Joinville com o nutricionista Hericles Ferreira: alimentação alinhada aos treinos, composição corporal e praticidade para quem treina.',
+    resumo: 'Nutrição esportiva é o planejamento da alimentação para quem treina, alinhado aos seus treinos e objetivos. Na Clínica Girlane Ferreira, em Joinville, o nutricionista Hericles Ferreira considera intensidade e frequência dos exercícios, rotina e preferências alimentares, e acompanha a sua composição corporal ao longo do processo.',
+    procedimentoTipo: 'TherapeuticProcedure',
+    oQueE: [
+      'Nutrição esportiva vai além dos suplementos. Antes de pensar em produtos, olhamos o conjunto da alimentação: energia, proteínas, carboidratos, gorduras, hidratação e distribuição das refeições.',
+      'As refeições e as alternativas são planejadas para conciliar alimentação, treino, trabalho e vida social. O atendimento não é só para atletas: quem pratica atividade física e quer melhorar a alimentação e a composição corporal também se beneficia.',
+    ],
+    indicacoes: ['Quem treina e quer melhorar o desempenho', 'Composição corporal', 'Alimentação antes e depois do treino', 'Rotina corrida com treinos', 'Dúvidas sobre suplementos'],
+    etapas: [
+      { titulo: 'Consulta', texto: 'Alimentação, rotina de treinos, objetivos e medidas.' },
+      { titulo: 'Plano alimentar', texto: 'Refeições organizadas em torno dos treinos, em até 72 horas.' },
+      { titulo: 'Acompanhamento', texto: 'Revisão da adesão, dos treinos e da evolução corporal.' },
+    ],
+    dados: { duracao: '', sessoes: 'Consulta (presencial na clínica ou on-line) e acompanhamento semanal', recuperacao: 'Não se aplica', resultado: 'Progressivo', durabilidade: 'Depende da manutenção dos hábitos e dos treinos' },
+    contraindicacoes: [],
+    cuidados: [],
+    faqs: [
+      { q: 'O atendimento é apenas para atletas?', a: 'Não. Quem pratica atividade física e quer melhorar a alimentação e a composição corporal também pode se beneficiar.' },
+      { q: 'Vou precisar tomar suplementos?', a: 'Depende. Antes de qualquer produto, olhamos o conjunto da alimentação; o suplemento só entra se fizer sentido para o seu caso.' },
+    ],
+    relacionados: ['hipertrofia', 'emagrecimento', 'nutricao-estetica'],
+    artigos: [],
+  },
   {
     slug: 'nutricao-estetica',
     ativo: true,
@@ -353,6 +468,7 @@ export const servicos = [
     pilar: null,
     profissional: 'hericles',
     nome: 'Nutrição estética',
+    curto: 'A pele também se cuida por dentro.',   // frase curta da página Serviços
     h1: 'Nutricionista em Joinville: nutrição estética',
     seoTitle: 'Nutricionista em Joinville | Nutrição estética',
     metaDescription: 'Nutricionista em Joinville com foco em nutrição estética: pele, envelhecimento, composição corporal e emagrecimento. Clínica Girlane Ferreira.',
@@ -378,6 +494,55 @@ export const servicos = [
     relacionados: ['bioestimuladores-de-colageno', 'massagem-modeladora', 'drenagem-linfatica'],
     artigos: ['envelhecimento-facial-camadas'],
   },
+  {
+    slug: 'nutricao-comportamental',
+    ativo: true,
+    categoria: 'nutricao',
+    pilar: null,
+    profissional: 'hericles',
+    nome: 'Nutrição comportamental',
+    curto: 'Uma relação mais leve com a comida.',   // frase curta da página Serviços
+    h1: 'Nutrição comportamental em Joinville',
+    seoTitle: 'Nutrição comportamental em Joinville',
+    metaDescription: 'Nutrição comportamental em Joinville com o nutricionista Hericles Ferreira: relação com a comida, flexibilidade e estratégias que cabem na sua rotina, sem terrorismo nutricional.',
+    resumo: 'Nutrição comportamental olha para além do cardápio: a sua relação com a comida, a sua rotina e os obstáculos do dia a dia. Na Clínica Girlane Ferreira, em Joinville, o nutricionista Hericles Ferreira trabalha com flexibilidade, sem proibições arbitrárias e sem terrorismo nutricional, ajustando a estratégia ao que funciona na sua vida.',
+    procedimentoTipo: 'TherapeuticProcedure',
+    oQueE: [
+      'Antes de montar o planejamento, o nutricionista procura entender como você se alimenta, do que gosta, quais são os seus obstáculos e como funciona a sua rotina. A estratégia precisa caber na sua realidade.',
+      'Sair do plano alimentar não é tratado como fracasso. Essas situações servem para identificar o que precisa mudar e construir estratégias mais viáveis, com acompanhamento e ajustes ao longo do caminho.',
+    ],
+    indicacoes: ['Relação difícil com a comida', 'Ciclos de dieta restritiva e recaída', 'Culpa depois de comer', 'Fome emocional e beliscos', 'Quem quer mudar hábitos de forma sustentável'],
+    etapas: [
+      { titulo: 'Consulta', texto: 'Histórico, rotina, hábitos, dificuldades e a sua relação com a comida.' },
+      { titulo: 'Plano', texto: 'Orientações e plano alimentar flexíveis, sem proibições arbitrárias.' },
+      { titulo: 'Acompanhamento', texto: 'Check-ins semanais para entender o que funcionou e ajustar.' },
+    ],
+    dados: { duracao: '', sessoes: 'Consulta (presencial na clínica ou on-line) e acompanhamento semanal', recuperacao: 'Não se aplica', resultado: 'Progressivo', durabilidade: 'Depende da manutenção dos hábitos' },
+    contraindicacoes: [],
+    cuidados: [],
+    faqs: [
+      { q: 'E se eu sair do plano alimentar?', a: 'Não é tratado como fracasso. Usamos essas situações para entender o que precisa mudar e criar estratégias mais viáveis para a sua rotina.' },
+      { q: 'Vou ter uma lista de alimentos proibidos?', a: 'Não. O planejamento trabalha com flexibilidade, quantidades e frequência, sem proibições arbitrárias.' },
+    ],
+    relacionados: ['emagrecimento', 'nutricao-estetica', 'hipertrofia'],
+    artigos: [],
+  },
 ];
+
+// Reestruturação facial: página idêntica à de Harmonização facial, com a nomenclatura
+// "Reestruturação facial" (pedido da Dra. Girlane, 28/11/2026). Muda junto quando a de harmonização mudar.
+const trocarNome = (v) => typeof v === 'string'
+  ? v.replace(/Harmonização facial/g, 'Reestruturação facial').replace(/harmonização facial/g, 'reestruturação facial').replace(/Harmonização Facial/g, 'Reestruturação Facial')
+  : Array.isArray(v) ? v.map(trocarNome) : v && typeof v === 'object' ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, trocarNome(x)])) : v;
+const harmonizacao = servicosBase.find((x) => x.slug === 'harmonizacao-facial');
+const reestruturacao = {
+  ...trocarNome(harmonizacao),
+  slug: 'reestruturacao-facial',
+  relacionados: ['harmonizacao-facial', 'bioestimuladores-de-colageno', 'toxina-botulinica'],
+  artigos: harmonizacao.artigos,
+};
+
+const posicao = (slug) => { const i = ordemServicos.indexOf(slug); return i < 0 ? 999 : i; };
+export const servicos = [...servicosBase, reestruturacao, ...servicosNovos].sort((a, b) => posicao(a.slug) - posicao(b.slug));
 
 export const servicosAtivos = servicos.filter((s) => s.ativo);

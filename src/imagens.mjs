@@ -27,6 +27,8 @@ export function foto(caminho) {
 
 export const fotoEquipe = (chave) => foto(`img/equipe/${chave}.webp`);
 export const capaServico = (slug) => foto(`img/tratamentos/${slug}.webp`);
+// Capa com antes (esquerda) e depois (direita) de um resultado, usada nos cartões da página Serviços
+export const capaResultado = (slug) => foto(`img/tratamentos/resultado/${slug}.webp`);
 export const fotoClinica = (nome) => foto(`img/clinica/${nome}.webp`);
 export const fotosClinica = () => Object.keys(manifest).filter((k) => k.startsWith('img/clinica/')).map((k) => ({ nome: k.split('/').pop().replace('.webp', ''), ...foto(k) }));
 
@@ -46,7 +48,7 @@ export const todosCasos = () => casos;
 
 /** Até `max` casos dos serviços pedidos, na ordem; completa com outros se `completar`. */
 export function casosPara(servicos = [], max = 2, completar = true) {
-  const lista = servicos.flatMap((s) => casos.filter((c) => c.servico === s));
+  const lista = servicos.flatMap((s) => casos.filter((c) => c.servico === s || c.id === s));
   if (completar) for (const c of casos) if (!lista.includes(c)) lista.push(c);
   return [...new Set(lista)].slice(0, max);
 }
